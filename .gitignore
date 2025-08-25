@@ -28,4 +28,5 @@ TODO.md
 mininetfed.egg-info/
 build/
 .idea
-./data
+./data/MNIST/
+./dist/
