@@ -23,7 +23,7 @@ volumes = [f"{Path.cwd()}:" + volume, "/tmp/.X11-unix:/tmp/.X11-unix:rw"]
 
 experiment_config = {
     "ipBase": "10.0.0.0/24",
-    "experiments_folder": "sigcomm",
+    "experiments_folder": "optmization",
     "date_prefix": False
 }
 
@@ -43,7 +43,7 @@ def topology():
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
     client_args = {"mode": 'random same_samples',
                     'num_samples': 15000, "trainer_class": "TrainerMNIST"}
-    experiment_name = 'mnist_select_all_iid'
+    experiment_name = 'freq_set'
 
 
     net = MininetFed(**experiment_config, controller=[], experiment_name=experiment_name,
@@ -69,12 +69,15 @@ def topology():
                           cpuset_cpus="0,1,3", 
                           **args)
 
-    srv1 = net.addFlHost('srv1', cls=ServerSensor, script="server/server.py",
-                         args=server_args, volumes=volumes,
+    server_script_volume = ['/home/nilo/Documentos/MininetFed/util/serveropt:/script']
+    srv1 = net.addFlHost('srv1', cls=ServerSensor, script="script/serveropt.py",
+                         args=server_args, 
+                         volumes=volumes+server_script_volume,
                          dimage='mininetfed:serversensor',
                          ip6='fe80::2/64', panid='0xbeef', trickle_t=t,
                          environment={"DISPLAY": ":0"}, privileged=True,
-                         cpuset_cpus="4,5,6"
+                         cpuset_cpus="4,5,6",
+                         port_bindings={5000: 5000},
                          )
 
     clients = []
@@ -111,6 +114,7 @@ def topology():
     net.addLinkAutoStop(ap1)
 
     h1.cmd('ifconfig h1-eth1 192.168.0.1')
+    ap1.cmd('ifconfig ap1-eth2 192.168.0.10')
 
     if '-p' in sys.argv:
         net.plotEnergyMonitor(nodes=net.sensors, title="Battery Consumptions")

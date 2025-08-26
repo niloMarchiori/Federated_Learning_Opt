@@ -44,6 +44,7 @@ EXPOSE 8883
 
 COPY ../util/requirements/container/server.requirements.txt .
 COPY ../util/server /server
+COPY ../util/serveropt /serveropt
 
 # Install the Python dependencies
 RUN pip install --no-cache-dir -r server.requirements.txt 
