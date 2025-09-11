@@ -1,0 +1,13 @@
+import os
+import sys
+import threading
+import time
+
+class Objeto():
+    def __init__(self):
+        self.atributo = 0
+
+objeto_teste = Objeto()
+
+def call_objeto():
+    return objeto_teste
