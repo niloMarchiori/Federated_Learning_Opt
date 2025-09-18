@@ -142,7 +142,6 @@ def topology():
     thread.start()
     sleep(3)
     print("API is running...")
-    # CLI(net)
     # -----------------------------------------------------------------------------------------
 
     info("*** Measuring energy consumption\n")
@@ -166,6 +165,7 @@ def topology():
 
     sleep(3)
 
+    CLI(net)
     info('*** Clients...\n')
     for client in clients:
         client.run(broker_addr=net.broker_addr,

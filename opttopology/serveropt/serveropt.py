@@ -7,6 +7,7 @@ import sys
 import logging
 import os
 import requests
+from api_communication import test_api, set_frequency
 
 def default(obj):
     if type(obj).__module__ == np.__name__:
@@ -65,21 +66,6 @@ def server():
         BOLD_START = '\033[1m'
         BOLD_END = '\033[0m'
         RESET = "\x1B[0m"
-
-    #Se comunica com a API do hos para alterar freq cpu
-    def set_freq(api_ip='172.17.0.1', api_port=8000, freq=2):
-        url = f'http://{api_ip}:{api_port}/'
-        data = {'f': freq}
-        try:
-            response = requests.get(url)
-            if response.status_code == 200:
-                print(response.json())
-            else:
-                print(
-                    f'Failed to set freq. Status code: {response.status_code}')
-        except requests.exceptions.RequestException as e:
-            print(f'Error occurred: {e}')
-    
 
     # subscribe to queues on connection
     def on_connect(client, userdata, flags, rc):
@@ -152,9 +138,7 @@ def server():
     logger.info('starting server...', extra=executionType)
     print(color.BOLD_START + 'starting server...' + color.BOLD_END)
 
-    set_freq()
-
-    client.publish('minifed/autoWaitContinue', json.dumps({'continue': True}))
+    test_api()
 
     # wait trainers to connect
     while controller.get_num_trainers() < min_trainers:
@@ -174,6 +158,14 @@ def server():
             logger.critical("Client's list empty", extra=executionType)
         select_trainers = controller.select_trainers_for_round()
         selected_qtd = len(select_trainers)
+
+        #Edited
+        # ----------------------------------------------------
+        print(select_trainers)
+        for t in select_trainers:
+            set_frequency(trainer_id=t, freq=2.2)
+        # ----------------------------------------------------
+
 
         logger.info(f"n_selected: {len(select_trainers)}", extra=metricType)
         logger.info(

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "//script/serveropt.py", line 227, in <module>
+    server()
+  File "//script/serveropt.py", line 129, in server
+    client.connect(broker_addr, bind_port=1883)
+  File "/usr/local/lib/python3.10/dist-packages/paho/mqtt/client.py", line 914, in connect
+    return self.reconnect()
+  File "/usr/local/lib/python3.10/dist-packages/paho/mqtt/client.py", line 1044, in reconnect
+    sock = self._create_socket_connection()
+  File "/usr/local/lib/python3.10/dist-packages/paho/mqtt/client.py", line 3685, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/usr/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/usr/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+OSError: [Errno 101] Network is unreachable

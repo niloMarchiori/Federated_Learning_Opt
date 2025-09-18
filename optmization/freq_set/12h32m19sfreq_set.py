@@ -21,6 +21,7 @@ from api import app,call_sensor, call_network
 import uvicorn
 import threading
 
+
 volume = "/flw"
 volumes = [f"{Path.cwd()}:" + volume, "/tmp/.X11-unix:/tmp/.X11-unix:rw"]
 
@@ -50,7 +51,7 @@ def topology():
 
 
     net = MininetFed(**experiment_config, controller=[], experiment_name=experiment_name,
-                     default_volumes=volumes, topology_file=sys.argv[0])
+                     default_volumes=volumes, topology_file=sys.argv[0], )
 
     path = os.path.dirname(os.path.abspath(__file__))
 
@@ -61,7 +62,6 @@ def topology():
     dimage = 'ramonfontes/bmv2:lowpan'
 
     info('*** Adding Nodes...\n')
-    s1 = net.addSwitch("s1", failMode='standalone')
     ap1 = net.addAPSensor('ap1', cls=DockerP4Sensor, ip6='fe80::1/64', panid='0xbeef',
                           dodag_root=True, storing_mode=mode, privileged=True,
                           volumes=[path + "/:/root",
@@ -69,17 +69,15 @@ def topology():
                           dimage=dimage, cpu_shares=20, netcfg=True, trickle_t=t,
                           environment={"DISPLAY": ":1"}, loglevel="info",
                           thriftport=50001,  IPBASE="172.17.0.0/24",
-                          cpuset_cpus="0,1,3", 
                           **args)
-
-    server_script_volume = ['/home/nilo/Documentos/MininetFed/util/serveropt:/script']
+    
+    server_script_volume = ['/home/nilo/Documentos/MininetFed/opttopology/serveropt:/script']
     srv1 = net.addFlHost('srv1', cls=ServerSensor, script="script/serveropt.py",
                          args=server_args, 
                          volumes=volumes+server_script_volume,
                          dimage='mininetfed:serversensor',
                          ip6='fe80::2/64', panid='0xbeef', trickle_t=t,
                          environment={"DISPLAY": ":0"}, privileged=True,
-                         cpuset_cpus="4,5,6",
                          port_bindings={5000: 5000},
                          )
 
@@ -93,19 +91,21 @@ def topology():
                                      numeric_id=i-1,
                                      args=client_args, volumes=volumes,
                                      dimage='mininetfed:clientsensor',
-                                     cpuset_cpus=f"{6+i}"
+                                     cpuset_cpus=f"0,{6+i}"
                                      ))
+    
     net.addAutoStop6()
 
-    h1 = net.addDocker('h1', volumes=[path + "/:/root", "/tmp/.X11-unix:/tmp/.X11-unix:rw"],
-                       dimage="ramonfontes/grafana", port_bindings={3000: 3000}, ip='192.168.210.1',
-                       privileged=True, environment={"DISPLAY": ":1"},
-                       cpuset_cpus="14")
+    # h1 = net.addDocker('h1', volumes=[path + "/:/root", "/tmp/.X11-unix:/tmp/.X11-unix:rw"],
+                    #    dimage="ramonfontes/grafana", port_bindings={3000: 3000}, ip='192.168.210.1',
+                    #    privileged=True, environment={"DISPLAY": ":1"},
+                    #    cpuset_cpus="14")
+                    
+    info("*** Configuring Propagation Model\n")
 
     net.configureWifiNodes()
 
     info('*** Creating links...\n')
-    net.addLink(s1, h1)
     net.addLink(ap1, srv1, cls=LoWPAN)
 
     net.addLink(ap1, clients[3], cls=LoWPAN)
@@ -113,35 +113,36 @@ def topology():
     net.addLink(clients[1], clients[2], cls=LoWPAN)
     net.addLink(clients[2], clients[3], cls=LoWPAN)
     
-    net.addLink(ap1, h1)
+    # net.addLink(ap1, h1)
     net.addLinkAutoStop(ap1)
 
-    h1.cmd('ifconfig h1-eth1 192.168.0.1')
+    # # h1.cmd('ifconfig h1-eth1 192.168.0.1')
     ap1.cmd('ifconfig ap1-eth2 192.168.0.10')
-
-    if '-p' in sys.argv:
-        net.plotEnergyMonitor(nodes=net.sensors, title="Battery Consumptions")
 
     info('*** Starting network...\n')
     net.build()
-    net.addNAT(name='nat0', linkTo='s1', ip='192.168.210.254').configDefault()
     ap1.start([])
-    s1.start([])
     net.staticArp()
 
-    # ----------------------- Inicia API de comunicação host vs server ------------------------
+    # ----------------------- Inicia API de comunicação host - server ------------------------
     def pass_network():
         if net is None:
             return RuntimeError("'network' Not implemented")
         return net
     
+    def pass_clients():
+        if clients is None:
+            return RuntimeError("'clients' Not implemented")
+        return clients
+    
     app.dependency_overrides[call_network] = pass_network
+    app.dependency_overrides[call_sensor] = pass_clients
 
-    # thead=threading.Thread(uvicorn.run, args=(app,), kwargs={"host": "0.0.0.0", "port": '8000'})
-    thead=threading.Thread(target=uvicorn.run, args=(app,), kwargs={"host": "0.0.0.0", "port": '8000'})
-    thead.start()
+    thread=threading.Thread(target=uvicorn.run, args=(app,), kwargs={"host": "0.0.0.0", "port": 8000})
+    thread.start()
     sleep(3)
     print("API is running...")
+    # CLI(net)
     # -----------------------------------------------------------------------------------------
 
     info("*** Measuring energy consumption\n")
@@ -165,13 +166,12 @@ def topology():
 
     sleep(3)
 
-    CLI(net)
     info('*** Clients...\n')
     for client in clients:
         client.run(broker_addr=net.broker_addr,
                    experiment_controller=net.experiment_controller)
 
-    h1.cmd("ifconfig h1-eth1 down")
+    # # h1.cmd("ifconfig h1-eth1 down")
 
     info('*** Running Autostop...\n')
     net.wait_experiment()
@@ -179,7 +179,6 @@ def topology():
 
     info('*** Stopping network...\n')
     net.stop()
-
 
 if __name__ == '__main__':
     setLogLevel('info')
