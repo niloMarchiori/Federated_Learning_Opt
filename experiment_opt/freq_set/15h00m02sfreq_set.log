@@ -1,0 +1,13 @@
+2025-08-26 15:00:14,504 - EXECUT - INFO - starting server...
+2025-08-26 15:00:45,359 - EXECUT - INFO - trainer number sta0 just joined the pool
+2025-08-26 15:00:45,375 - EXECUT - INFO - trainer number sta2 just joined the pool
+2025-08-26 15:00:45,378 - EXECUT - INFO - trainer number sta1 just joined the pool
+2025-08-26 15:00:45,382 - EXECUT - INFO - trainer number sta3 just joined the pool
+2025-08-26 15:00:45,736 - METRIC - INFO - round: 1
+2025-08-26 15:00:45,861 - METRIC - INFO - n_selected: 4
+2025-08-26 15:00:45,861 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta1", "sta3"]}
+2025-08-26 15:02:33,606 - EXECUT - INFO - received weights from trainer sta3!
+2025-08-26 15:02:34,067 - EXECUT - INFO - received weights from trainer sta2!
+2025-08-26 15:02:34,712 - EXECUT - INFO - received weights from trainer sta1!
+2025-08-26 15:03:10,603 - EXECUT - INFO - received weights from trainer sta0!
+2025-08-26 15:03:11,258 - EXECUT - INFO - sent aggregated weights to trainers!
