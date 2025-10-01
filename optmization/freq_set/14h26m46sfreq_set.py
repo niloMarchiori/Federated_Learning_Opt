@@ -71,9 +71,11 @@ def topology():
                           thriftport=50001,  IPBASE="172.17.0.0/24",
                           **args)
     
-    srv1 = net.addFlHost('srv1', cls=ServerSensor, script="flw/opttopology/opt_server/server.py",
+    print(Path.cwd())
+    server_script_volume = [str(Path.cwd())+'/opttopology/serveropt:/script']
+    srv1 = net.addFlHost('srv1', cls=ServerSensor, script="script/serveropt.py",
                          args=server_args, 
-                         volumes=volumes,
+                         volumes=volumes+server_script_volume,
                          dimage='mininetfed:serversensor',
                          ip6='fe80::2/64', panid='0xbeef', trickle_t=t,
                          environment={"DISPLAY": ":0"}, privileged=True,
@@ -83,7 +85,7 @@ def topology():
     clients = []
     for i in range(NUM_CLIENTS):
         clients.append(net.addSensor(f'sta{i}', privileged=True, environment={"DISPLAY": ":0"},
-                                     cls=ClientSensor, script="flw/opttopology/opt_client/client.py",
+                                     cls=ClientSensor, script="client/client.py",
                                      voltage=3.7, #V
                                      battery_capacity=15, #mAh
                                      ip6=f'fe80::{i+3}/64',
@@ -156,8 +158,6 @@ def topology():
         ap1, cmd="bash -c 'tail -f /var/log/mosquitto/mosquitto.log'")
 
     net.broker_addr = 'fd3c:be8a:173f:8e80::1'
-
-    CLI(net)
 
     sleep(1)
     info('*** Server...\n')

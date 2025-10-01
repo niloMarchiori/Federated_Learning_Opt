@@ -71,9 +71,11 @@ def topology():
                           thriftport=50001,  IPBASE="172.17.0.0/24",
                           **args)
     
-    srv1 = net.addFlHost('srv1', cls=ServerSensor, script="flw/opttopology/opt_server/server.py",
+    print(Path.cwd())
+    server_script_volume = [str(Path.cwd())+'/opttopology/serveropt:/script']
+    srv1 = net.addFlHost('srv1', cls=ServerSensor, script="script/serveropt.py",
                          args=server_args, 
-                         volumes=volumes,
+                         volumes=volumes+server_script_volume,
                          dimage='mininetfed:serversensor',
                          ip6='fe80::2/64', panid='0xbeef', trickle_t=t,
                          environment={"DISPLAY": ":0"}, privileged=True,

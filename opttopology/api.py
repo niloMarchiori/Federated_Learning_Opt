@@ -18,7 +18,7 @@ def call_network():
 
 def cmd_set_freq(value,core):
     for i in core:
-        os.system(f'sudo cpupower -c {i} frequency-set -u {value*1.01}GHz; sudo cpupower -c {i} frequency-set -d {value*0.99}GHz')
+        os.system(f'sudo cpupower -c {i} frequency-set -u {value*1.01}GHz; sudo cpupower -c {i} frequency-set -d {value}GHz')
 
 app = FastAPI()
 
