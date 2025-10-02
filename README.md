@@ -27,19 +27,32 @@
     
 5. Client:
 
-    |Callback on_message_agg() escutando 'minifed/posAggQueue'|
+    | Callback on_message_agg() escutando 'minifed/posAggQueue' |
     * Recebe os pesos agregados
     * Teste o modelo e obtem as métrica**
     * Atualiza os pesos
     * Publica as métricas (id | acc | energy | selected) em 'minifed/metricsQueue'
 
 6. Server:
-    |Recebeu todas as métricas|
+    | Recebeu todas as métricas |
     * Para caso a acurácia médica global desejada foi alcançada
 
+# Implementação do modelo de otimização
+
+[https://github.com/niloMarchiori/Model_analysis](Repositório da reprodução do experimento teórico)
+
+# Problemas e próximos passos
+
+## Problemas não resolvidos
+
+1. As interfaces de redes dos dispositivos de redes 6LowPan não possuem Tx_Power (previsto no modelo de otimização)
+
+## Problemas sendo resolvidos
+1. A falta de controle total da frequência de cpu pode ser resolvida usando o treinamento assíncrono dos clientes
+    * No treinamento assíncrono como será mensurado o consumo de energia?
 
 
-# To do:
+## Próximos passos:
     * Validação assíncrona
 1. Hoje:
     * Controller store the ctts
