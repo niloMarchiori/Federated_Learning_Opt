@@ -1,4 +1,4 @@
-#Fluxo do treinamento
+# Fluxo do treinamento
 
 1. Server:
     * Obtem os inputs do Modelo de Otimização
@@ -39,7 +39,7 @@
 
 
 
-#To do:
+# To do:
     * Validação assíncrona
 1. Hoje:
     * Controller store the ctts
