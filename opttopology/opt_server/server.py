@@ -30,6 +30,9 @@ FORMAT = "%(asctime)s - %(infotype)-6s - %(levelname)s - %(message)s"
 global MODEL_TRAINED 
 MODEL_TRAINED = False
 
+global MODEL_AGGREGATED
+MODEL_AGGREGATED = {}
+
 def server():
     global MODEL_TRAINED
 
@@ -122,6 +125,8 @@ def server():
 
     # callback for metricsQueue: get the metrics from each client after it finish its round
     def on_message_metrics(client, userdata, message):
+
+
         m = json.loads(message.payload.decode("utf-8"))
         controller.add_accuracy(m['metrics']['accuracy'])
         controller.update_metrics(m["id"], m['metrics'])
