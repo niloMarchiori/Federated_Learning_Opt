@@ -157,8 +157,6 @@ def topology():
 
     net.broker_addr = 'fd3c:be8a:173f:8e80::1'
 
-    CLI(net)
-
     sleep(1)
     info('*** Server...\n')
     srv1.run(broker_addr=net.broker_addr,

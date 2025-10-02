@@ -27,8 +27,12 @@ def default(obj):
 
 FORMAT = "%(asctime)s - %(infotype)-6s - %(levelname)s - %(message)s"
 
+global MODEL_TRAINED 
+MODEL_TRAINED = False
 
 def server():
+    global MODEL_TRAINED
+
     # total args
     os.umask(0o000)
     n = len(sys.argv)
@@ -92,6 +96,10 @@ def server():
 
     # callback for preAggQueue: get weights of trainers, aggregate and send back
     def on_message_agg(client, userdata, message):
+
+        global MODEL_TRAINED
+        MODEL_TRAINED = True
+
         m = json.loads(message.payload.decode("utf-8"))
         client_training_response = {}
         weights = [np.asarray(w, dtype=np.float32) for w in m['weights']]
@@ -152,24 +160,19 @@ def server():
             f'round: {controller.get_current_round()}', extra=metricType)
         print(color.RESET + '\n' + color.BOLD_START +
               f'starting round {controller.get_current_round()}' + color.BOLD_END)
+        
         # select trainers for round
         trainer_list = controller.get_trainer_list()
+
         if not trainer_list:
             logger.critical("Client's list empty", extra=executionType)
         select_trainers = controller.select_trainers_for_round()
         selected_qtd = len(select_trainers)
 
-        #Edited
-        # ----------------------------------------------------
-        print(select_trainers)
-        for t in select_trainers:
-            set_frequency(trainer_id=t, freq=1.6)
-        # ----------------------------------------------------
-
-
         logger.info(f"n_selected: {len(select_trainers)}", extra=metricType)
         logger.info(
             f"{json.dumps({'selected_trainers': select_trainers})}", extra=metricType)
+        
         for t in trainer_list:
             if t in select_trainers:
                 # logger.info(
@@ -178,6 +181,9 @@ def server():
                     f'selected trainer {t} for training on round {controller.get_current_round()}')
                 m = json.dumps({'id': t, 'selected': True}).replace(' ', '')
                 client.publish('minifed/selectionQueue', m)
+                while not MODEL_TRAINED:
+                    pass
+                MODEL_TRAINED = False
             else:
                 # logger.info(
                 #     f'NOT_selected: {t}', extra=metricType)
