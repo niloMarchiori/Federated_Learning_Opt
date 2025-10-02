@@ -39,7 +39,9 @@
 
 # Implementação do modelo de otimização
 
-[https://github.com/niloMarchiori/Model_analysis](Repositório da reprodução do experimento teórico)
+(Repositório da reprodução do experimento teórico)
+
+[https://github.com/niloMarchiori/Model_analysis]
 
 # Problemas e próximos passos
 
@@ -47,12 +49,15 @@
 
 1. As interfaces de redes dos dispositivos de redes 6LowPan não possuem Tx_Power (previsto no modelo de otimização)
 
+2. Dispositivos com interface de rede que permitem o controlo manual de Tx_Power não possuem consumo de energia implementado
+    *Segundo Ramon a implementação é simples, entretando seria necessário encontrar um modelo matemático
+
 ## Problemas sendo resolvidos
 1. A falta de controle total da frequência de cpu pode ser resolvida usando o treinamento assíncrono dos clientes
     * No treinamento assíncrono como será mensurado o consumo de energia?
 
 
-## Próximos passos:
+## To do:
     * Validação assíncrona
 1. Hoje:
     * Controller store the ctts
