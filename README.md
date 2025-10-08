@@ -1,3 +1,16 @@
+---
+title: "Meu Incrível Artigo"
+author: "Isaac Newton"
+bibliography: referencias.bib
+---
+# Introdução 
+
+
+
+# Objetivo
+
+
+
 # Fluxo do treinamento
 
 1. Server:
@@ -57,6 +70,7 @@
 * No treinamento assíncrono como será mensurado o consumo de energia?
 
 
+
 ## To do:
 
 * [ ] Validação assíncrona
@@ -70,5 +84,17 @@
     * ClientSensorOpt need to mensure model/data size
     * Models and datasz need to get included in metrics
 
-3. Standy:
+3. Standy: 
     * Pensar numa forma de mensurar o consumo de energia desconsiderando o tempo ocioso por contra do trainemento assíncrono
+
+# Referências
+
+
+[1] Tran, N. H., Bao, W., Zomaya, A. Y., Nguyen Minh, N. H., & Hong, C. S. (2019). Federated Learning over Wireless Networks: Optimization Model Design and Analysis. International Conference on Computer Communications, 1387–1395. https://doi.org/10.1109/INFOCOM.2019.8737464
+
+
+[2] Han, X., Li, J., Chen, W., Mei, Z., Wei, K., Ding, M., & Poor, H. V. (2023). Analysis and Optimization of Wireless Federated Learning with Data Heterogeneity. arXiv.Org, abs/2308.03521. https://doi.org/10.48550/arxiv.2308.03521
+
+[3] A Novel Joint Dataset and Incentive Management Mechanism for Federated Learning Over MEC. (2022). IEEE Access, 10, 30026–30038. https://doi.org/10.1109/access.2022.3156045
+
+[4] Kim, J., Kim, D., Lee, J., & Hwang, J.-Y. (2022). A Novel Joint Dataset and Computation Management Scheme for Energy-Efficient Federated Learning in Mobile Edge Computing. IEEE Wireless Communications Letters, 11(5), 898–902. https://doi.org/10.1109/lwc.2022.3147236
