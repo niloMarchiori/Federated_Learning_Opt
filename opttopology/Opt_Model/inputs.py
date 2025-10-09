@@ -1,7 +1,7 @@
-import constants as ctt
+from . import constants as ctt
 import numpy as np
 
-np.random.seed(60)
+# np.random.seed(60)
 #pos
 d=np.random.uniform(*ctt.d_range,size=ctt.N)
 

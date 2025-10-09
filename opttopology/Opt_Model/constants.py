@@ -1,5 +1,5 @@
 #Número de UEs
-N=5
+N=3
 kappa=0.05
 
 #Com
@@ -14,8 +14,8 @@ sigma=10E-10 #W
 #Cmp
 D_range=(5,10) #MB
 c_range=(10,30) #cycles/bit
-fmax_range=(1,2) #GHz
-fmin=0.3 #GHZ
+fmax_range=(1.4,2.1) #GHz
+fmin=0.8 #GHZ
 alpha=2E-28
 s=4.5 #KB
 

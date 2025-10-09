@@ -140,7 +140,7 @@ def topology():
     thread.start()
     sleep(3)
     print("API is running...")
-    CLI(net)
+    # CLI(net)
     # -----------------------------------------------------------------------------------------
 
     info("*** Measuring energy consumption\n")

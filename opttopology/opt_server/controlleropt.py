@@ -4,6 +4,12 @@ from clientSelection import *
 from aggregator import *
 import importlib
 
+from ..Opt_Model import inputs as inp
+from ..Opt_Model import constants as ctt
+from ..Opt_Model.sub1 import solve_SUB1
+from ..Opt_Model.sub2 import solve_SUB2
+from ..Opt_Model.sub3 import solve_SUB3
+
 
 def criar_objeto(pacote, nome_classe):
     try:
@@ -115,3 +121,23 @@ class Controller:
 
         # agg_response_dict -> {client_id: {"weights": [], ...}}
         return agg_response_dict
+
+    def run_opt_model(self):
+        T_cmp, f = solve_SUB1(kappa=10)
+        frequency_dict = {}
+        for key,val in zip(self.trainer_list, f):
+            frequency_dict[key] = val
+
+        # Tcom, t,p = solve_SUB2(ctt.N, kappa=k, s=inp.s, B=inp.B, N0=inp.N0, h=inp.h, pmin=inp.pmin, pmax=inp.pmax)
+        # thteta, eta = solve_SUB3(f, t, T_cmp, Tcom, k)
+        return T_cmp, frequency_dict
+        
+    
+        
+        
+
+        
+
+        
+
+        

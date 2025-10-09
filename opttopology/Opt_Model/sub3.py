@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.optimize import fsolve
-import inputs as inp
-import constants as ctt
+from . import inputs as inp
+from . import constants as ctt
 
 def get_Ecmp(f, alpha, c, D):
     """

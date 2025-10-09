@@ -1,5 +1,5 @@
-import inputs as inp
-import constants as ctt
+from . import inputs as inp
+from . import constants as ctt
 import numpy as np
 from scipy.special import lambertw
 

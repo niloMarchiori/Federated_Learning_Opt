@@ -7,7 +7,7 @@ import sys
 import logging
 import os
 import requests
-from api_communication import test_api, set_frequency
+import api_communication
 
 def default(obj):
     if type(obj).__module__ == np.__name__:
@@ -151,7 +151,7 @@ def server():
     logger.info('starting server...', extra=executionType)
     print(color.BOLD_START + 'starting server...' + color.BOLD_END)
 
-    test_api()
+    api_communication.test_api()
 
     # wait trainers to connect
     while controller.get_num_trainers() < min_trainers:
@@ -179,12 +179,18 @@ def server():
             f"{json.dumps({'selected_trainers': select_trainers})}", extra=metricType)
         
         for t in trainer_list:
+
+            T_comp, cpu_frequancy = controller.run_opt_model()
+            print(cpu_frequancy)
             if t in select_trainers:
                 # logger.info(
                 #     f'selected: {t}', extra=metricType)
                 print(
                     f'selected trainer {t} for training on round {controller.get_current_round()}')
                 m = json.dumps({'id': t, 'selected': True}).replace(' ', '')
+
+                api_communication.set_frequency(trainer_id=t, cpu_frequancy=cpu_frequancy[t])
+
                 client.publish('minifed/selectionQueue', m)
                 while not MODEL_TRAINED:
                     pass
