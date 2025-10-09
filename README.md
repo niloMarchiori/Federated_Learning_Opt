@@ -1,5 +1,13 @@
 # Introdução 
 
+A ascensão da Internet das Coisas (IoT) e a proliferação de dispositivos móveis inteligentes resultaram em uma geração de dados em escala sem precedentes, trazendo consigo desafios significativos em termos de privacidade, latência de comunicação e consumo energético. Neste contexto, o Aprendizado Federado (Federated Learning - FL) tem se destacado como um paradigma promissor de aprendizado de máquina distribuído [2]. O FL permite que múltiplos dispositivos, ou clientes, treinem um modelo de forma colaborativa sem a necessidade de centralizar seus dados brutos, preservando a privacidade local ao compartilhar apenas os parâmetros do modelo, como pesos ou gradientes [1]. Essa abordagem reduz a sobrecarga de comunicação e mitiga riscos de privacidade inerentes aos modelos de treinamento centralizados.
+
+Apesar de seus benefícios, a aplicação do FL em redes sem fio, especialmente em cenários de IoT com dispositivos de recursos computacionais e energéticos limitados, enfrenta obstáculos consideráveis [3][5]. A heterogeneidade dos dados entre os clientes — caracterizada por distribuições não independentes e identicamente distribuídas (non-IID) e por volumes de dados distintos — pode prejudicar a convergência e a precisão do modelo global [2][3]. Além disso, o consumo de energia associado ao treinamento local e à transmissão de modelos é um fator crítico, podendo esgotar rapidamente a bateria de dispositivos restritos e comprometer a sustentabilidade da rede, especialmente em topologias multi-salto como as que utilizam o protocolo RPL (Routing Protocol for Low-Power and Lossy Networks)[6].
+
+Diante desses desafios, a literatura tem explorado extensivamente modelos teóricos de otimização. Trabalhos como [1] e [2] buscam minimizar a função de perda e o consumo de energia por meio da otimização conjunta do agendamento de clientes, da alocação de recursos sem fio e do número de épocas de treinamento local. Outras pesquisas, como [3] e [4], propõem esquemas de gerenciamento que consideram o volume de dados e o poder computacional, além de mecanismos de incentivo para equilibrar a relação entre eficiência energética e precisão. Tais estudos apresentam formulações matemáticas robustas e soluções ótimas do ponto de vista teórico, porém, frequentemente, carecem de uma validação prática que demonstre sua real eficiência em cenários de rede dinâmicos e sujeitos a falhas.
+
+
+Em contrapartida, ferramentas de emulação como o MininetFed [5] surgem como uma solução para avaliar algoritmos de FL em ambientes de rede realistas e configuráveis. Essas plataformas permitem a emulação de dispositivos heterogêneos com restrições de CPU, memória e conectividade, além de possibilitar o monitoramento do consumo energético, tal qual como [1] necessita. Embora o desenvolvimento de algoritmos para otimização do consumo de energia seja apontado como uma necessidade [6], essas ferramentas, em sua essência, fornecem o ambiente para experimentação, não incorporando nativamente os modelos de otimização propostos na teoria. Essa dissociação entre os avanços teóricos em otimização e as plataformas de validação prática configura uma lacuna significativa na área.
 
 
 # Objetivo
@@ -8,7 +16,7 @@ A ferramenta MininetFed [5] possibilita emular redes de aprendizado federado, de
 
 Outros trabalhos ocmo [1] e [5] apresentam modelos muito bem estruturados e também métodos que atingem suas soluções ótimas. Tais trabalhos se concentram em analisar o modelo teórico, por outro lado deixam lacunas na apresentação de resultados práticos que se aproximem da eficiêna real de tais modelos de otimização.
 
-O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a rede de aprendizado federado lançando mão dos modelos de otimização no objetivo de, com essa emulação sermos, capazes de produzir dados pseudo-realísticos que possibilitem análises da eficiência dos modelos teóricos em ambientes reais.
+O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a rede de aprendizado federado lançando mão dos modelos de otimização no objetivo de, com essa emulação, sermos capazes de produzir dados pseudo-realísticos que possibilitem análises da eficiência dos modelos teóricos em ambientes reais.
 
 
 # Fluxo da emulação de treinamento
