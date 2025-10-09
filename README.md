@@ -1,21 +1,21 @@
----
-title: "Meu Incrível Artigo"
-author: "Isaac Newton"
-bibliography: referencias.bib
----
 # Introdução 
 
 
 
 # Objetivo
 
+A ferramenta MininetFed [5] possibilita emular redes de aprendizado federado, de forma a disponibilizar um ambiente sensível ao consumo de energia. Os próprios autores da ferramenta mencionam no trabalho [6] a necessidade de desenvolver algoritmos que otimizem o consumo de energia em redes de treinamento, mas reconhecem não apresentar em si um modelo de otimização. 
+
+Outros trabalhos ocmo [1] e [5] apresentam modelos muito bem estruturados e também métodos que atingem suas soluções ótimas. Tais trabalhos se concentram em analisar o modelo teórico, por outro lado deixam lacunas na apresentação de resultados práticos que se aproximem da eficiêna real de tais modelos de otimização.
+
+O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a rede de aprendizado federado lançando mão dos modelos de otimização no objetivo de, com essa emulação sermos, capazes de produzir dados pseudo-realísticos que possibilitem análises da eficiência dos modelos teóricos em ambientes reais.
 
 
-# Fluxo do treinamento
+# Fluxo da emulação de treinamento
 
 1. Server:
     * Obtem os inputs do Modelo de Otimização
-    * Obtem os valores ótimos e inicia o treinamento
+    * Obtem os valores ótimos por meio do FEDL [1] e inicia o treinamento
     * server publica em 'minifed/selectionQueue' selecionados
     * usa a variável global MODEL_TRAINED para esperar o cliente concluir o treinamento
 
@@ -85,16 +85,22 @@ bibliography: referencias.bib
     * Models and datasz need to get included in metrics
 
 3. Standy: 
-    * Pensar numa forma de mensurar o consumo de energia desconsiderando o tempo ocioso por contra do trainemento assíncrono
+    * Pensar numa forma de mensurar o consumo de energia desconsiderando o tempo ocioso por conta do trainemento assíncrono
 
 # Referências
 
-
+<a name="ref1"></a>
 [1] Tran, N. H., Bao, W., Zomaya, A. Y., Nguyen Minh, N. H., & Hong, C. S. (2019). Federated Learning over Wireless Networks: Optimization Model Design and Analysis. International Conference on Computer Communications, 1387–1395. https://doi.org/10.1109/INFOCOM.2019.8737464
 
-
+<a name="ref2"></a>
 [2] Han, X., Li, J., Chen, W., Mei, Z., Wei, K., Ding, M., & Poor, H. V. (2023). Analysis and Optimization of Wireless Federated Learning with Data Heterogeneity. arXiv.Org, abs/2308.03521. https://doi.org/10.48550/arxiv.2308.03521
 
+<a name="ref3"></a>
 [3] A Novel Joint Dataset and Incentive Management Mechanism for Federated Learning Over MEC. (2022). IEEE Access, 10, 30026–30038. https://doi.org/10.1109/access.2022.3156045
 
+<a name="ref4"></a>
 [4] Kim, J., Kim, D., Lee, J., & Hwang, J.-Y. (2022). A Novel Joint Dataset and Computation Management Scheme for Energy-Efficient Federated Learning in Mobile Edge Computing. IEEE Wireless Communications Letters, 11(5), 898–902. https://doi.org/10.1109/lwc.2022.3147236
+
+[5] Johann Bastos, João Batista, Ramon Fontes, Eduardo Cerqueira, Rodolfo Villaça, and Vinícius F. S. Mota. 2025. A Lightweight Emulation Framework for Energy-Aware Federated Learning. In Proceedings of the ACM SIGCOMM 2025 Posters and Demos (ACM SIGCOMM Posters and Demos '25). Association for Computing Machinery, New York, NY, USA, 130–131. https://doi.org/10.1145/3744969.3748395
+
+[6] J. Schmitz Bastos, J. C. Batista, R. dos Reis Fontes, E. Cerqueira, R. S. Villaça, and V. F. S. Mota. " Otimizando Energia no Aprendizado Federado em Redes de Baixa potência e com Alta Taxa de Perda de Pacotes", in Anais do XLIII Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos, Natal/RN, 2025, pp. 43-56, doi: https://doi.org/10.5753/sbrc.2025.5786.
