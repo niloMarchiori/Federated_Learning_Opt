@@ -4,11 +4,11 @@ from clientSelection import *
 from aggregator import *
 import importlib
 
-from ..Opt_Model import inputs as inp
-from ..Opt_Model import constants as ctt
-from ..Opt_Model.sub1 import solve_SUB1
-from ..Opt_Model.sub2 import solve_SUB2
-from ..Opt_Model.sub3 import solve_SUB3
+from Opt_Model import inputs as inp
+from Opt_Model import constants as ctt
+from Opt_Model.sub1 import solve_SUB1
+from Opt_Model.sub2 import solve_SUB2
+from Opt_Model.sub3 import solve_SUB3
 
 
 def criar_objeto(pacote, nome_classe):

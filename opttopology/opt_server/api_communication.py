@@ -14,11 +14,10 @@ def test_api(api_ip='172.17.0.1', api_port=8000):
         print(f'Error occurred: {e}')
 
 
-def set_frequency(api_ip='172.17.0.1', api_port=8000, freq=2.2,trainer_id='sta0'):
+def set_frequency(api_ip='172.17.0.1', api_port=8000, freq=2.2):
     url = f'http://{api_ip}:{api_port}/set_cpufreq/'
     payload = {
-        "value": freq,
-        "trainer_id": trainer_id
+        "value": freq
     }
     headers = {'Content-Type': 'application/json'}
     try:

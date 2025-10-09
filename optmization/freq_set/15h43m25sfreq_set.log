@@ -1,0 +1,9 @@
+2025-10-09 15:43:39,454 - EXECUT - INFO - starting server...
+2025-10-09 15:43:47,990 - EXECUT - INFO - trainer number sta0 just joined the pool
+2025-10-09 15:43:48,107 - EXECUT - INFO - trainer number sta1 just joined the pool
+2025-10-09 15:43:48,375 - EXECUT - INFO - trainer number sta2 just joined the pool
+2025-10-09 15:43:48,476 - METRIC - INFO - round: 1
+2025-10-09 15:43:48,476 - METRIC - INFO - n_selected: 3
+2025-10-09 15:43:48,477 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1", "sta2"]}
+2025-10-09 15:44:53,052 - EXECUT - INFO - received weights from trainer sta0!
+2025-10-09 15:47:05,031 - EXECUT - INFO - received weights from trainer sta1!

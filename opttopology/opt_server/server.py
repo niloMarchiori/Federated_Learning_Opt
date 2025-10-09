@@ -182,14 +182,14 @@ def server():
 
             T_comp, cpu_frequancy = controller.run_opt_model()
             print(cpu_frequancy)
+            print()
             if t in select_trainers:
                 # logger.info(
                 #     f'selected: {t}', extra=metricType)
                 print(
                     f'selected trainer {t} for training on round {controller.get_current_round()}')
                 m = json.dumps({'id': t, 'selected': True}).replace(' ', '')
-
-                api_communication.set_frequency(trainer_id=t, cpu_frequancy=cpu_frequancy[t])
+                api_communication.set_frequency(freq=cpu_frequancy[t])
 
                 client.publish('minifed/selectionQueue', m)
                 while not MODEL_TRAINED:

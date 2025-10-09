@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "//flw/opttopology/opt_server/server.py", line 2, in <module>
-    from controlleropt import Controller
-  File "/flw/opttopology/opt_server/controlleropt.py", line 6, in <module>
-    from ..Opt_Model.sub1 import solve_SUB1
-ImportError: attempted relative import with no known parent package
