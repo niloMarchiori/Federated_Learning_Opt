@@ -168,6 +168,7 @@ def on_message_stop(client, userdata, message):
 
 trainer = create_object("trainer", trainer_class, id=CLIENT_ID,
                         name=CLIENT_NAME, args=CLIENT_INSTANTIATION_ARGS)
+
 client = mqtt.Client(str(CLIENT_NAME))
 client.connect(BROKER_ADDR, keepalive=0)
 client.on_connect = on_connect
@@ -178,10 +179,24 @@ client.message_callback_add('minifed/serverArgs', on_server_args)
 
 # start waiting for jobs
 client.loop_start()
+erro=''
+try:
+    dataset_size = trainer.get_dataset_size_in_bits()
+    model_size = trainer.get_model_size_in_bits()
+except Exception as e:
+    erro=str(e)
+    dataset_size = 0
+    model_size = 0
 
-response = json.dumps({'id': CLIENT_NAME, 'accuracy': trainer.eval_model(
-), "metrics": trainer.all_metrics()}, default=default)
+response = json.dumps({'id': CLIENT_NAME,
+                       'dataset_size':dataset_size, 
+                       'model_size':model_size,
+                       'accuracy': trainer.eval_model(), 
+                       "metrics": trainer.all_metrics()}, 
+                       default=default)
+
 client.publish('minifed/registerQueue',  response)
+print('Erro: ',erro)
 print(color.BOLD_START +
       f'trainer {CLIENT_NAME} connected!\n' + color.BOLD_END)
 

@@ -80,17 +80,21 @@ O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a 
 
 
 ## To do:
-
-* [ ] Validação assíncrona
+* ! SetFreq Comentada !
+* [x] Validação assíncrona
 
 1. Em andamento:
     * Controller store the ctts
-    * Server need access to Opt_Model
-    * Opt_Model consume from Controller.ctts
+        - [ ] 'Controller.clients_param'
+        - [x] clientes enviam Dsz antes do treinamento
+        - [ ] Passar range_freq no node.run()
+
+    * Opt_Model consume from 'Controller.clients_param'
+    * [ ] ClientSensorOpt need to mensure model/data size
+    * [x] Models and datasz need to get included in metrics
 
 2. Para depois:
-    * ClientSensorOpt need to mensure model/data size
-    * Models and datasz need to get included in metrics
+    * Testar gasto de energia pelo arquivo kernel
 
 3. Standy: 
     * Pensar numa forma de mensurar o consumo de energia desconsiderando o tempo ocioso por conta do trainemento assíncrono

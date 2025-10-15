@@ -247,6 +247,37 @@ class TrainerMNIST:
 
     def get_stop_flag(self):
         return self.stop_flag
+    
+
+    def get_dataset_size_in_bits(self):
+        """
+        Calcula o tamanho total do dataset de treinamento (imagens + rótulos) em bits.
+        """
+        
+        x_train_bytes = self.x_train.nbytes
+        x_train_bits = x_train_bytes * 8
+
+        num_elements_y = tf.size(self.y_train).numpy()
+        bytes_per_element_y = self.y_train.nbytes
+        y_train_bytes = num_elements_y * bytes_per_element_y
+        y_train_bits = y_train_bytes * 8
+
+        
+        return x_train_bits + y_train_bits
+    
+    
+    def get_model_size_in_bits(self):
+        """
+        Calcula o número de parâmetros do modelo e seu tamanho em memória.
+        Assume que cada parâmetro é um float de 32 bits.
+        """
+        num_params = self.model.count_params()
+        
+        # Cada parâmetro é float32, então ocupa 32 bits (4 bytes)
+        bits_per_param = 32
+        total_bits = num_params * bits_per_param
+        
+        return total_bits
 
 
 if __name__ == '__main__':

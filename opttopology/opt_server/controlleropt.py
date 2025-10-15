@@ -38,6 +38,8 @@ class Controller:
         self.aggregator = criar_objeto("aggregator", aggregator)
         self.metrics = {}
 
+        self.clients_param={}
+
     # getters
     def get_trainer_list(self):
         return self.trainer_list
@@ -122,6 +124,11 @@ class Controller:
         # agg_response_dict -> {client_id: {"weights": [], ...}}
         return agg_response_dict
 
+
+
+    def set_client_params(self, client_id, params):
+        self.clients_param[client_id] = params
+    
     def run_opt_model(self):
         T_cmp, f = solve_SUB1(kappa=10)
         frequency_dict = {}
