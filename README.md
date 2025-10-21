@@ -85,7 +85,7 @@ O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a 
 
 1. Em andamento:
     * Controller store the ctts
-        - [ ] 'Controller.clients_param'
+        - [x] 'Controller.clients_param'
         - [x] clientes enviam Dsz antes do treinamento
         - [ ] Passar range_freq no client_args/on_message_register
 
