@@ -39,6 +39,14 @@ class Controller:
         self.metrics = {}
 
         self.clients_param={}
+        self.experiment_ctt={'fmin':0.8, #GHz'
+                             'fmax_range': [1.4,2.1], #GHz
+                             'alpha': 2E-28,
+                             'kappa': 0.05,
+                             'N': self.min_trainers
+                             }
+        self.model_inputs={}
+        self.creat_model_inputs()
 
     # getters
     def get_trainer_list(self):
@@ -129,15 +137,35 @@ class Controller:
     def set_client_params(self, client_id, params):
         self.clients_param[client_id] = params
     
+    def creat_model_inputs(self):
+        ctt=self.experiment_ctt
+    
+        self.model_inputs['kappa']=ctt['kappa']
+        self.model_inputs['N']=ctt['N']
+        self.model_inputs['alpha']=ctt['alpha']
+        self.model_inputs['D']=[None]*ctt['N']
+        self.model_inputs['s']=[None]*ctt['N']
+        self.model_inputs['c']=np.ones(ctt['N'])
+        self.model_inputs['fmin']=ctt['fmin']*10**9 * np.ones(ctt['N'])
+        self.model_inputs['fmax']=np.random.uniform(*ctt.fmax_range,size=ctt.N)*10**9 
+    
+    def update_dataset_size(self,trainer_id:str,dataset_sz:float):
+        trainer_idx=self.trainer_list.index(trainer_id)
+        self.model_inputs['D'][trainer_idx]=dataset_sz
+    
+    def update_models_sizes(self,trainer_id:str,model_sz:float):
+        trainer_idx=self.trainer_list.index(trainer_id)
+        self.model_inputs['s'][trainer_idx]=model_sz
+
     def run_opt_model(self):
-        T_cmp, f = solve_SUB1(kappa=10)
+        T_cmp, f = solve_SUB1(**self.model_inputs)
         frequency_dict = {}
         for key,val in zip(self.trainer_list, f):
             frequency_dict[key] = val
 
         # Tcom, t,p = solve_SUB2(ctt.N, kappa=k, s=inp.s, B=inp.B, N0=inp.N0, h=inp.h, pmin=inp.pmin, pmax=inp.pmax)
         # thteta, eta = solve_SUB3(f, t, T_cmp, Tcom, k)
-        return T_cmp, frequency_dict
+        return frequency_dict
         
     
         

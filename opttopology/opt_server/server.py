@@ -33,6 +33,11 @@ MODEL_TRAINED = False
 global MODEL_AGGREGATED
 MODEL_AGGREGATED = {}
 
+global MODELS_SIZES
+MODELS_SIZES=[]
+global DATASETS_SIZES
+DATASETS_SIZES=[]
+
 def server():
     global MODEL_TRAINED
 
@@ -90,6 +95,10 @@ def server():
         m = json.loads(message.payload.decode("utf-8"))
         print(m)
         controller.update_metrics(m["id"], m['metrics'])
+
+        controller.update_dataset_size(m['id'],m['dataset_size'])
+        controller.update_models_sizes(m['id'],m['model_size'])
+        
         logger.info(
             f'trainer number {m["id"]} just joined the pool', extra=executionType)
         print(
