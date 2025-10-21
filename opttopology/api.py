@@ -29,7 +29,7 @@ def read_root(net=Depends(call_network)):
 def set_freq(freq: Frequency,clients=Depends(call_sensor)):
     value=freq.value
     cmd_set_freq(value)
-    return {"msg": f"Frequency of cpus setted to {value}"}
+    return {"msg": f"SET CPU FREQ={value}"}
     
     
 

@@ -39,10 +39,10 @@ class Controller:
         self.metrics = {}
 
         self.clients_param={}
-        self.experiment_ctt={'fmin':0.8, #GHz'
-                             'fmax_range': [1.4,2.1], #GHz
+        self.experiment_ctt={'fmin':1.6, #GHz'
+                             'fmax_range': [2.0,3.1], #GHz
                              'alpha': 2E-28,
-                             'kappa': 0.05,
+                             'kappa': 5,
                              'N': self.min_trainers
                              }
         self.model_inputs={}
@@ -138,6 +138,8 @@ class Controller:
         self.clients_param[client_id] = params
     
     def creat_model_inputs(self):
+        np.random.seed(seed=42)
+
         ctt=self.experiment_ctt
     
         self.model_inputs['kappa']=ctt['kappa']
