@@ -87,7 +87,7 @@ O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a 
     * Controller store the ctts
         - [ ] 'Controller.clients_param'
         - [x] clientes enviam Dsz antes do treinamento
-        - [ ] Passar range_freq no node.run()
+        - [ ] Passar range_freq no client_args/on_message_register
 
     * Opt_Model consume from 'Controller.clients_param'
     * [x] ClientSensorOpt need to mensure model/data size

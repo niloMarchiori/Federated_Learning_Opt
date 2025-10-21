@@ -88,17 +88,15 @@ def server():
 
     # callback for registerQueue: add trainer to the pool of trainers
     def on_message_ready(client, userdata, message):
-        m = json.loads(message.payload.decode("utf-8"))
+        m = json.loads(message.payload.decode("utf-8"))        
         controller.add_trainer(m["id"])
+        controller.update_dataset_size(m['id'],m['dataset_sz'])
+        # controller.update_model_size(m['id'],m['model_sz'])
 
     def on_message_register(client, userdata, message):
         m = json.loads(message.payload.decode("utf-8"))
-        print(m)
-        controller.update_metrics(m["id"], m['metrics'])
 
-        controller.update_dataset_size(m['id'],m['dataset_size'])
-        controller.update_models_sizes(m['id'],m['model_size'])
-        
+        controller.update_metrics(m["id"], m['metrics'])
         logger.info(
             f'trainer number {m["id"]} just joined the pool', extra=executionType)
         print(
@@ -190,7 +188,7 @@ def server():
         
         for t in trainer_list:
 
-            T_comp, cpu_frequancy = controller.run_opt_model()
+            cpu_frequancy = controller.run_opt_model()
             print(cpu_frequancy)
             print()
             if t in select_trainers:
@@ -199,7 +197,8 @@ def server():
                 print(
                     f'selected trainer {t} for training on round {controller.get_current_round()}')
                 m = json.dumps({'id': t, 'selected': True}).replace(' ', '')
-                # api_communication.set_frequency(freq=cpu_frequancy[t])
+                api_communication.set_frequency(freq=cpu_frequancy[t])
+                print(f'cpu_freq: {cpu_frequancy[t]}')
 
                 client.publish('minifed/selectionQueue', m)
                 while not MODEL_TRAINED:

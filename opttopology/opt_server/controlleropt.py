@@ -144,16 +144,17 @@ class Controller:
         self.model_inputs['N']=ctt['N']
         self.model_inputs['alpha']=ctt['alpha']
         self.model_inputs['D']=[None]*ctt['N']
-        self.model_inputs['s']=[None]*ctt['N']
+        # self.model_inputs['s']=[None]*ctt['N']
         self.model_inputs['c']=np.ones(ctt['N'])
         self.model_inputs['fmin']=ctt['fmin']*10**9 * np.ones(ctt['N'])
-        self.model_inputs['fmax']=np.random.uniform(*ctt.fmax_range,size=ctt.N)*10**9 
+        self.model_inputs['fmax']=np.random.uniform(*ctt['fmax_range'],size=ctt['N'])*10**9 
     
     def update_dataset_size(self,trainer_id:str,dataset_sz:float):
+        print(self.trainer_list)
         trainer_idx=self.trainer_list.index(trainer_id)
         self.model_inputs['D'][trainer_idx]=dataset_sz
     
-    def update_models_sizes(self,trainer_id:str,model_sz:float):
+    def update_model_size(self,trainer_id:str,model_sz:float):
         trainer_idx=self.trainer_list.index(trainer_id)
         self.model_inputs['s'][trainer_idx]=model_sz
 

@@ -91,8 +91,21 @@ def on_server_args(client, userdata, message):
     if msg['id'] == CLIENT_NAME:
         if msg['args'] is not None:
             trainer.set_args(msg['args'])
+
+        erro=''
+        try:
+            dataset_size = trainer.get_dataset_size_in_bits()
+            model_size = trainer.get_model_size_in_bits()
+        except Exception as e:
+            erro=str(e)
+            dataset_size = 0
+            model_size = 0
+        print(erro)
         client.publish('minifed/ready',
-                       json.dumps({"id": CLIENT_NAME}, default=default))
+                       json.dumps({"id": CLIENT_NAME,
+                                   "dataset_sz":dataset_size,
+                                   "model_sz": model_size
+                                   }, default=default))
 
 
 """
@@ -179,24 +192,17 @@ client.message_callback_add('minifed/serverArgs', on_server_args)
 
 # start waiting for jobs
 client.loop_start()
-erro=''
-try:
-    dataset_size = trainer.get_dataset_size_in_bits()
-    model_size = trainer.get_model_size_in_bits()
-except Exception as e:
-    erro=str(e)
-    dataset_size = 0
-    model_size = 0
+
 
 response = json.dumps({'id': CLIENT_NAME,
-                       'dataset_size':dataset_size, 
-                       'model_size':model_size,
+                    #    'dataset_size':dataset_size, 
+                    #    'model_size':model_size,
                        'accuracy': trainer.eval_model(), 
                        "metrics": trainer.all_metrics()}, 
                        default=default)
 
 client.publish('minifed/registerQueue',  response)
-print('Erro: ',erro)
+
 print(color.BOLD_START +
       f'trainer {CLIENT_NAME} connected!\n' + color.BOLD_END)
 
