@@ -80,24 +80,20 @@ O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a 
 
 
 ## To do:
-* ! SetFreq Comentada !
-* [x] Validação assíncrona
-
 1. Em andamento:
-    * Controller store the ctts
-        - [x] 'Controller.clients_param'
-        - [x] clientes enviam Dsz antes do treinamento
-        - [ ] Passar range_freq no client_args/on_message_register
-
-    * Opt_Model consume from 'Controller.clients_param'
-    * [x] ClientSensorOpt need to mensure model/data size
-    * [x] Models and datasz need to get included in metrics
-
-2. Para depois:
+    * [ ] Testar diferentes combinações de constantes
     * [ ] Testar gasto de energia pelo arquivo kernel
 
+2. Para depois:
+    - [ ] Passar range_freq no client_args/on_message_register
+
 3. Standy: 
+    * [ ] Validação assíncrona
     * [ ] Pensar numa forma de mensurar o consumo de energia desconsiderando o tempo ocioso por conta do trainemento assíncrono
+
+### Problemas
+
+* solução idêntica para todos os clientes 
 
 # Referências
 
