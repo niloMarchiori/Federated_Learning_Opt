@@ -3,6 +3,7 @@ import pandas as pd
 from clientSelection import *
 from aggregator import *
 import importlib
+from datetime import datetime
 
 from Opt_Model import inputs as inp
 from Opt_Model import constants as ctt
@@ -10,6 +11,22 @@ from Opt_Model.sub1 import solve_SUB1
 from Opt_Model.sub2 import solve_SUB2
 from Opt_Model.sub3 import solve_SUB3
 
+import pathlib
+
+class OutPutData():
+    def __init__(self):
+        self.data=[]
+        self.curr_line={}
+
+    def save(self,file_name='output.csv'):
+        df=pd.DataFrame(self.data)
+        now=datetime.now()
+        name_prefix=now.strftime("%Hh%Mm%Ss_")
+        df.to_csv(name_prefix+file_name)
+        print(f'output saved on {pathlib.Path.cwd()}/{name_prefix+file_name}')
+
+    def new_line(self):
+        self.data.append(self.curr_line)
 
 def criar_objeto(pacote, nome_classe):
     try:
@@ -47,6 +64,8 @@ class Controller:
                              }
         self.model_inputs={}
         self.creat_model_inputs()
+
+        self.output_data=OutPutData()
 
     # getters
     def get_trainer_list(self):
@@ -169,12 +188,9 @@ class Controller:
         # Tcom, t,p = solve_SUB2(ctt.N, kappa=k, s=inp.s, B=inp.B, N0=inp.N0, h=inp.h, pmin=inp.pmin, pmax=inp.pmax)
         # thteta, eta = solve_SUB3(f, t, T_cmp, Tcom, k)
         return frequency_dict
-        
-    
-        
-        
 
-        
+    
+    
 
         
 

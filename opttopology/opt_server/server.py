@@ -6,8 +6,9 @@ import numpy as np
 import sys
 import logging
 import os
-import requests
 import api_communication
+
+
 
 def default(obj):
     if type(obj).__module__ == np.__name__:
@@ -30,13 +31,6 @@ FORMAT = "%(asctime)s - %(infotype)-6s - %(levelname)s - %(message)s"
 global MODEL_TRAINED 
 MODEL_TRAINED = False
 
-global MODEL_AGGREGATED
-MODEL_AGGREGATED = {}
-
-global MODELS_SIZES
-MODELS_SIZES=[]
-global DATASETS_SIZES
-DATASETS_SIZES=[]
 
 def server():
     global MODEL_TRAINED
@@ -78,6 +72,7 @@ def server():
         BOLD_START = '\033[1m'
         BOLD_END = '\033[0m'
         RESET = "\x1B[0m"
+
 
     # subscribe to queues on connection
     def on_connect(client, userdata, flags, rc):
@@ -143,6 +138,10 @@ def server():
             f'{json.dumps(m["metrics"])}', extra=metricType)
         controller.update_num_responses()
 
+        t=m['id']
+        metrics=m['metrics']
+        controller.output_data.curr_line[f'consumption_{t}']=metrics['energy_consumption']
+
     # connect on queue
     controller = Controller(min_trainers=min_trainers, num_rounds=nun_rounds,
                             client_selector=client_selector, aggregator=aggregator)
@@ -166,8 +165,14 @@ def server():
         time.sleep(1)
 
     # begin training
+
+    collums=['mean_acc']
+    collums+=[f'freq_{t}' for t in controller.get_trainer_list()]
+    collums+=[f'consumption_{t}' for t in controller.get_trainer_list()]
+
     selected_qtd = 0
     while controller.get_current_round() != nun_rounds:
+
         controller.update_current_round()
         logger.info(
             f'round: {controller.get_current_round()}', extra=metricType)
@@ -198,7 +203,8 @@ def server():
                     f'selected trainer {t} for training on round {controller.get_current_round()}')
                 m = json.dumps({'id': t, 'selected': True}).replace(' ', '')
                 api_communication.set_frequency(freq=cpu_frequancy[t])
-                print(f'cpu_freq: {cpu_frequancy[t]}')
+
+                controller.output_data.curr_line[f'freq_{t}']=cpu_frequancy[t]
 
                 client.publish('minifed/selectionQueue', m)
                 while not MODEL_TRAINED:
@@ -232,6 +238,9 @@ def server():
             f'mean_accuracy: {mean_acc}\n', extra=metricType)
         print(color.GREEN +
               f'mean accuracy on round {controller.get_current_round()} was {mean_acc}\n' + color.RESET)
+        
+        controller.output_data.curr_line['mean_acc']=mean_acc
+        controller.output_data.new_line()
 
         # update stop queue or continue process
         if mean_acc >= stop_acc:
@@ -240,6 +249,7 @@ def server():
             m = json.dumps({'stop': True})
             client.publish('minifed/stopQueue', m)
             time.sleep(1)  # time for clients to finish
+            controller.output_data.save('results.sv')
             exit()
         controller.reset_acc_list()
 

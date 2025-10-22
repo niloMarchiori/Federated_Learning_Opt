@@ -43,7 +43,7 @@ def topology():
         t = 10
     NUM_CLIENTS = 3
     
-    server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": 1,
+    server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": 2,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
     client_args = {"mode": 'random same_samples',
                     'num_samples': 15000, "trainer_class": "TrainerMNIST"}
@@ -140,7 +140,7 @@ def topology():
     thread.start()
     sleep(3)
     print("API is running...")
-    # CLI(net)
+    CLI(net)
     # -----------------------------------------------------------------------------------------
 
     info("*** Measuring energy consumption\n")
@@ -169,7 +169,6 @@ def topology():
         client.run(broker_addr=net.broker_addr,
                    experiment_controller=net.experiment_controller)
 
-    CLI(net)
     # # h1.cmd("ifconfig h1-eth1 down")
 
     info('*** Running Autostop...\n')

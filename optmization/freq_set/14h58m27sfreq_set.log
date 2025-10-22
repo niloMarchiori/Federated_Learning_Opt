@@ -1,0 +1,17 @@
+2025-10-22 14:58:38,450 - EXECUT - INFO - starting server...
+2025-10-22 14:58:47,664 - EXECUT - INFO - trainer number sta0 just joined the pool
+2025-10-22 14:58:47,814 - EXECUT - INFO - trainer number sta1 just joined the pool
+2025-10-22 14:58:47,909 - EXECUT - INFO - trainer number sta2 just joined the pool
+2025-10-22 14:58:48,477 - METRIC - INFO - round: 1
+2025-10-22 14:58:48,477 - METRIC - INFO - n_selected: 3
+2025-10-22 14:58:48,477 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1", "sta2"]}
+2025-10-22 14:59:49,348 - EXECUT - INFO - received weights from trainer sta0!
+2025-10-22 15:00:45,844 - EXECUT - INFO - received weights from trainer sta1!
+2025-10-22 15:02:12,725 - EXECUT - INFO - received weights from trainer sta2!
+2025-10-22 15:02:13,878 - EXECUT - INFO - sent aggregated weights to trainers!
+2025-10-22 15:02:18,957 - METRIC - INFO - {"loss": 0.2751821279525757, "accuracy": 0.922502338886261, "energy_consumption": 0.04521198650000002, "selected": true, "client_name": "sta0"}
+2025-10-22 15:02:20,125 - METRIC - INFO - {"loss": 0.297949880361557, "accuracy": 0.9136320948600769, "energy_consumption": 0.04429382774999999, "selected": true, "client_name": "sta1"}
+2025-10-22 15:02:22,837 - METRIC - INFO - {"loss": 0.27359652519226074, "accuracy": 0.9276376962661743, "energy_consumption": 0.035208321000000015, "selected": true, "client_name": "sta2"}
+2025-10-22 15:02:22,887 - METRIC - INFO - mean_accuracy: 0.9212573766708374
+
+2025-10-22 15:02:22,887 - METRIC - INFO - stop_condition: rounds

@@ -195,8 +195,6 @@ client.loop_start()
 
 
 response = json.dumps({'id': CLIENT_NAME,
-                    #    'dataset_size':dataset_size, 
-                    #    'model_size':model_size,
                        'accuracy': trainer.eval_model(), 
                        "metrics": trainer.all_metrics()}, 
                        default=default)
