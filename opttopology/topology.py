@@ -41,7 +41,7 @@ def topology():
     t = 4
     if '-10' in sys.argv:
         t = 10
-    NUM_CLIENTS = 3
+    NUM_CLIENTS = 1
     
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": 1,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
@@ -169,13 +169,12 @@ def topology():
         client.run(broker_addr=net.broker_addr,
                    experiment_controller=net.experiment_controller)
 
-    CLI(net)
+    
     # # h1.cmd("ifconfig h1-eth1 down")
 
     info('*** Running Autostop...\n')
     net.wait_experiment()
     os.system('pkill -9 -f xterm')
-
     info('*** Stopping network...\n')
     net.stop()
 

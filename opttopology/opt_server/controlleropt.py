@@ -12,18 +12,19 @@ from Opt_Model.sub2 import solve_SUB2
 from Opt_Model.sub3 import solve_SUB3
 
 import pathlib
+import json
+import copy
 
 class OutPutData():
     def __init__(self):
         self.data=[]
         self.curr_line={}
 
-    def save(self,file_name='output.csv'):
+    def save(self,file_name='results.csv'):
         df=pd.DataFrame(self.data)
         now=datetime.now()
         name_prefix=now.strftime("%Hh%Mm%Ss_")
-        df.to_csv(name_prefix+file_name)
-        print(f'output saved on {pathlib.Path.cwd()}/{name_prefix+file_name}')
+        df.to_csv(f"flw/Results/{name_prefix+file_name}")
 
     def new_line(self):
         self.data.append(self.curr_line)
@@ -179,8 +180,17 @@ class Controller:
         trainer_idx=self.trainer_list.index(trainer_id)
         self.model_inputs['s'][trainer_idx]=model_sz
 
+    def save_input_model(self):
+        with open('/flw/model_imputs.json','w') as f:
+            data=copy.deepcopy(self.model_inputs)
+            data['c']=list(data['c'])
+            data['fmin']=list(data['fmin'])
+            data['fmax']=list(data['fmax'])
+            json.dump(data,f)
+
     def run_opt_model(self):
         T_cmp, f = solve_SUB1(**self.model_inputs)
+        self.save_input_model()
         frequency_dict = {}
         for key,val in zip(self.trainer_list, f):
             frequency_dict[key] = val

@@ -7,6 +7,7 @@ import sys
 import logging
 import os
 import api_communication
+import pathlib
 
 
 
@@ -249,10 +250,11 @@ def server():
             m = json.dumps({'stop': True})
             client.publish('minifed/stopQueue', m)
             time.sleep(1)  # time for clients to finish
-            controller.output_data.save('results.sv')
+            controller.output_data.save()
             exit()
         controller.reset_acc_list()
 
+    controller.output_data.save()
     logger.info('stop_condition: rounds', extra=metricType)
     print(color.RED + f'rounds threshold met! stopping the training!' + color.RESET)
     client.publish('minifed/stopQueue', m)

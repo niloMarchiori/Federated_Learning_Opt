@@ -1,0 +1,20 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.25.2
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+Traceback (most recent call last):
+  File "//flw/opttopology/opt_server/server.py", line 265, in <module>
+    server()
+  File "//flw/opttopology/opt_server/server.py", line 257, in server
+    controller.output_data.save()
+  File "/flw/opttopology/opt_server/controlleropt.py", line 27, in save
+    df.to_csv(f"flw/Results/{name_prefix+file_name}")
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/generic.py", line 3902, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/format.py", line 1152, in to_csv
+    csv_formatter.save()
+  File "/usr/local/lib/python3.10/dist-packages/pandas/io/formats/csvs.py", line 247, in save
+    with get_handle(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/io/common.py", line 739, in get_handle
+    check_parent_directory(str(handle))
+  File "/usr/local/lib/python3.10/dist-packages/pandas/io/common.py", line 604, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'flw/Results'
