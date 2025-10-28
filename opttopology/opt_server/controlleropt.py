@@ -28,6 +28,7 @@ class OutPutData():
 
     def new_line(self):
         self.data.append(self.curr_line)
+        self.curr_line={}
 
 def criar_objeto(pacote, nome_classe):
     try:

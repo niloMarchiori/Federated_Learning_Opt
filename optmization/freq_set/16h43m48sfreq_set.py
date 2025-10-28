@@ -41,10 +41,9 @@ def topology():
     t = 4
     if '-10' in sys.argv:
         t = 10
-    NUM_CLIENTS = 3
-    NUM_ROUNDS=10
+    NUM_CLIENTS = 1
     
-    server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
+    server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": 1,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
     client_args = {"mode": 'random same_samples',
                     'num_samples': 15000, "trainer_class": "TrainerMNIST"}
