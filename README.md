@@ -81,15 +81,18 @@ O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a 
 
 ## To do:
 1. Em andamento:
-    * [ ] Pensar numa forma de mensurar o consumo de energia desconsiderando o tempo ocioso por conta do trainemento assíncrono
+    * [x] Pensar numa forma de mensurar o consumo de energia desconsiderando o tempo ocioso por conta do trainemento assíncrono
     * [ ] Testar gasto de energia pelo arquivo kernel
+    * [x] Ajustar script dos meninos para settar freq up e freq down
 
 2. Para depois:
+    * [ ] Refatorar código
     * [ ] Testar diferentes combinações de constantes
 
 3. Standy: 
     * [ ] Validação assíncrona
     - [ ] Passar range_freq no client_args/on_message_register
+    * [ ] Server tem acesso ao experiment_name então é possível criar pasta separadas para output
 
 ### Problemas
 

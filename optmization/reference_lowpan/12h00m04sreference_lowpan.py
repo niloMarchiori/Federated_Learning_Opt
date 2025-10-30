@@ -41,14 +41,14 @@ def topology():
     t = 4
     if '-10' in sys.argv:
         t = 10
-    NUM_CLIENTS = 6
+    NUM_CLIENTS = 3
     NUM_ROUNDS=2
     
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
     client_args = {"mode": 'random same_samples',
                     'num_samples': 15000, "trainer_class": "TrainerMNIST"}
-    experiment_name = 'cpu_optmization_lowpan'
+    experiment_name = 'reference_lowpan'
 
 
     net = MininetFed(**experiment_config, controller=[], experiment_name=experiment_name,
@@ -72,7 +72,7 @@ def topology():
                           thriftport=50001,  IPBASE="172.17.0.0/24",
                           **args)
     
-    srv1 = net.addFlHost('srv1', cls=ServerSensor, script="flw/opttopology/opt_server/server.py",
+    srv1 = net.addFlHost('srv1', cls=ServerSensor, script="flw/reference_topology/server/server.py",
                          args=server_args, 
                          volumes=volumes,
                          dimage='mininetfed:serversensor',
@@ -84,7 +84,7 @@ def topology():
     clients = []
     for i in range(NUM_CLIENTS):
         clients.append(net.addSensor(f'sta{i}', privileged=True, environment={"DISPLAY": ":0"},
-                                     cls=ClientSensor, script="flw/opttopology/opt_client/client.py",
+                                     cls=ClientSensor, script="flw/reference_topology/client/client.py",
                                      voltage=3.7, #V
                                      battery_capacity=15, #mAh
                                      ip6=f'fe80::{i+3}/64',
@@ -109,13 +109,8 @@ def topology():
     net.addLink(ap1, srv1, cls=LoWPAN)
 
     net.addLink(ap1, clients[0], cls=LoWPAN)
-    net.addLink(ap1, clients[1], cls=LoWPAN)
-
-    net.addLink(clients[0], clients[2], cls=LoWPAN)
-    net.addLink(clients[0], clients[4], cls=LoWPAN)
-
-    net.addLink(clients[1], clients[3], cls=LoWPAN)
-    net.addLink(clients[1], clients[5], cls=LoWPAN)
+    net.addLink(clients[0], clients[1], cls=LoWPAN)
+    net.addLink(clients[1], clients[2], cls=LoWPAN)
     
     # net.addLink(ap1, h1)
     net.addLinkAutoStop(ap1)

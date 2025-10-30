@@ -41,7 +41,7 @@ def topology():
     t = 4
     if '-10' in sys.argv:
         t = 10
-    NUM_CLIENTS = 6
+    NUM_CLIENTS = 3
     NUM_ROUNDS=2
     
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
@@ -109,13 +109,8 @@ def topology():
     net.addLink(ap1, srv1, cls=LoWPAN)
 
     net.addLink(ap1, clients[0], cls=LoWPAN)
-    net.addLink(ap1, clients[1], cls=LoWPAN)
-
-    net.addLink(clients[0], clients[2], cls=LoWPAN)
-    net.addLink(clients[0], clients[4], cls=LoWPAN)
-
-    net.addLink(clients[1], clients[3], cls=LoWPAN)
-    net.addLink(clients[1], clients[5], cls=LoWPAN)
+    net.addLink(clients[0], clients[1], cls=LoWPAN)
+    net.addLink(clients[1], clients[2], cls=LoWPAN)
     
     # net.addLink(ap1, h1)
     net.addLinkAutoStop(ap1)

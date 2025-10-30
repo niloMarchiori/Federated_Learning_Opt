@@ -27,8 +27,8 @@ class OutPutData():
         df=pd.DataFrame(self.data)
         now=datetime.now()
         name_prefix=now.strftime("%Hh%Mm%Ss_")
-        mkdir('/flw/Results/Optmization/')
-        df.to_csv(f"/flw/Results/Optmization/{name_prefix+file_name}")
+        mkdir('/flw/Results/Reference/')
+        df.to_csv(f"flw/Results/Reference/{name_prefix+file_name}")
 
     def new_line(self):
         self.data.append(self.curr_line)
@@ -156,11 +156,6 @@ class Controller:
 
         # agg_response_dict -> {client_id: {"weights": [], ...}}
         return agg_response_dict
-
-
-
-    def set_client_params(self, client_id, params):
-        self.clients_param[client_id] = params
     
     def creat_model_inputs(self):
         np.random.seed(seed=42)
@@ -188,8 +183,7 @@ class Controller:
     def save_input_model(self):
         now=datetime.now()
         name_prefix=now.strftime("%Hh%Mm%Ss_")
-        mkdir('/flw/Results/Input_Model/')
-        with open(f'/flw/Results/Input_Model/{name_prefix}model_imputs.json','w') as f:
+        with open(f'/flw/Input_Model/{name_prefix}model_imputs.json','w') as f:
             data=copy.deepcopy(self.model_inputs)
             data['c']=list(data['c'])
             data['fmin']=list(data['fmin'])
@@ -206,6 +200,9 @@ class Controller:
         # Tcom, t,p = solve_SUB2(ctt.N, kappa=k, s=inp.s, B=inp.B, N0=inp.N0, h=inp.h, pmin=inp.pmin, pmax=inp.pmax)
         # thteta, eta = solve_SUB3(f, t, T_cmp, Tcom, k)
         return frequency_dict
+
+    
+    
 
         
 

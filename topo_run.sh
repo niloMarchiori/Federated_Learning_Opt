@@ -1,1 +1,0 @@
-sudo -E python3 opttopology/topology.py

@@ -192,19 +192,21 @@ def server():
         logger.info(
             f"{json.dumps({'selected_trainers': select_trainers})}", extra=metricType)
         
-        cpu_frequancy = controller.run_opt_model()
-        print(cpu_frequancy)
-        
         for t in trainer_list:
+            print()
             if t in select_trainers:
                 # logger.info(
                 #     f'selected: {t}', extra=metricType)
                 print(
                     f'selected trainer {t} for training on round {controller.get_current_round()}')
                 m = json.dumps({'id': t, 'selected': True}).replace(' ', '')
-                api_communication.set_frequency(freq=cpu_frequancy[t])
 
-                controller.output_data.curr_line[f'freq_{t}']=cpu_frequancy[t]
+                idx=controller.trainer_list.index(t)
+                fmax=controller.model_inputs['fmax'][idx]
+                fmin=controller.model_inputs['fmin'][idx]
+                
+                api_communication.set_upper_frequency(freq=fmax)
+                api_communication.set_lower_frequency(freq=fmin)
 
                 client.publish('minifed/selectionQueue', m)
                 while not MODEL_TRAINED:
