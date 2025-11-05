@@ -63,7 +63,7 @@ class Controller:
 
         self.clients_param={}
         self.experiment_ctt={'fmin':1.8, #GHz'
-                             'fmax_range': [2.4,3.0], #GHz
+                             'fmax_range': [1,3.0], #GHz
                              'alpha': 2E-28,
                              'kappa': 10**2,
                              'N': self.min_trainers

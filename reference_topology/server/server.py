@@ -192,6 +192,8 @@ def server():
         logger.info(
             f"{json.dumps({'selected_trainers': select_trainers})}", extra=metricType)
         
+        TIMES=[]
+
         for t in trainer_list:
             print()
             if t in select_trainers:
@@ -205,18 +207,27 @@ def server():
                 fmax=controller.model_inputs['fmax'][idx]
                 fmin=controller.model_inputs['fmin'][idx]
                 
-                api_communication.set_upper_frequency(freq=fmax)
-                api_communication.set_lower_frequency(freq=fmin)
+                api_communication.set_upper_frequency(freq=fmax/(10**9))
+                api_communication.set_lower_frequency(freq=fmin/(10**9))
 
+                time_start=time.time()
                 client.publish('minifed/selectionQueue', m)
+
                 while not MODEL_TRAINED:
                     pass
                 MODEL_TRAINED = False
+                time_end=time.time()
+                time_end=time.time()
+                TIMES.append(time_end-time_start)
+
             else:
                 # logger.info(
                 #     f'NOT_selected: {t}', extra=metricType)
                 m = json.dumps({'id': t, 'selected': False}).replace(' ', '')
                 client.publish('minifed/selectionQueue', m)
+
+        round_time=max(TIMES)
+        controller.output_data.curr_line['round_time']=round_time
 
         # wait for agg responses
         while controller.get_num_responses() != selected_qtd:

@@ -1,0 +1,58 @@
+# syntax=docker/dockerfile:1.9.0-labs
+FROM ubuntu:focal
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+VOLUME /flw
+
+RUN apt-get update
+RUN apt-get install -y \
+    net-tools \
+    iputils-ping \
+    iproute2
+
+# Atualize a lista de pacotes
+RUN apt update
+
+# Instale as dependências necessárias
+RUN apt install -y software-properties-common
+
+# Adicione o repositório deadsnakes
+RUN add-apt-repository ppa:deadsnakes/ppa && \
+    apt update
+
+# Instale o Python 
+RUN DEBIAN_FRONTEND=noninteractive \
+    apt install python3.10 \
+    python3.10-venv \
+    python3.10-dev
+
+# Crie um link simbólico para python3 apontar para python
+RUN ln -sf /usr/bin/python /usr/bin/python3
+
+# Instale o pip para Python 
+RUN apt-get install -y \
+    curl \
+    python-distutils
+RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
+
+
+RUN python -m pip install --upgrade pip
+
+EXPOSE 1883
+EXPOSE 8883
+
+COPY ../util/requirements/container/client_tensorflow.requirements.txt .
+#COPY ../examples/client /client
+
+# Install the Python dependencies
+RUN python -m pip install --no-cache-dir -r client_tensorflow.requirements.txt
+
+#COPY ../util/client /client
+
+# Remoção da interface padrão
+# RUN apt install sudo
+# RUN --security=insecure ifconfig eth0 down 
+# RUN --security=insecure route add default gw 10.0.0.1
+
+CMD ["/bin/sh", "-c", "bash"]

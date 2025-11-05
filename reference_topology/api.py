@@ -19,9 +19,11 @@ def cmd_set_freq(value):
     os.system(f'sudo cpupower frequency-set -u {value}GHz; sudo cpupower frequency-set -d {value}GHz')
 
 def cmd_set_upper_freq(value):
+    print('Try set freq to: ',value)
     os.system(f'sudo cpupower frequency-set -u {value}GHz')
 
 def cmd_set_lower_freq(value):
+    print('Try set freq to: ',value)
     os.system(f'sudo cpupower frequency-set -d {value}GHz')
 
 app = FastAPI()
