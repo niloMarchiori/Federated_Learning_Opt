@@ -46,9 +46,8 @@ def topology():
     
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
-    client_args = {"mode": 'random same_samples',
-                    'num_samples': 15000, "trainer_class": "TrainerMNIST"}
-    experiment_name = 'reference_lowpan'
+    client_args = {"mode": 'random r_samples', "trainer_class": "TrainerMNIST"}
+    experiment_name = 'cpu_optmization_lowpan'
 
 
     net = MininetFed(**experiment_config, controller=[], experiment_name=experiment_name,
@@ -72,7 +71,7 @@ def topology():
                           thriftport=50001,  IPBASE="172.17.0.0/24",
                           **args)
     
-    srv1 = net.addFlHost('srv1', cls=ServerSensor, script="flw/reference_topology/server/server.py",
+    srv1 = net.addFlHost('srv1', cls=ServerSensor, script="flw/opttopology/opt_server/server.py",
                          args=server_args, 
                          volumes=volumes,
                          dimage='mininetfed:serversensor',
@@ -84,7 +83,7 @@ def topology():
     clients = []
     for i in range(NUM_CLIENTS):
         clients.append(net.addSensor(f'sta{i}', privileged=True, environment={"DISPLAY": ":0"},
-                                     cls=ClientSensor, script="flw/reference_topology/client/client.py",
+                                     cls=ClientSensor, script="flw/opttopology/opt_client/client.py",
                                      voltage=3.7, #V
                                      battery_capacity=15, #mAh
                                      ip6=f'fe80::{i+3}/64',

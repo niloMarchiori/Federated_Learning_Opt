@@ -42,12 +42,11 @@ def topology():
     if '-10' in sys.argv:
         t = 10
     NUM_CLIENTS = 6
-    NUM_ROUNDS=20
+    NUM_ROUNDS=1
     
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
-    client_args = {"mode": 'random same_samples',
-                    'num_samples': 15000, "trainer_class": "TrainerMNIST"}
+    client_args = {"mode": 'random r_samples', "trainer_class": "TrainerMNIST"}
     experiment_name = 'reference_lowpan'
 
 
