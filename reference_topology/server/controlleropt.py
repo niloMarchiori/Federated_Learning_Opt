@@ -188,6 +188,7 @@ class Controller:
             data['c']=list(data['c'])
             data['fmin']=list(data['fmin'])
             data['fmax']=list(data['fmax'])
+            data['ctt']=self.experiment_ctt
             json.dump(data,f)
 
     def run_opt_model(self):
