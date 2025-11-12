@@ -1,6 +1,4 @@
-sudo -E sh -c "python3 reference_topology/topology.py && \
-               mnf_clean && \
-               python3 opttopology/topology.py"
+sudo -E sh -c "python topology/topology.py"
 
 git add .
 git commit -m "Resultados teste r_samples"

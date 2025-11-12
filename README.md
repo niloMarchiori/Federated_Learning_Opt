@@ -85,8 +85,9 @@ O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a 
     * [ ] Testar gasto de energia pelo arquivo kernel
     * [x] Ajustar script dos meninos para settar freq up e freq down
 
-2. Para depois:
+2. Próximo passo:
     * [ ] Refatorar código
+    * [ ] Testar a dependência entre consumo de energia e frequência de cpu (tanto no modelo do Containernet quanto no host)
     * [ ] Testar diferentes combinações de constantes
 
 3. Standy: 
@@ -95,8 +96,6 @@ O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a 
     * [ ] Server tem acesso ao experiment_name então é possível criar pasta separadas para output
 
 ### Problemas
-
-* solução idêntica para todos os clientes 
 
 # Referências
 
