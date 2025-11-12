@@ -18,6 +18,14 @@ def call_network():
 def cmd_set_freq(value):
     os.system(f'sudo cpupower frequency-set -u {value}GHz; sudo cpupower frequency-set -d {value}GHz')
 
+def cmd_set_upper_freq(value):
+    print('Try set freq to: ',value)
+    os.system(f'sudo cpupower frequency-set -u {value}GHz')
+
+def cmd_set_lower_freq(value):
+    print('Try set freq to: ',value)
+    os.system(f'sudo cpupower frequency-set -d {value}GHz')
+
 app = FastAPI()
 
 @app.get("/")
@@ -30,8 +38,18 @@ def set_freq(freq: Frequency,clients=Depends(call_sensor)):
     value=freq.value
     cmd_set_freq(value)
     return {"msg": f"SET CPU FREQ={value}"}
-    
-    
+
+@app.post("/set_cpu_upper_freq/")
+def set_upper_freq(freq: Frequency,clients=Depends(call_sensor)):
+    value=freq.value
+    cmd_set_upper_freq(value)
+    return {"msg": f"SET CPU -U FREQ={value}"}
+
+@app.post("/set_cpu_lower_freq/")
+def set_lower_freq(freq: Frequency,clients=Depends(call_sensor)):
+    value=freq.value
+    cmd_set_lower_freq(value)
+    return {"msg": f"SET CPU -D FREQ={value}"}    
 
 @app.post("/set_power/")
 def set_power(power: Power,net=Depends(call_network)):
