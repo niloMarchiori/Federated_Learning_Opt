@@ -160,6 +160,7 @@ def server():
     print(color.BOLD_START + 'starting server...' + color.BOLD_END)
 
     api_communication.test_api()
+    api_communication.set_cpu_governor()
 
     # wait trainers to connect
     while controller.get_num_trainers() < min_trainers:

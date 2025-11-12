@@ -160,6 +160,7 @@ def server():
     print(color.BOLD_START + 'starting server...' + color.BOLD_END)
 
     api_communication.test_api()
+    api_communication.set_cpu_governor()
 
     # wait trainers to connect
     while controller.get_num_trainers() < min_trainers:
@@ -201,11 +202,19 @@ def server():
             if t in select_trainers:
                 # logger.info(
                 #     f'selected: {t}', extra=metricType)
-                print(
-                    f'selected trainer {t} for training on round {controller.get_current_round()}')
-                m = json.dumps({'id': t, 'selected': True}).replace(' ', '')
-                api_communication.set_frequency(freq=cpu_frequancy[t])
+                print(f'selected trainer {t} for training on round {controller.get_current_round()}')
 
+                m = json.dumps({'id': t, 'selected': True}).replace(' ', '')
+
+
+                idx=controller.trainer_list.index(t)
+                fmax=controller.model_inputs['fmax'][idx]
+                fmin=controller.model_inputs['fmin'][idx]
+                
+                api_communication.set_upper_frequency(freq=fmax/(10**9))
+                api_communication.set_lower_frequency(freq=fmin/(10**9))
+
+                api_communication.set_frequency(freq=cpu_frequancy[t])
                 controller.output_data.curr_line[f'freq_{t}']=cpu_frequancy[t]
 
                 time_start=time.time()

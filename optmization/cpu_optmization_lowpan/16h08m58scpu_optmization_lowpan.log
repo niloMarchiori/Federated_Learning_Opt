@@ -1,0 +1,24 @@
+2025-11-12 16:09:09,113 - EXECUT - INFO - starting server...
+2025-11-12 16:09:17,355 - EXECUT - INFO - trainer number sta0 just joined the pool
+2025-11-12 16:09:17,398 - EXECUT - INFO - trainer number sta1 just joined the pool
+2025-11-12 16:09:18,158 - METRIC - INFO - round: 1
+2025-11-12 16:09:18,158 - METRIC - INFO - n_selected: 2
+2025-11-12 16:09:18,159 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1"]}
+2025-11-12 16:10:36,608 - EXECUT - INFO - received weights from trainer sta0!
+2025-11-12 16:12:02,419 - EXECUT - INFO - received weights from trainer sta1!
+2025-11-12 16:12:03,565 - EXECUT - INFO - sent aggregated weights to trainers!
+2025-11-12 16:12:06,808 - METRIC - INFO - {"loss": 0.28755828738212585, "accuracy": 0.9164332151412964, "energy_consumption": 0.02981349374999996, "selected": true, "client_name": "sta1"}
+2025-11-12 16:12:09,381 - METRIC - INFO - {"loss": 0.2619832754135132, "accuracy": 0.9290000200271606, "energy_consumption": 0.03461272441666664, "selected": true, "client_name": "sta0"}
+2025-11-12 16:12:09,572 - METRIC - INFO - mean_accuracy: 0.9227166175842285
+
+2025-11-12 16:12:09,573 - METRIC - INFO - round: 2
+2025-11-12 16:12:09,573 - METRIC - INFO - n_selected: 2
+2025-11-12 16:12:09,573 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1"]}
+2025-11-12 16:13:36,398 - EXECUT - INFO - received weights from trainer sta0!
+2025-11-12 16:14:53,510 - EXECUT - INFO - received weights from trainer sta1!
+2025-11-12 16:14:54,633 - EXECUT - INFO - sent aggregated weights to trainers!
+2025-11-12 16:14:57,814 - METRIC - INFO - {"loss": 0.27885228395462036, "accuracy": 0.915032684803009, "energy_consumption": 0.059873198999999974, "selected": true, "client_name": "sta1"}
+2025-11-12 16:14:57,917 - METRIC - INFO - {"loss": 0.2712312340736389, "accuracy": 0.9259999990463257, "energy_consumption": 0.06187867049999999, "selected": true, "client_name": "sta0"}
+2025-11-12 16:14:58,637 - METRIC - INFO - mean_accuracy: 0.9205163419246674
+
+2025-11-12 16:14:58,687 - METRIC - INFO - stop_condition: rounds
