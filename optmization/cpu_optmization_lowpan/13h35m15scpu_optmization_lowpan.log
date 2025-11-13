@@ -138,3 +138,20 @@
 2025-11-13 14:17:51,527 - EXECUT - INFO - received weights from trainer sta0!
 2025-11-13 14:18:41,675 - EXECUT - INFO - received weights from trainer sta5!
 2025-11-13 14:19:32,104 - EXECUT - INFO - received weights from trainer sta3!
+2025-11-13 14:21:02,361 - EXECUT - INFO - received weights from trainer sta2!
+2025-11-13 14:21:50,957 - EXECUT - INFO - received weights from trainer sta1!
+2025-11-13 14:21:52,245 - EXECUT - INFO - sent aggregated weights to trainers!
+2025-11-13 14:22:17,565 - METRIC - INFO - {"loss": 0.08728204667568207, "accuracy": 0.9750546813011169, "energy_consumption": 0.11698404949999933, "selected": true, "host_energy_consumption": 4379479206.0, "client_name": "sta1"}
+2025-11-13 14:22:18,939 - METRIC - INFO - {"loss": 0.08194369077682495, "accuracy": 0.9770846366882324, "energy_consumption": 0.06179752908333274, "selected": true, "host_energy_consumption": 3099718039.0, "client_name": "sta0"}
+2025-11-13 14:22:24,774 - METRIC - INFO - {"loss": 0.08114726841449738, "accuracy": 0.9777212142944336, "energy_consumption": 0.07087889183333347, "selected": true, "host_energy_consumption": 2268543860.0, "client_name": "sta4"}
+2025-11-13 14:22:24,905 - METRIC - INFO - {"loss": 0.07597685605287552, "accuracy": 0.97826087474823, "energy_consumption": 0.12409748824999993, "selected": true, "host_energy_consumption": -60788992961.0, "client_name": "sta2"}
+2025-11-13 14:22:26,505 - METRIC - INFO - {"loss": 0.08355638384819031, "accuracy": 0.9760000109672546, "energy_consumption": 0.07809102500000004, "selected": true, "host_energy_consumption": 3453604556.0, "client_name": "sta5"}
+2025-11-13 14:22:27,078 - METRIC - INFO - {"loss": 0.09210778027772903, "accuracy": 0.9707578420639038, "energy_consumption": 0.10729377900000017, "selected": true, "host_energy_consumption": 3952970564.0, "client_name": "sta3"}
+2025-11-13 14:22:27,280 - METRIC - INFO - mean_accuracy: 0.9758132100105286
+
+2025-11-13 14:22:27,281 - METRIC - INFO - round: 9
+2025-11-13 14:22:27,281 - METRIC - INFO - n_selected: 6
+2025-11-13 14:22:27,281 - METRIC - INFO - {"selected_trainers": ["sta4", "sta0", "sta5", "sta3", "sta2", "sta1"]}
+2025-11-13 14:22:59,482 - EXECUT - INFO - received weights from trainer sta4!
+2025-11-13 14:23:30,883 - EXECUT - INFO - received weights from trainer sta0!
+2025-11-13 14:24:16,792 - EXECUT - INFO - received weights from trainer sta5!
