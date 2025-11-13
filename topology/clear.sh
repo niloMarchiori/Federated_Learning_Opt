@@ -1,7 +1,6 @@
 sudo rm -r client_log
 sudo rm -r optmization
-sudo rm -r Results_Opt
-sudo rm -r Input_Model
+sudo rm -r Results
 
-docker kill $(docker ps -q)
+docker kill $(docker ps -aq)
 docker rm $(docker ps -aq)

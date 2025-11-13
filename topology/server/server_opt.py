@@ -142,6 +142,7 @@ def server():
         t=m['id']
         metrics=m['metrics']
         controller.output_data.curr_line[f'consumption_{t}']=metrics['energy_consumption']
+        controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
 
     # connect on queue
     controller = Controller(min_trainers=min_trainers, num_rounds=nun_rounds,
@@ -160,7 +161,6 @@ def server():
     print(color.BOLD_START + 'starting server...' + color.BOLD_END)
 
     api_communication.test_api()
-    api_communication.set_cpu_governor()
 
     # wait trainers to connect
     while controller.get_num_trainers() < min_trainers:

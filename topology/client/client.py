@@ -5,6 +5,7 @@ import numpy as np
 import json
 import time
 import sys
+import os
 try:
     import torch
 except:
@@ -14,6 +15,15 @@ from trainer import read_energy
 
 global ENERGY_CONSUMPTION
 ENERGY_CONSUMPTION = 0.0
+
+global HOST_ENERGY_CONSUMPTION
+HOST_ENERGY_CONSUMPTION = 0.0
+
+def read_host_energy():
+    file_path = '/sys/class/powercap/intel-rapl:0/energy_uj'
+    with open(file_path, 'r') as f:
+        content_str = f.read()
+    return int(content_str)
 
 def create_object(package, class_name, **atributos):
     try:
@@ -121,7 +131,9 @@ the client trains and send the training results back.
 def on_message_selection(client, userdata, message):
     global selected
     global ENERGY_CONSUMPTION
+    global HOST_ENERGY_CONSUMPTION
     idl_energy = read_energy()
+    host_idle_energy = read_host_energy()
 
     msg = json.loads(message.payload.decode("utf-8"))
     if msg['id'] == CLIENT_NAME:
@@ -149,10 +161,14 @@ def on_message_selection(client, userdata, message):
     actv_energy = read_energy()
     ENERGY_CONSUMPTION += actv_energy - idl_energy
 
+    host_active_energy = read_host_energy()
+    HOST_ENERGY_CONSUMPTION += host_active_energy - host_idle_energy
+
 # callback for posAggQueue: gets aggregated weights and publish validation results on the metricsQueue
 def on_message_agg(client, userdata, message):
     global selected
     global ENERGY_CONSUMPTION
+    global HOST_ENERGY_CONSUMPTION
 
     idl_energy = read_energy()
 
@@ -166,7 +182,7 @@ def on_message_agg(client, userdata, message):
     actv_energy = read_energy()
     ENERGY_CONSUMPTION += actv_energy - idl_energy
     results['energy_consumption'] = ENERGY_CONSUMPTION
-
+    results['host_energy_consumption'] = HOST_ENERGY_CONSUMPTION
 
     response = json.dumps(
         {'id': CLIENT_NAME, "metrics": results}, default=default)
@@ -188,21 +204,6 @@ def on_message_stop(client, userdata, message):
     trainer.set_stop_true()
     exit()
 
-
-# def get_trainer():
-#     # # try:
-#     # if CLIENT_INSTANTIATION_ARGS is not None:
-
-#     return create_object("trainer", trainer_class, id=CLIENT_ID, name=CLIENT_NAME, args=CLIENT_INSTANTIATION_ARGS)
-#     # else:
-#     #     return Trainer(CLIENT_ID, CLIENT_NAME, {})
-
-#     # # old trainer standard
-#     # except:
-#     #     return Trainer(CLIENT_ID, MODE)
-
-
-# connect on queue and send register
 
 trainer = create_object("trainer", trainer_class, id=CLIENT_ID,
                         name=CLIENT_NAME, args=CLIENT_INSTANTIATION_ARGS)

@@ -18,6 +18,8 @@ from federated.net import MininetFed
 from federated.node import ClientSensor, ServerSensor
 
 from api import app,call_sensor, call_network
+from server import api_communication
+
 import uvicorn
 import threading
 
@@ -64,10 +66,9 @@ def topology(server_script,client_script):
     info('*** Adding Nodes...\n')
     ap1 = net.addAPSensor('ap1', cls=DockerP4Sensor, ip6='fe80::1/64', panid='0xbeef',
                           dodag_root=True, storing_mode=mode, privileged=True,
-                          volumes=[path + "/:/root",
-                                   "/tmp/.X11-unix:/tmp/.X11-unix:rw"],
+                          volumes=[path + "/:/root", "/tmp/.X11-unix:/tmp/.X11-unix:rw"],
                           dimage=dimage, cpu_shares=20, netcfg=True, trickle_t=t,
-                          environment={"DISPLAY": ":1"}, loglevel="info",
+                          loglevel="info",
                           thriftport=50001,  IPBASE="172.17.0.0/24",
                           **args)
     
@@ -76,14 +77,13 @@ def topology(server_script,client_script):
                          volumes=volumes,
                          dimage='mininetfed:serversensor',
                          ip6='fe80::2/64', panid='0xbeef', trickle_t=t,
-                         environment={"DISPLAY": ":0"}, privileged=True,
+                         privileged=True,
                          port_bindings={5000: 5000},
                          )
 
     clients = []
     for i in range(NUM_CLIENTS):
-        clients.append(net.addSensor(f'sta{i}', privileged=True, environment={"DISPLAY": ":0"},
-                                     cls=ClientSensor, script=client_script,
+        clients.append(net.addSensor(f'sta{i}', privileged=True,                                      cls=ClientSensor, script=client_script,
                                      voltage=3.7, #V
                                      battery_capacity=15, #mAh
                                      ip6=f'fe80::{i+3}/64',
@@ -97,8 +97,7 @@ def topology(server_script,client_script):
 
     # h1 = net.addDocker('h1', volumes=[path + "/:/root", "/tmp/.X11-unix:/tmp/.X11-unix:rw"],
                     #    dimage="ramonfontes/grafana", port_bindings={3000: 3000}, ip='192.168.210.1',
-                    #    privileged=True, environment={"DISPLAY": ":1"},
-                    #    cpuset_cpus="14")
+                    #    privileged=True,                     #    cpuset_cpus="14")
                     
     info("*** Configuring Propagation Model\n")
 
@@ -148,7 +147,6 @@ def topology(server_script,client_script):
     thread.start()
     sleep(3)
     print("API is running...")
-    # CLI(net)
     # -----------------------------------------------------------------------------------------
 
     info("*** Measuring energy consumption\n")
@@ -160,22 +158,21 @@ def topology(server_script,client_script):
 
     info('*** Running broker...\n')
     ap1.cmd("nohup mosquitto -c /etc/mosquitto/mosquitto.conf &")
-    makeTerm(
-        ap1, cmd="bash -c 'tail -f /var/log/mosquitto/mosquitto.log'")
+
+    makeTerm(ap1, cmd="bash -c 'tail -f /var/log/mosquitto/mosquitto.log'")
 
     net.broker_addr = 'fd3c:be8a:173f:8e80::1'
 
     sleep(1)
+    # CLI(net)
     info('*** Server...\n')
-    srv1.run(broker_addr=net.broker_addr,
-             experiment_controller=net.experiment_controller)
+    srv1.run(broker_addr=net.broker_addr, experiment_controller=net.experiment_controller)
 
     sleep(3)
 
     info('*** Clients...\n')
     for client in clients:
-        client.run(broker_addr=net.broker_addr,
-                   experiment_controller=net.experiment_controller)
+        client.run(broker_addr=net.broker_addr, experiment_controller=net.experiment_controller)
 
     
     # # h1.cmd("ifconfig h1-eth1 down")
@@ -191,6 +188,7 @@ def topology(server_script,client_script):
 
 
 def main():
+    api_communication.set_cpu_governor()
     client_script="flw/topology/client/client.py"
     server_script="flw/topology/server/server_opt.py"
     topology(server_script,client_script)
