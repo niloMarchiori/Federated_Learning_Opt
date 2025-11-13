@@ -211,10 +211,10 @@ def server():
                 fmax=controller.model_inputs['fmax'][idx]
                 fmin=controller.model_inputs['fmin'][idx]
                 
-                api_communication.set_upper_frequency(freq=fmax/(10**9))
-                api_communication.set_lower_frequency(freq=fmin/(10**9))
+                api_communication.set_upper_frequency(freq=cpu_frequancy[t])
+                api_communication.set_lower_frequency(freq=cpu_frequancy[t])
 
-                api_communication.set_frequency(freq=cpu_frequancy[t])
+                # api_communication.set_frequency(freq=cpu_frequancy[t])
                 controller.output_data.curr_line[f'freq_{t}']=cpu_frequancy[t]
 
                 time_start=time.time()
