@@ -74,26 +74,24 @@ O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a 
     * Segundo Ramon a implementação é simples, entretando seria necessário encontrar um modelo matemático
 
 ## Problemas sendo resolvidos
-1. A falta de controle total da frequência de cpu pode ser resolvida usando o treinamento assíncrono dos clientes
-* No treinamento assíncrono como será mensurado o consumo de energia?
+1. Quantidade de samples deveria ser herdada entre testes.
+2. MAIS GRAVE: Soluções fora das restrições sendo "encontradas"
 
 
 
 ## To do:
 1. Em andamento:
-    * [x] Pensar numa forma de mensurar o consumo de energia desconsiderando o tempo ocioso por conta do trainemento assíncrono
-    * [ ] Testar gasto de energia pelo arquivo kernel
-    * [x] Ajustar script dos meninos para settar freq up e freq down
-
-2. Próximo passo:
+    * ... Problemas
     * [ ] Refatorar código
     * [ ] Testar a dependência entre consumo de energia e frequência de cpu (tanto no modelo do Containernet quanto no host)
-    * [ ] Testar diferentes combinações de constantes
+    
+2. Próximo passo:
+    * [ ] Server tem acesso ao experiment_name então é possível criar pasta separadas para output
+    
 
 3. Standy: 
     * [ ] Validação assíncrona
     - [ ] Passar range_freq no client_args/on_message_register
-    * [ ] Server tem acesso ao experiment_name então é possível criar pasta separadas para output
 
 ### Problemas
 
