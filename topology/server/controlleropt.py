@@ -58,7 +58,7 @@ class Controller:
         self.metrics = {}
 
         self.clients_param={}
-        self.experiment_ctt={'fmin':1.9, #GHz'
+        self.experiment_ctt={'fmin':1.3, #GHz'
                              'fmax_range': [2,3.0], #GHz
                              'alpha': 2E-28,
                              'kappa': 10**2,
