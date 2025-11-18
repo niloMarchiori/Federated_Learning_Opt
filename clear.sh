@@ -1,4 +1,4 @@
-mnf_clear
+mnf_clean
 sudo rm -r client_log
 sudo rm -r optmization
 sudo rm -r Results

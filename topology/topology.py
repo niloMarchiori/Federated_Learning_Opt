@@ -171,13 +171,13 @@ def topology(server_script,client_script):
     sleep(1)
     # CLI(net)
     info('*** Server...\n')
-    srv1.run(broker_addr=net.broker_addr, experiment_controller=net.experiment_controller,quiet=True)
+    srv1.run(broker_addr=net.broker_addr, experiment_controller=net.experiment_controller)
 
     sleep(3)
 
     info('*** Clients...\n')
     for client in clients:
-        client.run(broker_addr=net.broker_addr, experiment_controller=net.experiment_controller,quiet=True)
+        client.run(broker_addr=net.broker_addr, experiment_controller=net.experiment_controller)
 
     
     # # h1.cmd("ifconfig h1-eth1 down")
