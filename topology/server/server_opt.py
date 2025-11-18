@@ -211,8 +211,8 @@ def server():
 
 
                 idx=controller.trainer_list.index(t)
-                fmax=controller.model_inputs['fmax'][idx]
-                fmin=controller.model_inputs['fmin'][idx]
+                fmax=controller.model_inputs['fmax'][idx]*1E-9
+                fmin=controller.model_inputs['fmin'][idx]*1E-9
                 
                 api_communication.set_frequency(freq=cpu_frequancy[t])
                 api_communication.set_upper_frequency(freq=fmax)
