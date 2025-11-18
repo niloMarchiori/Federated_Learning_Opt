@@ -45,7 +45,7 @@ def topology(server_script,client_script):
     if '-10' in sys.argv:
         t = 10
     NUM_CLIENTS = 2
-    NUM_ROUNDS=2
+    NUM_ROUNDS=5
     
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
