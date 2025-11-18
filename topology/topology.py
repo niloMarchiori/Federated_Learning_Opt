@@ -112,11 +112,11 @@ def topology(server_script,client_script):
     net.addLink(ap1, clients[0], cls=LoWPAN)
     net.addLink(ap1, clients[1], cls=LoWPAN)
 
-    net.addLink(clients[0], clients[2], cls=LoWPAN)
-    net.addLink(clients[0], clients[4], cls=LoWPAN)
+    # net.addLink(clients[0], clients[2], cls=LoWPAN)
+    # net.addLink(clients[0], clients[4], cls=LoWPAN)
 
-    net.addLink(clients[1], clients[3], cls=LoWPAN)
-    net.addLink(clients[1], clients[5], cls=LoWPAN)
+    # net.addLink(clients[1], clients[3], cls=LoWPAN)
+    # net.addLink(clients[1], clients[5], cls=LoWPAN)
     
     # net.addLink(ap1, h1)
     net.addLinkAutoStop(ap1)
