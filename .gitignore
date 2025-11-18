@@ -26,6 +26,7 @@ sbrc/
 TODO.md
 mininetfed.egg-info/
 build/
+client_log/
 .idea
 ./data/MNIST/
 ./dist/
