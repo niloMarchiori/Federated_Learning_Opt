@@ -1,1 +1,1 @@
-watch -n 1 "cat /proc/cpuinfo | grep \"MHz\""
+watch -n 1 "cpupower frequency-info | grep \"The governor\"; cat /proc/cpuinfo | grep \"MHz\""

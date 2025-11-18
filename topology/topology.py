@@ -13,11 +13,14 @@ from mn_wifi.energy import BitZigBeeEnergy
 from containernet.node import DockerP4Sensor
 from containernet.cli import CLI
 from containernet.energy import Energy
+from energy import EnergyFreqBased
 
 from federated.net import MininetFed
 from federated.node import ClientSensor, ServerSensor
 
 from api import app,call_sensor, call_network
+from server import api_communication
+
 from server import api_communication
 
 import uvicorn
@@ -43,8 +46,8 @@ def topology(server_script,client_script):
     t = 4
     if '-10' in sys.argv:
         t = 10
-    NUM_CLIENTS = 6
-    NUM_ROUNDS=20
+    NUM_CLIENTS = 2
+    NUM_ROUNDS=5
     
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
@@ -83,14 +86,14 @@ def topology(server_script,client_script):
 
     clients = []
     for i in range(NUM_CLIENTS):
-        clients.append(net.addSensor(f'sta{i}', privileged=True,                                      cls=ClientSensor, script=client_script,
+        clients.append(net.addSensor(f'sta{i}', privileged=True,                                      
+                                     cls=ClientSensor, script=client_script,
                                      voltage=3.7, #V
                                      battery_capacity=15, #mAh
                                      ip6=f'fe80::{i+3}/64',
                                      numeric_id=i-1,
                                      args=client_args, volumes=volumes,
-                                     dimage='mininetfed:clientsensor',
-                                     cpuset_cpus=f"0,{1+i}"
+                                     dimage='mininetfed:clientsensor'
                                      ))
     
     net.addAutoStop6()
@@ -147,12 +150,13 @@ def topology(server_script,client_script):
     thread.start()
     sleep(3)
     print("API is running...")
-    # api_communication.set_cpu_governor()
+    api_communication.set_cpu_governor()
     # -----------------------------------------------------------------------------------------
 
     info("*** Measuring energy consumption\n")
-    Energy(net.sensors)
-    BitZigBeeEnergy(net.sensors)
+    EnergyFreqBased(net.sensors)
+    # Energy(net.sensors)
+    # BitZigBeeEnergy(net.sensors)
 
     info('*** Running devices...\n')
     net.configRPLD(net.sensors + net.apsensors)

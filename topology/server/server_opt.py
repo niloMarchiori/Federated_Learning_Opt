@@ -143,6 +143,7 @@ def server():
         metrics=m['metrics']
         controller.output_data.curr_line[f'consumption_{t}']=metrics['energy_consumption']
         controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
+        controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
 
     # connect on queue
     controller = Controller(min_trainers=min_trainers, num_rounds=nun_rounds,
@@ -211,10 +212,10 @@ def server():
                 fmax=controller.model_inputs['fmax'][idx]
                 fmin=controller.model_inputs['fmin'][idx]
                 
-                api_communication.set_upper_frequency(freq=cpu_frequancy[t])
-                api_communication.set_lower_frequency(freq=cpu_frequancy[t])
+                api_communication.set_frequency(freq=cpu_frequancy[t])
+                api_communication.set_upper_frequency(freq=fmax)
+                api_communication.set_lower_frequency(freq=fmin)
 
-                # api_communication.set_frequency(freq=cpu_frequancy[t])
                 controller.output_data.curr_line[f'freq_{t}']=cpu_frequancy[t]
 
                 time_start=time.time()
