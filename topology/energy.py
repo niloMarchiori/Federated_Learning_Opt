@@ -56,7 +56,7 @@ class EnergyFreqBased(object):
         Returns: float: EnergyFreqBased consumed in watt-hours (Wh).
         """
 
-        alpha = 2E-28  # Chip capacitance constant (F)
+        alpha = 2E-28  # Chip capacitance constant
         current_datetime = datetime.now()
         cpus_freqs = self.get_cpu_freq(node)
         formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
