@@ -164,20 +164,20 @@ def topology(server_script,client_script):
     info('*** Running broker...\n')
     ap1.cmd("nohup mosquitto -c /etc/mosquitto/mosquitto.conf &")
 
-    makeTerm(ap1, cmd="bash -c 'tail -f /var/log/mosquitto/mosquitto.log'")
+    ap1.cmd("bash -c 'tail -f /var/log/mosquitto/mosquitto.log'")
 
     net.broker_addr = 'fd3c:be8a:173f:8e80::1'
 
     sleep(1)
     # CLI(net)
     info('*** Server...\n')
-    srv1.run(broker_addr=net.broker_addr, experiment_controller=net.experiment_controller)
+    srv1.run(broker_addr=net.broker_addr, experiment_controller=net.experiment_controller,quiet=True)
 
     sleep(3)
 
     info('*** Clients...\n')
     for client in clients:
-        client.run(broker_addr=net.broker_addr, experiment_controller=net.experiment_controller)
+        client.run(broker_addr=net.broker_addr, experiment_controller=net.experiment_controller,quiet=True)
 
     
     # # h1.cmd("ifconfig h1-eth1 down")

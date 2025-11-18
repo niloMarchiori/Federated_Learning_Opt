@@ -25,15 +25,6 @@ def read_host_energy():
         content_str = f.read()
     return int(content_str)
 
-global HOST_ENERGY_CONSUMPTION
-HOST_ENERGY_CONSUMPTION = 0.0
-
-def read_host_energy():
-    file_path = '/sys/class/powercap/intel-rapl:0/energy_uj'
-    with open(file_path, 'r') as f:
-        content_str = f.read()
-    return int(content_str)
-
 def create_object(package, class_name, **atributos):
     try:
         module = importlib.import_module(f"{package}")
