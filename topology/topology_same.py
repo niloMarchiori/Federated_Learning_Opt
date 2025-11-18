@@ -32,7 +32,7 @@ volumes = [f"{Path.cwd()}:" + volume, "/tmp/.X11-unix:/tmp/.X11-unix:rw"]
 
 experiment_config = {
     "ipBase": "10.0.0.0/24",
-    "experiments_folder": "optmization",
+    "experiments_folder": "Experiment",
     "date_prefix": False
 }
 
@@ -46,13 +46,13 @@ def topology(server_script,client_script):
     t = 4
     if '-10' in sys.argv:
         t = 10
-    NUM_CLIENTS = 2
-    NUM_ROUNDS=5
+    NUM_CLIENTS = 6
+    NUM_ROUNDS=20
     
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
-    client_args = {"mode": 'random r_samples', "trainer_class": "TrainerMNIST"}
-    experiment_name = 'cpu_optmization_lowpan'
+    client_args = {"mode": 'random same_samples', "trainer_class": "TrainerMNIST"}
+    experiment_name = 'sane_samples'
 
 
     net = MininetFed(**experiment_config, controller=[], experiment_name=experiment_name,
@@ -112,11 +112,11 @@ def topology(server_script,client_script):
     net.addLink(ap1, clients[0], cls=LoWPAN)
     net.addLink(ap1, clients[1], cls=LoWPAN)
 
-    # net.addLink(clients[0], clients[2], cls=LoWPAN)
-    # net.addLink(clients[0], clients[4], cls=LoWPAN)
+    net.addLink(clients[0], clients[2], cls=LoWPAN)
+    net.addLink(clients[0], clients[4], cls=LoWPAN)
 
-    # net.addLink(clients[1], clients[3], cls=LoWPAN)
-    # net.addLink(clients[1], clients[5], cls=LoWPAN)
+    net.addLink(clients[1], clients[3], cls=LoWPAN)
+    net.addLink(clients[1], clients[5], cls=LoWPAN)
     
     # net.addLink(ap1, h1)
     net.addLinkAutoStop(ap1)
