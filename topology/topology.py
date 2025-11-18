@@ -148,7 +148,7 @@ def topology(server_script,client_script):
     thread.start()
     sleep(3)
     print("API is running...")
-    # api_communication.set_cpu_governor()
+    api_communication.set_cpu_governor()
     # -----------------------------------------------------------------------------------------
 
     info("*** Measuring energy consumption\n")

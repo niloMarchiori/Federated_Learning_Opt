@@ -13,6 +13,7 @@ from mn_wifi.energy import BitZigBeeEnergy
 from containernet.node import DockerP4Sensor
 from containernet.cli import CLI
 from containernet.energy import Energy
+from energy import EnergyFreqBased
 
 from federated.net import MininetFed
 from federated.node import ClientSensor, ServerSensor
@@ -43,8 +44,8 @@ def topology(server_script,client_script):
     t = 4
     if '-10' in sys.argv:
         t = 10
-    NUM_CLIENTS = 6
-    NUM_ROUNDS=20
+    NUM_CLIENTS = 2
+    NUM_ROUNDS=2
     
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
@@ -109,11 +110,11 @@ def topology(server_script,client_script):
     net.addLink(ap1, clients[0], cls=LoWPAN)
     net.addLink(ap1, clients[1], cls=LoWPAN)
 
-    net.addLink(clients[0], clients[2], cls=LoWPAN)
-    net.addLink(clients[0], clients[4], cls=LoWPAN)
+    # net.addLink(clients[0], clients[2], cls=LoWPAN)
+    # net.addLink(clients[0], clients[4], cls=LoWPAN)
 
-    net.addLink(clients[1], clients[3], cls=LoWPAN)
-    net.addLink(clients[1], clients[5], cls=LoWPAN)
+    # net.addLink(clients[1], clients[3], cls=LoWPAN)
+    # net.addLink(clients[1], clients[5], cls=LoWPAN)
     
     # net.addLink(ap1, h1)
     net.addLinkAutoStop(ap1)
@@ -151,8 +152,9 @@ def topology(server_script,client_script):
     # -----------------------------------------------------------------------------------------
 
     info("*** Measuring energy consumption\n")
-    Energy(net.sensors)
-    BitZigBeeEnergy(net.sensors)
+    EnergyFreqBased(net.sensors)
+    # Energy(net.sensors)
+    # BitZigBeeEnergy(net.sensors)
 
     info('*** Running devices...\n')
     net.configRPLD(net.sensors + net.apsensors)
