@@ -84,14 +84,14 @@ def topology(server_script,client_script):
 
     clients = []
     for i in range(NUM_CLIENTS):
-        clients.append(net.addSensor(f'sta{i}', privileged=True,                                      cls=ClientSensor, script=client_script,
+        clients.append(net.addSensor(f'sta{i}', privileged=True,                                      
+                                     cls=ClientSensor, script=client_script,
                                      voltage=3.7, #V
                                      battery_capacity=15, #mAh
                                      ip6=f'fe80::{i+3}/64',
                                      numeric_id=i-1,
                                      args=client_args, volumes=volumes,
-                                     dimage='mininetfed:clientsensor',
-                                     cpuset_cpus=f"0,{1+i}"
+                                     dimage='mininetfed:clientsensor'
                                      ))
     
     net.addAutoStop6()

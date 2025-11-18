@@ -161,8 +161,8 @@ def on_message_selection(client, userdata, message):
     actv_energy = read_energy()
     ENERGY_CONSUMPTION += actv_energy - idl_energy
 
-    host_active_energy = read_host_energy()
-    HOST_ENERGY_CONSUMPTION += host_active_energy - host_idle_energy
+    host_actv_energy = read_host_energy()
+    HOST_ENERGY_CONSUMPTION += host_actv_energy - host_idle_energy
 
 # callback for posAggQueue: gets aggregated weights and publish validation results on the metricsQueue
 def on_message_agg(client, userdata, message):
@@ -171,6 +171,7 @@ def on_message_agg(client, userdata, message):
     global HOST_ENERGY_CONSUMPTION
 
     idl_energy = read_energy()
+    host_idl_energy= read_host_energy()
 
     print(f'received aggregated weights!')
     msg = json.loads(message.payload.decode("utf-8"))
@@ -180,9 +181,13 @@ def on_message_agg(client, userdata, message):
     results['selected'] = selected
 
     actv_energy = read_energy()
+    host_actv_energy=read_host_energy()
+
     ENERGY_CONSUMPTION += actv_energy - idl_energy
     results['energy_consumption'] = ENERGY_CONSUMPTION
-    results['host_energy_consumption'] = HOST_ENERGY_CONSUMPTION
+
+    HOST_ENERGY_CONSUMPTION+=host_actv_energy-host_idl_energy
+    results['host_energy_consumption'] = HOST_ENERGY_CONSUMPTION*2.8E-10
 
     response = json.dumps(
         {'id': CLIENT_NAME, "metrics": results}, default=default)
