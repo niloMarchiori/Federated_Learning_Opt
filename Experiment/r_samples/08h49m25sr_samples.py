@@ -47,12 +47,12 @@ def topology(server_script,client_script):
     if '-10' in sys.argv:
         t = 10
     NUM_CLIENTS = 6
-    NUM_ROUNDS=10
+    NUM_ROUNDS=20
     
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
-    client_args = {"mode": 'random same_samples', 'num_samples': 15000, "trainer_class": "TrainerMNIST"}
-    experiment_name = 'same_samples'
+    client_args = {"mode": 'random r_samples', "trainer_class": "TrainerMNIST"}
+    experiment_name = 'r_samples'
 
 
     net = MininetFed(**experiment_config, controller=[], experiment_name=experiment_name,
@@ -195,8 +195,8 @@ def topology(server_script,client_script):
 def main():
     
     client_script="flw/topology/client/client.py"
-    server_script="flw/topology/server/server_opt.py"
-    topology(server_script,client_script)
+    # server_script="flw/topology/server/server_opt.py"
+    # topology(server_script,client_script)
 
     server_script="flw/topology/server/server_ref.py"
     topology(server_script,client_script)
