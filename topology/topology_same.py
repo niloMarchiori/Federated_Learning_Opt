@@ -51,8 +51,8 @@ def topology(server_script,client_script):
     
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
-    client_args = {"mode": 'random same_samples', "trainer_class": "TrainerMNIST"}
-    experiment_name = 'sane_samples'
+    client_args = {"mode": 'random same_samples', 'num_samples': 15000, "trainer_class": "TrainerMNIST"}
+    experiment_name = 'same_samples'
 
 
     net = MininetFed(**experiment_config, controller=[], experiment_name=experiment_name,
