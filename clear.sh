@@ -1,6 +1,6 @@
 mnf_clean
 sudo rm -r client_log
-sudo rm -r optmization
+sudo rm -r Experiment
 sudo rm -r Results
 
 docker stop$(docker ps -aq)
