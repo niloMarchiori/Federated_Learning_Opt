@@ -195,8 +195,8 @@ def topology(server_script,client_script):
 def main():
     
     client_script="flw/topology/client/client.py"
-    server_script="flw/topology/server/server_opt.py"
-    topology(server_script,client_script)
+    # server_script="flw/topology/server/server_opt.py"
+    # topology(server_script,client_script)
 
     server_script="flw/topology/server/server_ref.py"
     topology(server_script,client_script)
