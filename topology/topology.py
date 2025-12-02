@@ -27,33 +27,19 @@ import uvicorn
 import threading
 
 
-volume = "/flw"
-volumes = [f"{Path.cwd()}:" + volume, "/tmp/.X11-unix:/tmp/.X11-unix:rw"]
+def topology(server_script,client_script, server_args,client_args,model_inputs,experiment_name = 'Experiment',n_rounds=20):
+    setLogLevel('info')
 
-experiment_config = {
+    volume = "/flw"
+    volumes = [f"{Path.cwd()}:" + volume, "/tmp/.X11-unix:/tmp/.X11-unix:rw"]
+
+    experiment_config = {
     "ipBase": "10.0.0.0/24",
     "experiments_folder": "Experiment",
     "date_prefix": False
-}
+    }
 
-server_args = {}
-client_args = {}
-experiment_name = ""
-
-
-def topology(server_script,client_script):
-
-    t = 4
-    if '-10' in sys.argv:
-        t = 10
     NUM_CLIENTS = 6
-    NUM_ROUNDS=10
-    
-    server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
-                    "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg"}
-    client_args = {"mode": 'random same_samples', 'num_samples': 15000, "trainer_class": "TrainerMNIST"}
-    experiment_name = 'same_samples'
-
 
     net = MininetFed(**experiment_config, controller=[], experiment_name=experiment_name,
                      default_volumes=volumes, topology_file=sys.argv[0], )
@@ -190,19 +176,3 @@ def topology(server_script,client_script):
 
     server.should_exit=True
     thread.join()
-
-
-def main():
-    
-    client_script="flw/topology/client/client.py"
-    server_script="flw/topology/server/server_opt.py"
-    topology(server_script,client_script)
-
-    server_script="flw/topology/server/server_ref.py"
-    topology(server_script,client_script)
-
-
-
-if __name__ == '__main__':
-    setLogLevel('info')
-    main()
