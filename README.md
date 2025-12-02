@@ -73,13 +73,8 @@ O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a 
 2. Dispositivos com interface de rede que permitem o controlo manual de Tx_Power não possuem consumo de energia implementado
     * Segundo Ramon a implementação é simples, entretando seria necessário encontrar um modelo matemático
 
-## Problemas sendo resolvidos
-1. Quantidade de samples deveria ser herdada entre testes.
-
-
 ## To do:
 1. Em andamento:
-    * [ ] Refatorar código
     * [ ] Número de épocas e rodadas limitadas pela acc_local
     
     

@@ -47,7 +47,7 @@ def topology(server_script,client_script):
     if '-10' in sys.argv:
         t = 10
     NUM_CLIENTS = 6
-    NUM_ROUNDS=2
+    NUM_ROUNDS=10
     
     model_inputs= {"kappa": 100,
                   "N": NUM_CLIENTS,
