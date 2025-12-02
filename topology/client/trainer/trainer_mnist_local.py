@@ -104,6 +104,9 @@ class TrainerMNIST:
         elif 'same_samples' in mode:
             self.num_samples = int(args['num_samples'])
 
+        if "set_nsamples" in mode:
+            self.num_samples = args['num_samples'].pop()
+
         print(
             f"mode:{mode}, n_samples:{self.num_samples}", file=sys.stderr)
 

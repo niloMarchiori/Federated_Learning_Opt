@@ -107,6 +107,7 @@ class Controller:
 
     def add_trainer(self, trainer_id):
         self.trainer_list.append(trainer_id)
+        self.trainer_list.sort()
 
     def add_client_training_response(self, id, response):
         self.client_training_response[id] = response

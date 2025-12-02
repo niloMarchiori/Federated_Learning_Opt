@@ -58,6 +58,8 @@ def server():
     stop_acc = server_args["stop_acc"]
     client_args = server_args.get("client")
 
+    model_inputs=server_args.get("model_inputs")
+
     logging.basicConfig(level=logging.INFO, filename=log_file,
                         format=FORMAT, filemode="w")
     metricType = {"infotype": "METRIC"}
@@ -146,7 +148,7 @@ def server():
 
     # connect on queue
     controller = Controller(min_trainers=min_trainers, num_rounds=nun_rounds,
-                            client_selector=client_selector, aggregator=aggregator)
+                            client_selector=client_selector, aggregator=aggregator, model_inputs=model_inputs)
     client = mqtt.Client('server')
     client.connect(broker_addr, bind_port=1883)
     client.on_connect = on_connect

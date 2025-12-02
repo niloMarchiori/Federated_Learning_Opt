@@ -61,7 +61,7 @@ def topology(server_script,client_script):
 
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg", "model_inputs": model_inputs}
-    client_args = {"mode": 'model_inputs', "model_inputs": model_inputs, "trainer_class": "TrainerMNIST"}
+    client_args = {"mode": 'set_nsamples', "num_samples": model_inputs['n_samples'], "trainer_class": "TrainerMNIST"}
     experiment_name = 'r_samples'
 
 
