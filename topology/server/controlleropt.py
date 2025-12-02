@@ -41,7 +41,7 @@ def criar_objeto(pacote, nome_classe):
 
 
 class Controller:
-    def __init__(self, min_trainers=2, num_rounds=5, client_selector='Random', aggregator="FedAvg"):
+    def __init__(self, min_trainers=2, num_rounds=5, client_selector='Random', aggregator="FedAvg", model_inputs=None):
         self.trainer_list = []
         self.min_trainers = min_trainers
         # self.trainers_per_round = trainers_per_round
@@ -57,15 +57,17 @@ class Controller:
         self.aggregator = criar_objeto("aggregator", aggregator)
         self.metrics = {}
 
-        self.clients_param={}
         self.experiment_ctt={'fmin':1.3, #GHz'
                              'fmax_range': [2,3.0], #GHz
                              'alpha': 2E-28,
                              'kappa': 10**2,
                              'N': self.min_trainers
                              }
-        self.model_inputs={}
-        self.creat_model_inputs()
+        
+        self.model_inputs=model_inputs
+        if not model_inputs:
+            self.creat_model_inputs()
+        
 
         self.output_data=OutPutData()
 
@@ -152,11 +154,6 @@ class Controller:
 
         # agg_response_dict -> {client_id: {"weights": [], ...}}
         return agg_response_dict
-
-
-
-    def set_client_params(self, client_id, params):
-        self.clients_param[client_id] = params
     
     def creat_model_inputs(self):
         np.random.seed(seed=42)

@@ -75,22 +75,19 @@ O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a 
 
 ## Problemas sendo resolvidos
 1. Quantidade de samples deveria ser herdada entre testes.
-2. MAIS GRAVE: Soluções fora das restrições sendo "encontradas"
-
 
 
 ## To do:
 1. Em andamento:
-    * ... Problemas
     * [ ] Refatorar código
-    * [ ] Testar a dependência entre consumo de energia e frequência de cpu (tanto no modelo do Containernet quanto no host)
+    * [ ] Número de épocas e rodadas limitadas pela acc_local
+    
     
 2. Próximo passo:
-    * [ ] Server tem acesso ao experiment_name então é possível criar pasta separadas para output
-    
+    * [ ] Validação assíncrona
+
 
 3. Standy: 
-    * [ ] Validação assíncrona
     - [ ] Passar range_freq no client_args/on_message_register
 
 ### Problemas
