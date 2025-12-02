@@ -105,7 +105,7 @@ def topology(server_script,client_script):
                                      battery_capacity=15, #mAh
                                      ip6=f'fe80::{i+3}/64',
                                      numeric_id=i-1,
-                                     args=client_args, volumes=volumes,
+                                     args=client_args.copy(), volumes=volumes,
                                      dimage='mininetfed:clientsensor'
                                      ))
     
