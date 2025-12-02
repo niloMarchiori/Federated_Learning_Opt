@@ -61,7 +61,8 @@ def topology(server_script,client_script):
 
     server_args = {"min_trainers": NUM_CLIENTS, "num_rounds": NUM_ROUNDS,
                     "stop_acc": 0.999, 'client_selector': 'All', 'aggregator': "FedAvg", "model_inputs": model_inputs}
-    client_args = {"mode": 'set_nsamples', "num_samples": model_inputs['n_samples'], "trainer_class": "TrainerMNIST"}
+    
+    client_args = {"mode": 'all same_samples', "num_samples":-1,"trainer_class": "TrainerMNIST"}
     experiment_name = 'r_samples'
 
 
@@ -96,6 +97,7 @@ def topology(server_script,client_script):
 
     clients = []
     for i in range(NUM_CLIENTS):
+        client_args['num_samples']=model_inputs["n_samples"][i]
         clients.append(net.addSensor(f'sta{i}', privileged=True,                                      
                                      cls=ClientSensor, script=client_script,
                                      voltage=3.7, #V
