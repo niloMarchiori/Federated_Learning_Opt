@@ -30,6 +30,10 @@ import threading
 def topology(server_script,client_script, server_args,client_args,model_inputs,experiment_name = 'Experiment',n_rounds=20):
     setLogLevel('info')
 
+    t = 4
+    if '-10' in sys.argv:
+        t = 10
+
     volume = "/flw"
     volumes = [f"{Path.cwd()}:" + volume, "/tmp/.X11-unix:/tmp/.X11-unix:rw"]
 
