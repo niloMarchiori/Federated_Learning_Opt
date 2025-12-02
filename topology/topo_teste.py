@@ -47,7 +47,7 @@ def topology(server_script,client_script):
     if '-10' in sys.argv:
         t = 10
     NUM_CLIENTS = 6
-    NUM_ROUNDS=20
+    NUM_ROUNDS=2
     
     model_inputs= {"kappa": 100,
                   "N": NUM_CLIENTS,
@@ -98,6 +98,7 @@ def topology(server_script,client_script):
     clients = []
     for i in range(NUM_CLIENTS):
         client_args['num_samples']=model_inputs["n_samples"][i]
+        print(client_args['num_samples'])
         clients.append(net.addSensor(f'sta{i}', privileged=True,                                      
                                      cls=ClientSensor, script=client_script,
                                      voltage=3.7, #V
