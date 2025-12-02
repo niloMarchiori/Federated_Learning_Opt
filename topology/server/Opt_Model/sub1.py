@@ -19,6 +19,12 @@ def get_TN2(N2,c,D,fmin):
     return T_N2
 
 def solve_SUB1(kappa,N:int,alpha:float,D:int,c:float,fmin:float,fmax=float,**kwargs):
+
+    D=np.array(D)
+    c=np.array(c)
+    fmin=np.array(fmin)
+    fmax=np.array(fmax)
+
     upper_b_time=c*D/fmin
     ordened_UES=np.argsort(upper_b_time)
 
