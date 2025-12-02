@@ -106,6 +106,7 @@ class TrainerMNIST:
 
         print(
             f"mode:{mode}, n_samples:{self.num_samples}", file=sys.stderr)
+        print(args, file=sys.stderr)
 
         self.x_train, self.y_train, self.x_test, self.y_test = self.split_data()
 

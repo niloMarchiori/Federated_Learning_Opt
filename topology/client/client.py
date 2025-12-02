@@ -36,8 +36,6 @@ def create_object(package, class_name, **atributos):
 
 n = len(sys.argv)
 
-print(f"N: {n}", file=sys.stderr)
-
 # check if client_instaciation_args are present
 if n != 4 and n != 5:
     print(
