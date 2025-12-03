@@ -60,6 +60,7 @@ def server():
 
     model_inputs=server_args.get("model_inputs")
 
+
     logging.basicConfig(level=logging.INFO, filename=log_file,
                         format=FORMAT, filemode="w")
     metricType = {"infotype": "METRIC"}
@@ -80,7 +81,10 @@ def server():
     # subscribe to queues on connection
     def on_connect(client, userdata, flags, rc):
         subscribe_queues = ['minifed/registerQueue',
-                            'minifed/preAggQueue', 'minifed/metricsQueue', 'minifed/ready']
+                            'minifed/preAggQueue', 
+                            'minifed/metricsQueue', 
+                            'minifed/ready',
+                            'minifed/post_datasz']
         for s in subscribe_queues:
             client.subscribe(s)
 
@@ -88,8 +92,6 @@ def server():
     def on_message_ready(client, userdata, message):
         m = json.loads(message.payload.decode("utf-8"))        
         controller.add_trainer(m["id"])
-        controller.update_dataset_size(m['id'],m['dataset_sz'])
-        # controller.update_model_size(m['id'],m['model_sz'])
 
     def on_message_register(client, userdata, message):
         m = json.loads(message.payload.decode("utf-8"))
@@ -145,10 +147,17 @@ def server():
         metrics=m['metrics']
         controller.output_data.curr_line[f'consumption_{t}']=metrics['energy_consumption']
         controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
+        controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
+
+
+    def on_message_post_datasz(client, userdata, message):
+        msg=json.loads(message.payload.decode("utf-8"))
+        controller.update_dataset_size(msg['id'],msg['dataset_sz'])
 
     # connect on queue
     controller = Controller(min_trainers=min_trainers, num_rounds=nun_rounds,
                             client_selector=client_selector, aggregator=aggregator, model_inputs=model_inputs)
+    
     client = mqtt.Client('server')
     client.connect(broker_addr, bind_port=1883)
     client.on_connect = on_connect
@@ -156,6 +165,7 @@ def server():
     client.message_callback_add('minifed/preAggQueue', on_message_agg)
     client.message_callback_add('minifed/metricsQueue', on_message_metrics)
     client.message_callback_add('minifed/ready', on_message_ready)
+    client.message_callback_add('minifed/post_datasz', on_message_post_datasz)
 
     # start loop
     client.loop_start()
@@ -168,14 +178,21 @@ def server():
     while controller.get_num_trainers() < min_trainers:
         time.sleep(1)
 
-    # begin training
 
+    # ask for trainers dataset size
+    trainer_list=controller.get_trainer_list()
+    for t in trainer_list:
+        client.publish('minifed/ask_datsz',
+                       json.dumps({"id": t}, default=default))
+
+
+    # begin training
     collums=['mean_acc']
     collums+=[f'freq_{t}' for t in controller.get_trainer_list()]
     collums+=[f'consumption_{t}' for t in controller.get_trainer_list()]
 
     selected_qtd = 0
-
+    
     cpu_frequancy = controller.run_opt_model()
     print(cpu_frequancy)
 
@@ -199,34 +216,35 @@ def server():
         logger.info(
             f"{json.dumps({'selected_trainers': select_trainers})}", extra=metricType)
         
+        
         TIMES=[]
 
         for t in trainer_list:
-            print()
             if t in select_trainers:
                 # logger.info(
                 #     f'selected: {t}', extra=metricType)
-                print(
-                    f'selected trainer {t} for training on round {controller.get_current_round()}')
+                print(f'selected trainer {t} for training on round {controller.get_current_round()}')
+
                 m = json.dumps({'id': t, 'selected': True}).replace(' ', '')
 
+
                 idx=controller.trainer_list.index(t)
-                fmax=controller.model_inputs['fmax'][idx]
-                fmin=controller.model_inputs['fmin'][idx]
+                fmax=controller.model_inputs['fmax'][idx]*1E-9
+                fmin=controller.model_inputs['fmin'][idx]*1E-9
                 
-                api_communication.set_upper_frequency(freq=fmax/(10**9))
-                api_communication.set_lower_frequency(freq=fmin/(10**9))
+                api_communication.set_upper_frequency(freq=fmax)
+                api_communication.set_lower_frequency(freq=fmin)
+
+                controller.output_data.curr_line[f'freq_{t}']=cpu_frequancy[t]
 
                 time_start=time.time()
-                client.publish('minifed/selectionQueue', m)
 
+                client.publish('minifed/selectionQueue', m)
                 while not MODEL_TRAINED:
                     pass
                 MODEL_TRAINED = False
                 time_end=time.time()
-                time_end=time.time()
                 TIMES.append(time_end-time_start)
-
             else:
                 # logger.info(
                 #     f'NOT_selected: {t}', extra=metricType)
