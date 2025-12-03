@@ -150,7 +150,7 @@ def server():
     # callback de post_datasz: receive the client dataset size
     def on_message_post_datasz(client, userdata, message):
         msg=json.loads(message.payload.decode("utf-8"))
-        print("Datasz de",msg[id],":",msg['dataset_sz'])
+        logger.info(f"mensagem de data_sz recebida: \n {msg}", extra=executionType)    
         controller.update_dataset_size(msg['id'],msg['dataset_sz'])
 
     # connect on queue
@@ -181,7 +181,7 @@ def server():
     # ask for trainers dataset size
     trainer_list=controller.get_trainer_list()
     for t in trainer_list:
-        print("solicitando datasz:", t)
+        logger.info(f"solicitando datasz: {t}", extra=executionType)
         client.publish('minifed/ask_datasz',
                        json.dumps({"id": t}, default=default))
 

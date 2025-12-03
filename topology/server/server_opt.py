@@ -150,7 +150,7 @@ def server():
     # callback de post_datasz: receive the client dataset size
     def on_message_post_datasz(client, userdata, message):
         msg=json.loads(message.payload.decode("utf-8"))
-        logger.info(msg, extra=executionType)    
+        logger.info(f"mensagem de data_sz recebida: \n {msg}", extra=executionType)    
         controller.update_dataset_size(msg['id'],msg['dataset_sz'])
 
     # connect on queue
