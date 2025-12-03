@@ -201,8 +201,6 @@ def on_message_stop(client, userdata, message):
 def on_message_ask_datasz(client, userdata, message):
     msg = json.loads(message.payload.decode("utf-8"))
     if msg['id'] == CLIENT_NAME:
-        if msg['args'] is not None:
-            trainer.set_args(msg['args'])
         erro=''
         try:
             dataset_size = trainer.get_dataset_size_in_bits()
