@@ -81,7 +81,10 @@ def server():
     # subscribe to queues on connection
     def on_connect(client, userdata, flags, rc):
         subscribe_queues = ['minifed/registerQueue',
-                            'minifed/preAggQueue', 'minifed/metricsQueue', 'minifed/ready']
+                            'minifed/preAggQueue', 
+                            'minifed/metricsQueue', 
+                            'minifed/ready',
+                            'minifed/post_datasz']
         for s in subscribe_queues:
             client.subscribe(s)
 
@@ -89,8 +92,6 @@ def server():
     def on_message_ready(client, userdata, message):
         m = json.loads(message.payload.decode("utf-8"))        
         controller.add_trainer(m["id"])
-        controller.update_dataset_size(m['id'],m['dataset_sz'])
-        # controller.update_model_size(m['id'],m['model_sz'])
 
     def on_message_register(client, userdata, message):
         m = json.loads(message.payload.decode("utf-8"))
@@ -148,6 +149,11 @@ def server():
         controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
         controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
 
+
+    def on_message_post_datasz(client, userdata, message):
+        msg=json.loads(message.payload.decode("utf-8"))
+        controller.update_dataset_size(msg['id'],msg['dataset_sz'])
+
     # connect on queue
     controller = Controller(min_trainers=min_trainers, num_rounds=nun_rounds,
                             client_selector=client_selector, aggregator=aggregator, model_inputs=model_inputs)
@@ -159,6 +165,7 @@ def server():
     client.message_callback_add('minifed/preAggQueue', on_message_agg)
     client.message_callback_add('minifed/metricsQueue', on_message_metrics)
     client.message_callback_add('minifed/ready', on_message_ready)
+    client.message_callback_add('minifed/post_datasz', on_message_post_datasz)
 
     # start loop
     client.loop_start()
@@ -171,8 +178,15 @@ def server():
     while controller.get_num_trainers() < min_trainers:
         time.sleep(1)
 
-    # begin training
 
+    # ask for trainers dataset size
+    trainer_list=controller.get_trainer_list()
+    for t in trainer_list:
+        client.publish('minifed/ask_datsz',
+                       json.dumps({"id": t}, default=default))
+
+
+    # begin training
     collums=['mean_acc']
     collums+=[f'freq_{t}' for t in controller.get_trainer_list()]
     collums+=[f'consumption_{t}' for t in controller.get_trainer_list()]
