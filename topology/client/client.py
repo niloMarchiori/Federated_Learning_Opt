@@ -228,7 +228,7 @@ client.message_callback_add('minifed/selectionQueue', on_message_selection)
 client.message_callback_add('minifed/posAggQueue', on_message_agg)
 client.message_callback_add('minifed/stopQueue', on_message_stop)
 client.message_callback_add('minifed/serverArgs', on_server_args)
-client.message_callback_add('minifed/ask_datasz', on_server_args)
+client.message_callback_add('minifed/ask_datasz', on_message_ask_datasz)
 
 # start waiting for jobs
 client.loop_start()
