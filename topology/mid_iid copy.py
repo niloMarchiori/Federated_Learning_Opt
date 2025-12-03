@@ -1,20 +1,20 @@
 from topology import topology
 
 
-def main():
+def main(kappa=100):
     NUM_ROUNDS=1
     NUM_CLIENTS=6
-    model_inputs= {"kappa": 100,
+    model_inputs= {"kappa": kappa,
                 "N": NUM_CLIENTS,
                 "alpha": 2e-28,
-                "num_samples":[10000,12000,13000,16000,18000,16000],
+                "num_samples":[6000,12000,15000,15000,8000,4000],
                 "D": [-1.0, -1.0, -1.0, -1.0, -1.0, -1.0],
                 "c": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
                 "fmin": [1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0],
-                "fmax": [2374540118.8473625, 2950714306.4099164, 2731993941.811405, 2598658484.1970367, 2156018640.442436, 2155994520.3362026]
+                "fmax": [2300000000, 2900000000, 2700000000, 2500000000, 2100000000, 2100000000]
                 }
+    
     #Roda o experimento para D_n diferentes mas todas as classes
-
     server_args = {"min_trainers": NUM_CLIENTS, 
                    "num_rounds": NUM_ROUNDS,
                    "stop_acc": 0.999, 

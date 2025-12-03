@@ -20,12 +20,12 @@ class OutPutData():
         self.data=[]
         self.curr_line={}
 
-    def save(self,file_name='results.csv'):
+    def save(self,dir_name='Results/Optmization/',file_name='results.csv'):
         df=pd.DataFrame(self.data)
         now=datetime.now()
         name_prefix=now.strftime("%Hh%Mm%Ss_")
-        mkdir('/flw/Results/Optmization/')
-        df.to_csv(f"/flw/Results/Optmization/{name_prefix+file_name}")
+        mkdir(f'/flw/{dir_name}')
+        df.to_csv(f"/flw/{dir_name}{name_prefix+file_name}")
 
     def new_line(self):
         self.data.append(self.curr_line)
