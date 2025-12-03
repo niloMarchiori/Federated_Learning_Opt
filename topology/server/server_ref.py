@@ -149,6 +149,7 @@ def server():
 
     # callback de post_datasz: receive the client dataset size
     def on_message_post_datasz(client, userdata, message):
+        controller.update_num_responses()
         msg=json.loads(message.payload.decode("utf-8"))
         logger.info(f"mensagem de data_sz recebida: \n {msg}", extra=executionType)    
         controller.update_dataset_size(msg['id'],msg['dataset_sz'])
@@ -177,15 +178,18 @@ def server():
     while controller.get_num_trainers() < min_trainers:
         time.sleep(1)
 
-
+    controller.reset_num_responses()
     # ask for trainers dataset size
     trainer_list=controller.get_trainer_list()
     for t in trainer_list:
-        logger.info(f"solicitando datasz: {t}", extra=executionType)
         client.publish('minifed/ask_datasz',
                        json.dumps({"id": t}, default=default))
 
-
+    # wait trainers sent dataset_sz
+    while controller.get_num_responses() < controller.get_num_trainers():
+        time.sleep(1)
+    controller.reset_num_responses()
+    
     # begin training
     collums=['mean_acc']
     collums+=[f'freq_{t}' for t in controller.get_trainer_list()]

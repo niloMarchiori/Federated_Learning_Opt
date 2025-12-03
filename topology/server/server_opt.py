@@ -186,9 +186,10 @@ def server():
                        json.dumps({"id": t}, default=default))
 
     # wait trainers sent dataset_sz
-    while controller.get_num_trainers() < min_trainers:
+    while controller.get_num_responses() < controller.get_num_trainers():
         time.sleep(1)
-
+    controller.reset_num_responses()
+    
     # begin training
     collums=['mean_acc']
     collums+=[f'freq_{t}' for t in controller.get_trainer_list()]
