@@ -182,7 +182,7 @@ def server():
     trainer_list=controller.get_trainer_list()
     for t in trainer_list:
         print("solicitando datasz:", t)
-        client.publish('minifed/ask_datsz',
+        client.publish('minifed/ask_datasz',
                        json.dumps({"id": t}, default=default))
 
 
