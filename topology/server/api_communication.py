@@ -12,11 +12,13 @@ def test_api(api_ip='172.17.0.1', api_port=8000):
     except requests.exceptions.RequestException as e:
         print(f'Error occurred: {e}')
 
-def set_cpu_governor(api_ip='172.17.0.1', api_port=8000, freq=2.2):
+def set_cpu_governor(api_ip='172.17.0.1', api_port=8000, governor=''):
     url = f'http://{api_ip}:{api_port}/set_cpu_governor'
-    
+
+    payload = {"governor": governor}
+    headers = {'Content-Type': 'application/json'}
     try:
-        response = requests.get(url)
+        response = requests.post(url, json=payload, headers=headers)
         if response.status_code == 200:
             print(response.json())
         else:

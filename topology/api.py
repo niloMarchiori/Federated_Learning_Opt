@@ -9,7 +9,8 @@ class Power(BaseModel):
     level: float 
     sensor: str 
 
-    
+class Governor(BaseModel):
+    governor:str
 
 def call_sensor():
     return RuntimeError("'call_sensor' Not implemented")
@@ -20,8 +21,8 @@ def call_network():
 def cmd_set_freq(value):
     os.system(f'sudo cpupower frequency-set -f {value}GHz')
 
-def cmd_set_cpu_governor():
-    os.system(f'sudo cpupower frequency-set -g userspace')
+def cmd_set_cpu_governor(governor):
+    os.system(f'sudo cpupower frequency-set -g {governor}')
 
 def cmd_set_upper_freq(value):
     print('Try set freq to: ',value)
@@ -37,9 +38,10 @@ app = FastAPI()
 def read_root(net=Depends(call_network)):
     return {"msg": "Hello from FastAPI!"}
 
-@app.get("/set_cpu_governor")
-def set_cpu_governor():
-    cmd_set_cpu_governor()
+@app.post("/set_cpu_governor")
+def set_cpu_governor(governor:Governor):
+    governor=governor.governor
+    cmd_set_cpu_governor(governor)
     return {"msg": "set Host cpu governor to 'userspace'"}
 
 @app.post("/set_cpufreq/")

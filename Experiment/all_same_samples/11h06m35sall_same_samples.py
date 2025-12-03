@@ -2,12 +2,12 @@ from topology import topology
 
 
 def main():
-    NUM_ROUNDS=2
+    NUM_ROUNDS=1
     NUM_CLIENTS=6
     model_inputs= {"kappa": 100,
                 "N": NUM_CLIENTS,
                 "alpha": 2e-28,
-                "n_samples":[10000,12000,13000,16000,18000,16000],
+                "num_samples":[10000,12000,13000,16000,18000,16000],
                 "D": [284972440704, 397891747968, 461402112000, 602612083840, 602612083840, 602612083840],
                 "c": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
                 "fmin": [1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0],
@@ -34,7 +34,8 @@ def main():
              server_args,
              client_args,
              model_inputs,
-             experiment_name,
+             cpu_governor='userspace',
+             experiment_name=experiment_name,
              n_rounds=NUM_ROUNDS)
 
     #Corresponde as saidas com valores NAO otimizados
@@ -44,7 +45,8 @@ def main():
              server_args,
              client_args,
              model_inputs,
-             experiment_name,
+             cpu_governor='ondemand',
+             experiment_name=experiment_name,
              n_rounds=NUM_ROUNDS)
 
 if __name__=='__main__':

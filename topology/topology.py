@@ -27,7 +27,7 @@ import uvicorn
 import threading
 
 
-def topology(server_script,client_script, server_args,client_args,model_inputs,experiment_name = 'Experiment',n_rounds=20):
+def topology(server_script,client_script, server_args,client_args,model_inputs,cpu_governor,experiment_name = 'Experiment',n_rounds=20):
     setLogLevel('info')
 
     t = 4
@@ -76,13 +76,14 @@ def topology(server_script,client_script, server_args,client_args,model_inputs,e
 
     clients = []
     for i in range(NUM_CLIENTS):
+        client_args['num_samples']=model_inputs['num_samples'][i]
         clients.append(net.addSensor(f'sta{i}', privileged=True,                                      
                                      cls=ClientSensor, script=client_script,
                                      voltage=3.7, #V
                                      battery_capacity=15, #mAh
                                      ip6=f'fe80::{i+3}/64',
                                      numeric_id=i-1,
-                                     args=client_args, volumes=volumes,
+                                     args=client_args.copy(), volumes=volumes,
                                      dimage='mininetfed:clientsensor'
                                      ))
     
@@ -140,7 +141,7 @@ def topology(server_script,client_script, server_args,client_args,model_inputs,e
     thread.start()
     sleep(3)
     print("API is running...")
-    api_communication.set_cpu_governor()
+    api_communication.set_cpu_governor(governor=cpu_governor)
     # -----------------------------------------------------------------------------------------
 
     info("*** Measuring energy consumption\n")
