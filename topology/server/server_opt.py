@@ -181,7 +181,6 @@ def server():
     # ask for trainers dataset size
     trainer_list=controller.get_trainer_list()
     for t in trainer_list:
-        logger.info(f"solicitando datasz: {t}", extra=executionType)
         client.publish('minifed/ask_datasz',
                        json.dumps({"id": t}, default=default))
 
