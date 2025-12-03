@@ -133,8 +133,6 @@ def server():
 
     # callback for metricsQueue: get the metrics from each client after it finish its round
     def on_message_metrics(client, userdata, message):
-
-
         m = json.loads(message.payload.decode("utf-8"))
         controller.add_accuracy(m['metrics']['accuracy'])
         controller.update_metrics(m["id"], m['metrics'])
@@ -149,9 +147,10 @@ def server():
         controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
         controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
 
-
+    # callback de post_datasz: receive the client dataset size
     def on_message_post_datasz(client, userdata, message):
         msg=json.loads(message.payload.decode("utf-8"))
+        print("Datasz de",msg[id],":",msg['dataset_sz'])
         controller.update_dataset_size(msg['id'],msg['dataset_sz'])
 
     # connect on queue
@@ -182,6 +181,7 @@ def server():
     # ask for trainers dataset size
     trainer_list=controller.get_trainer_list()
     for t in trainer_list:
+        print("solicitando datasz:", t)
         client.publish('minifed/ask_datsz',
                        json.dumps({"id": t}, default=default))
 

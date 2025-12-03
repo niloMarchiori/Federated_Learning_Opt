@@ -212,6 +212,8 @@ def on_message_ask_datasz(client, userdata, message):
             dataset_size = 0
             model_size = 0
         print(erro)
+        print('Data set sz publicado:', dataset_size)
+        print('Data set sz publicado:', dataset_size, file=sys.stderr)
         client.publish('minifed/post_datasz',
                        json.dumps({"id": CLIENT_NAME, 'data_sz': dataset_size}, default=default))
         
