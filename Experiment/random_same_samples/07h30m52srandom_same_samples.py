@@ -7,12 +7,13 @@ def main(kappa=100):
     model_inputs= {"kappa": kappa,
                 "N": NUM_CLIENTS,
                 "alpha": 2e-28,
-                "num_samples":[10000,10000,10000,10000,10000,10000],
+                "num_samples":[6000,12000,15000,15000,8000,4000],
                 "D": [-1.0, -1.0, -1.0, -1.0, -1.0, -1.0],
                 "c": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
                 "fmin": [1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0],
                 "fmax": [2300000000, 2900000000, 2700000000, 2500000000, 2100000000, 2100000000]
                 }
+    
     #Roda o experimento para D_n diferentes mas todas as classes
 
     server_args = {"min_trainers": NUM_CLIENTS, 
@@ -21,11 +22,11 @@ def main(kappa=100):
                    'client_selector': 'All', 
                    'aggregator': "FedAvg", 
                    "model_inputs": model_inputs,
-                   "output_dir_name":'Results_iid/',
+                   "output_dir_name":'Results_midiid/',
                    "output_csv_name":"metrics_opt.csv"}
 
-    client_args = {"mode": 'all same_samples','num_samples':15000,"trainer_class": "TrainerMNIST"}
-    experiment_name = 'all_same_samples'
+    client_args = {"mode": 'random same_samples','num_samples':15000,"trainer_class": "TrainerMNIST"}
+    experiment_name = 'random_same_samples'
 
     client_script="flw/topology/client/client.py"
     

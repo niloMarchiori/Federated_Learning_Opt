@@ -22,11 +22,11 @@ def main(kappa=100):
                    'client_selector': 'All', 
                    'aggregator': "FedAvg", 
                    "model_inputs": model_inputs,
-                   "output_dir_name":'Results_iid/',
+                   "output_dir_name":'Results_midiid/',
                    "output_csv_name":"metrics_opt.csv"}
 
-    client_args = {"mode": 'all same_samples','num_samples':15000,"trainer_class": "TrainerMNIST"}
-    experiment_name = 'all_same_samples'
+    client_args = {"mode": 'random same_samples','num_samples':15000,"trainer_class": "TrainerMNIST"}
+    experiment_name = 'random_same_samples'
 
     client_script="flw/topology/client/client.py"
     

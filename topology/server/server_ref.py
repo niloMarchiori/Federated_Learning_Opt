@@ -60,6 +60,9 @@ def server():
 
     model_inputs=server_args.get("model_inputs")
 
+    output_csv_name=server_args.get("output_csv_name")
+    output_dir_name=server_args.get("output_dir_name")
+
 
     logging.basicConfig(level=logging.INFO, filename=log_file,
                         format=FORMAT, filemode="w")
@@ -295,7 +298,7 @@ def server():
             exit()
         controller.reset_acc_list()
 
-    controller.output_data.save()
+    controller.output_data.save(dir_name=output_dir_name,file_name=output_csv_name)
     logger.info('stop_condition: rounds', extra=metricType)
     print(color.RED + f'rounds threshold met! stopping the training!' + color.RESET)
     client.publish('minifed/stopQueue', m)
