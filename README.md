@@ -74,16 +74,14 @@ O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a 
     * Segundo Ramon a implementação é simples, entretando seria necessário encontrar um modelo matemático
 
 ## To do:
-1. Em andamento:
-    * [ ] Número de épocas e rodadas limitadas pela acc_local
+Em andamento:
+- [ ] Debugar o motivo de select by leastEnergy selecionar todos os dispositivos
+- [ ] Número de épocas e rodadas limitadas pela acc_local e T_cmp
+- [ ] Plotar acc baseada em T_cmp
     
-    
-2. Próximo passo:
-    * [ ] Validação assíncrona
-
-
-3. Standy: 
-    - [ ] Passar range_freq no client_args/on_message_register
+Standy: 
+- [ ] Validação assíncrona
+- [ ] Passar range_freq no client_args/on_message_register
 
 ### Problemas
 
