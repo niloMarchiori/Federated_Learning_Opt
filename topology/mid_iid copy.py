@@ -56,7 +56,7 @@ def main(kappa=100):
     
     #Corresponde a saída do algoritmo apresentado no sbrc
     server_args["output_csv_name"]="metrics_ref_sbrc.csv"
-    client_args['client_selector']='LeastEnergyConsumption'
+    server_args['client_selector']='LeastEnergyConsumption'
     topology(server_script,
              client_script, 
              server_args,
