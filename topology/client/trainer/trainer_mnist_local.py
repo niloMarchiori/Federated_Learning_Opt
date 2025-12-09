@@ -216,9 +216,8 @@ class TrainerMNIST:
         return train_images, train_labels, test_images, test_labels
 
     def train_model(self,callbacks=None):
-
-        self.model.fit(x=self.x_train, y=self.y_train,
-                       callbacks=callbacks,
+        print(callbacks)
+        self.model.fit(x=self.x_train, y=self.y_train,callbacks=callbacks,
                        batch_size=64, epochs=self.n_epochs, verbose=3)
 
     def eval_model(self):

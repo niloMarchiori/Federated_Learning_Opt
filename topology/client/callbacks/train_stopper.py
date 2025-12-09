@@ -19,7 +19,7 @@ class TrainStopper(Callback):
     def on_train_begin(self, logs=None):
         self.start_time = time.time()
 
-    def on_epoch_end(self, logs=None):
+    def on_epoch_end(self, epoch, logs=None):
         logs = logs or {}
         current_acc = logs.get(self.monitor)
         elapsed_time = time.time() - self.start_time

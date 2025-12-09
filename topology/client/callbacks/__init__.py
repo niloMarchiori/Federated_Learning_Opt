@@ -1,1 +1,1 @@
-from .trains_stopper import TrainStopper
+from .train_stopper import TrainStopper

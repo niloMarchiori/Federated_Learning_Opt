@@ -67,7 +67,7 @@ if trainer_class is None:
     trainer_class = "TrainerMNIST"
 
 trainer_callbacks=CLIENT_INSTANTIATION_ARGS.get("trainer_callbacks")
-trainer_callback_classes = get_callbacks(trainer_callbacks)
+trainer_callbacks_classes = get_callbacks(trainer_callbacks)
 
 selected = False
 
@@ -147,7 +147,7 @@ def on_message_selection(client, userdata, message):
             print(color.BOLD_START + 'new round starting' + color.BOLD_END)
             print(
                 f'trainer was selected for training this round and will start training!')
-            trainer.train_model(callbacks=trainer_callbacks)
+            trainer.train_model(callbacks=trainer_callbacks_classes)
 
             resp_dict = {'id': CLIENT_NAME, 'weights': trainer.get_weights(
             ), 'num_samples': trainer.get_num_samples()}

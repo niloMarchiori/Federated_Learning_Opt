@@ -27,14 +27,20 @@ def main(kappa=100):
     
     
     client_args = {"mode": 'random same_samples','num_samples':15000,"trainer_class": "TrainerMNIST"}
+
+    trainer_callbacks={"TrainStopper": {'target_accuracy':0.95,
+                                'time_limit_sec':10,
+                                'monitor':'accuracy'}}
+    
+    client_args['trainer_callbacks']=trainer_callbacks
+
     experiment_name = 'random_same_samples'
 
     client_script="flw/topology/client/client.py"
-    server_script="flw/topology/server/server_ref.py"
+    server_script="flw/topology/server/server_opt.py"
     
     #Corresponde a saída do algoritmo apresentado no sbrc
     server_args["output_csv_name"]="metrics_ref_sbrc.csv"
-    server_args['client_selector']='LeastEnergyConsumption'
     topology(server_script,
              client_script, 
              server_args,
