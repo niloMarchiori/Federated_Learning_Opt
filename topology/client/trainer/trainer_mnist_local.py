@@ -14,7 +14,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 DATASET_PATH = 'flw/data/MNIST'
 
-
 class MNISTLoader:
     def __init__(self, data_path):
         self.data_path = data_path
@@ -88,12 +87,13 @@ class TrainerMNIST:
         # Initiate
         self.id = id
         self.name = name
+        self.n_epochs=10
         # self.mode = mode  # 'class' 'random' 'all'
         self.__dict__.update(args)
         mode = self.mode
         # define model
         self.model = self.define_model()
-
+        
         # split data
         # select a random number ranging from 10000 < num_samples < 20000
         self.num_samples = -1
@@ -215,9 +215,11 @@ class TrainerMNIST:
 
         return train_images, train_labels, test_images, test_labels
 
-    def train_model(self):
+    def train_model(self,callbacks=None):
+
         self.model.fit(x=self.x_train, y=self.y_train,
-                       batch_size=64, epochs=10, verbose=3)
+                       callbacks=callbacks,
+                       batch_size=64, epochs=self.n_epochs, verbose=3)
 
     def eval_model(self):
         acc = self.model.evaluate(

@@ -1,6 +1,16 @@
-def func(a=None,b=None,**kwargs):
-    print(a,b)
+class Teste():
+    def __init__(self,args):
+        self.atributo=None
+        self.__dict__.update(args)
+class Teste2():
+    def __init__(self,args):
+        self.atributo='c'
+        self.__dict__.update(args)
+args={"atributo":"b"}
+a=[Teste,Teste2]
+b=a[0](args)
+c=a[1]({})
 
-
-arg={'a':4,'b':5,'c':10}
-func(**arg)
+a=None
+for i in a:
+    print(1)

@@ -24,7 +24,8 @@ def main(kappa=100):
                    "model_inputs": model_inputs,
                    "output_dir_name":'Results_midiid/',
                    "output_csv_name":"metrics_opt.csv"}
-
+    
+    
     client_args = {"mode": 'random same_samples','num_samples':15000,"trainer_class": "TrainerMNIST"}
     experiment_name = 'random_same_samples'
 

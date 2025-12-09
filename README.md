@@ -75,7 +75,7 @@ O intúito dessa pesquisa é utilizar-se da ferramenta MininetFed para emular a 
 
 ## To do:
 Em andamento:
-- [ ] Debugar o motivo de select by leastEnergy selecionar todos os dispositivos
+- [x] Debugar o motivo de select by leastEnergy selecionar todos os dispositivos
 - [ ] Número de épocas e rodadas limitadas pela acc_local e T_cmp
 - [ ] Plotar acc baseada em T_cmp
     
