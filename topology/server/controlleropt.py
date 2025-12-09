@@ -55,6 +55,7 @@ class Controller:
         self.mean_acc_per_round = []
         # client_selectors[client_selector]()
         self.clientSelection = criar_objeto("clientSelection", client_selector)
+        print("CLIENT_SELECTOR=", client_selector)
         self.aggregator = criar_objeto("aggregator", aggregator)
         self.metrics = {}
 
