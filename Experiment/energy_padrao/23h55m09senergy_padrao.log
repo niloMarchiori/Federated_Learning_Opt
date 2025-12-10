@@ -1,0 +1,40 @@
+2025-12-09 23:55:40,072 - EXECUT - INFO - starting server...
+2025-12-09 23:55:48,498 - EXECUT - INFO - trainer number sta5 just joined the pool
+2025-12-09 23:55:48,810 - EXECUT - INFO - trainer number sta4 just joined the pool
+2025-12-09 23:55:48,855 - EXECUT - INFO - trainer number sta0 just joined the pool
+2025-12-09 23:55:49,179 - EXECUT - INFO - trainer number sta2 just joined the pool
+2025-12-09 23:55:49,224 - EXECUT - INFO - trainer number sta3 just joined the pool
+2025-12-09 23:55:49,267 - EXECUT - INFO - trainer number sta1 just joined the pool
+2025-12-09 23:55:50,096 - EXECUT - INFO - mensagem de data_sz recebida: 
+ {'id': 'sta0', 'dataset_sz': 84899491968}
+2025-12-09 23:55:50,100 - EXECUT - INFO - mensagem de data_sz recebida: 
+ {'id': 'sta5', 'dataset_sz': 37797784704}
+2025-12-09 23:55:50,142 - EXECUT - INFO - mensagem de data_sz recebida: 
+ {'id': 'sta2', 'dataset_sz': 529695287808}
+2025-12-09 23:55:50,142 - EXECUT - INFO - mensagem de data_sz recebida: 
+ {'id': 'sta3', 'dataset_sz': 529695287808}
+2025-12-09 23:55:50,143 - EXECUT - INFO - mensagem de data_sz recebida: 
+ {'id': 'sta4', 'dataset_sz': 150847031808}
+2025-12-09 23:55:50,143 - EXECUT - INFO - mensagem de data_sz recebida: 
+ {'id': 'sta1', 'dataset_sz': 339081857536}
+2025-12-09 23:55:51,096 - METRIC - INFO - round: 1
+2025-12-09 23:55:51,096 - METRIC - INFO - n_selected: 6
+2025-12-09 23:55:51,096 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1", "sta2", "sta3", "sta4", "sta5"]}
+2025-12-09 23:56:03,688 - EXECUT - INFO - received weights from trainer sta0!
+2025-12-09 23:56:21,037 - EXECUT - INFO - received weights from trainer sta1!
+2025-12-09 23:56:43,455 - EXECUT - INFO - received weights from trainer sta2!
+2025-12-09 23:57:08,360 - EXECUT - INFO - received weights from trainer sta3!
+2025-12-09 23:57:25,136 - EXECUT - INFO - received weights from trainer sta4!
+2025-12-09 23:57:35,931 - EXECUT - INFO - received weights from trainer sta5!
+2025-12-09 23:57:37,385 - EXECUT - INFO - sent aggregated weights to trainers!
+2025-12-09 23:57:50,416 - METRIC - INFO - {"loss": 0.45255523920059204, "accuracy": 0.8751458525657654, "energy_consumption": 0.20644887810751117, "selected": true, "host_energy_consumption": 0.08354306016, "client_name": "sta0"}
+2025-12-09 23:57:50,956 - METRIC - INFO - {"loss": 0.32942160964012146, "accuracy": 0.9078179597854614, "energy_consumption": 0.46424406601142787, "selected": true, "host_energy_consumption": 0.16637154436, "client_name": "sta1"}
+2025-12-09 23:58:07,522 - METRIC - INFO - {"loss": 0.3749939203262329, "accuracy": 0.8949211835861206, "energy_consumption": 0.2732362767317946, "selected": true, "host_energy_consumption": 0.11009235496, "client_name": "sta4"}
+2025-12-09 23:58:10,810 - METRIC - INFO - {"loss": 0.2669769525527954, "accuracy": 0.924369752407074, "energy_consumption": 0.5775620146569171, "selected": true, "host_energy_consumption": 0.20689735612000001, "client_name": "sta2"}
+2025-12-09 23:58:14,303 - METRIC - INFO - {"loss": 0.534246563911438, "accuracy": 0.8686515092849731, "energy_consumption": 0.15432110350897732, "selected": true, "host_energy_consumption": 0.060264103480000004, "client_name": "sta5"}
+2025-12-09 23:58:14,815 - METRIC - INFO - {"loss": 0.28297051787376404, "accuracy": 0.9201680421829224, "energy_consumption": 0.5574222261027446, "selected": true, "host_energy_consumption": 0.20365765952, "client_name": "sta3"}
+2025-12-09 23:58:15,424 - METRIC - INFO - mean_accuracy: 0.8985123833020529
+
+2025-12-09 23:58:15,424 - METRIC - INFO - round: 2
+2025-12-09 23:58:15,424 - METRIC - INFO - n_selected: 6
+2025-12-09 23:58:15,424 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1", "sta2", "sta3", "sta4", "sta5"]}

@@ -145,7 +145,7 @@ def topology(server_script,client_script, server_args,client_args,model_inputs,c
     # -----------------------------------------------------------------------------------------
 
     info("*** Measuring energy consumption\n")
-    Energy(net.sensors)
+    EnergyFreqBased(net.sensors)
     # Energy(net.sensors)
     # BitZigBeeEnergy(net.sensors)
 

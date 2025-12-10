@@ -22,7 +22,7 @@ def main(kappa=100):
                    'client_selector': 'All', 
                    'aggregator': "FedAvg", 
                    "model_inputs": model_inputs,
-                   "output_dir_name":'Results/midiid/',
+                   "output_dir_name":'Results/midiid_energy_freq/',
                    "output_csv_name":"metrics_opt.csv"}
 
     client_args = {"mode": 'random same_samples','num_samples':15000,"trainer_class": "TrainerMNIST"}
