@@ -147,8 +147,7 @@ def server():
         t=m['id']
         metrics=m['metrics']
         controller.output_data.curr_line[f'consumption_{t}']=metrics['energy_consumption']
-        controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
-        controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
+        # controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
 
     # callback de post_datasz: receive the client dataset size
     def on_message_post_datasz(client, userdata, message):
@@ -199,9 +198,6 @@ def server():
     collums+=[f'consumption_{t}' for t in controller.get_trainer_list()]
 
     selected_qtd = 0
-    
-    cpu_frequancy = controller.run_opt_model()
-    print(cpu_frequancy)
 
     while controller.get_current_round() != nun_rounds:
 
@@ -242,8 +238,6 @@ def server():
                 api_communication.set_upper_frequency(freq=fmax)
                 api_communication.set_lower_frequency(freq=fmin)
 
-                controller.output_data.curr_line[f'freq_{t}']=cpu_frequancy[t]
-
                 time_start=time.time()
 
                 client.publish('minifed/selectionQueue', m)
@@ -252,6 +246,7 @@ def server():
                 MODEL_TRAINED = False
                 time_end=time.time()
                 TIMES.append(time_end-time_start)
+                controller.output_data.curr_line[f'time_{t}']=time_end-time_start
             else:
                 # logger.info(
                 #     f'NOT_selected: {t}', extra=metricType)

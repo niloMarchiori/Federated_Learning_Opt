@@ -147,8 +147,7 @@ def server():
         t=m['id']
         metrics=m['metrics']
         controller.output_data.curr_line[f'consumption_{t}']=metrics['energy_consumption']
-        controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
-        controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
+        # controller.output_data.curr_line[f'host_consumption_{t}']=metrics['host_energy_consumption']
 
     # callback de post_datasz: receive the client dataset size
     def on_message_post_datasz(client, userdata, message):
@@ -253,6 +252,7 @@ def server():
                 MODEL_TRAINED = False
                 time_end=time.time()
                 TIMES.append(time_end-time_start)
+                controller.output_data.curr_line[f'time_{t}']=time_end-time_start
             else:
                 # logger.info(
                 #     f'NOT_selected: {t}', extra=metricType)
