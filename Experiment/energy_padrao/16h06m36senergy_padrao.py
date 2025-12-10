@@ -31,15 +31,15 @@ def main(kappa=100):
     client_script="flw/topology/client/client.py"
     
     #Corresponde as saidas com valores otimizados
-    server_script="flw/topology/server/server_opt.py"
-    topology(server_script,
-             client_script, 
-             server_args,
-             client_args,
-             model_inputs,
-             cpu_governor='userspace',
-             experiment_name=experiment_name,
-             n_rounds=NUM_ROUNDS)
+    # server_script="flw/topology/server/server_opt.py"
+    # topology(server_script,
+    #          client_script, 
+    #          server_args,
+    #          client_args,
+    #          model_inputs,
+    #          cpu_governor='userspace',
+    #          experiment_name=experiment_name,
+    #          n_rounds=NUM_ROUNDS)
 
 
     #Corresponde as saidas com valores NAO otimizados
@@ -55,16 +55,16 @@ def main(kappa=100):
              n_rounds=NUM_ROUNDS)
     
     #Corresponde a saída do algoritmo apresentado no sbrc
-    server_args["output_csv_name"]="metrics_ref_sbrc.csv"
-    server_args['client_selector']='LeastEnergyConsumption'
-    topology(server_script,
-             client_script, 
-             server_args,
-             client_args,
-             model_inputs,
-             cpu_governor='ondemand',
-             experiment_name=experiment_name,
-             n_rounds=NUM_ROUNDS)
+    # server_args["output_csv_name"]="metrics_ref_sbrc.csv"
+    # server_args['client_selector']='LeastEnergyConsumption'
+    # topology(server_script,
+    #          client_script, 
+    #          server_args,
+    #          client_args,
+    #          model_inputs,
+    #          cpu_governor='ondemand',
+    #          experiment_name=experiment_name,
+    #          n_rounds=NUM_ROUNDS)
     
     
 
