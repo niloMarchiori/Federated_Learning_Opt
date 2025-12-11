@@ -31,3 +31,6 @@ class TrainStopper(Callback):
         if elapsed_time > self.time_limit_sec:
             self.model.stop_training = True
             print(f"\n\n--> Tempo limite excedido! Parando após {elapsed_time:.2f}s")
+
+    def __str__(self):
+        return f"TrainStopper(target_accuracy={self.target_accuracy}, time_limit_sec={self.time_limit_sec}, monitor='{self.monitor}')"

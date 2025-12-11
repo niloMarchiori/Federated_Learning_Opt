@@ -106,7 +106,6 @@ class TrainerMNIST:
 
         print(
             f"mode:{mode}, n_samples:{self.num_samples}", file=sys.stderr)
-        print(args, file=sys.stderr)
 
         self.x_train, self.y_train, self.x_test, self.y_test = self.split_data()
 
@@ -216,7 +215,7 @@ class TrainerMNIST:
         return train_images, train_labels, test_images, test_labels
 
     def train_model(self,callbacks=None):
-        print(callbacks)
+        print('Training with call backs:',callbacks, file=sys.stderr)
         self.model.fit(x=self.x_train, y=self.y_train,callbacks=callbacks,
                        batch_size=64, epochs=self.n_epochs, verbose=3)
 
