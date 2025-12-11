@@ -255,15 +255,8 @@ class TrainerMNIST:
         """
         Calcula o tamanho total do dataset de treinamento (imagens + rótulos) em bits.
         """
-        
-        x_train_bytes = self.x_train.nbytes
-        x_train_bits = x_train_bytes * 8
-
-        num_elements_y = tf.size(self.y_train).numpy()
-        bytes_per_element_y = self.y_train.nbytes
-        y_train_bytes = num_elements_y * bytes_per_element_y
-        y_train_bits = y_train_bytes * 8
-
+        x_train_bits = self.x_train.nbytes*8
+        y_train_bits = self.y_train.nbytes*8
         
         return x_train_bits + y_train_bits
     
