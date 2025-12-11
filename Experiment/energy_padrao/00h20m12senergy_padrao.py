@@ -8,8 +8,8 @@ def main(kappa=100):
                 "N": NUM_CLIENTS,
                 "alpha": 2e-28,
                 "num_samples":[6000,12000,15000,15000,8000,4000],
-                "D": [-1.0, -1.0, -1.0, -1.0, -1.0, -1.0],
-                "c": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+                "D": [259700928, 519401856, 649277568, 649277568, 346301568, 173150784],
+                "c": [9, 5, 4, 4, 8, 11],
                 "fmin": [1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0],
                 "fmax": [2300000000, 2900000000, 2700000000, 2500000000, 2100000000, 2100000000]
                 }
@@ -40,33 +40,5 @@ def main(kappa=100):
              cpu_governor='userspace',
              experiment_name=experiment_name,
              n_rounds=NUM_ROUNDS)
-
-
-    #Corresponde as saidas com valores NAO otimizados
-    server_args["output_csv_name"]="metrics_ref_all.csv"
-    server_script="flw/topology/server/server_ref.py"
-    topology(server_script,
-             client_script, 
-             server_args,
-             client_args,
-             model_inputs,
-             cpu_governor='ondemand',
-             experiment_name=experiment_name,
-             n_rounds=NUM_ROUNDS)
-    
-    #Corresponde a saída do algoritmo apresentado no sbrc
-    server_args["output_csv_name"]="metrics_ref_sbrc.csv"
-    server_args['client_selector']='LeastEnergyConsumption'
-    topology(server_script,
-             client_script, 
-             server_args,
-             client_args,
-             model_inputs,
-             cpu_governor='ondemand',
-             experiment_name=experiment_name,
-             n_rounds=NUM_ROUNDS)
-    
-    
-
 if __name__=='__main__':
     main()

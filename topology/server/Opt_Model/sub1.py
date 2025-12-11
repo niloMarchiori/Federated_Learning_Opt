@@ -3,7 +3,7 @@ import numpy as np
 def get_TN3(N3,alpha,c,D,kappa):
     T_N3=0
     for ue in N3:
-        cd3= (c[ue]*D[ue])**3
+        cd3= (c[ue]*D[ue]).astype(float)**3
         T_N3+=(alpha*cd3)/kappa
     T_N3= T_N3**(1/3)
     return T_N3
@@ -51,6 +51,7 @@ def solve_SUB1(kappa,N:int,alpha:float,D:int,c:float,fmin:float,fmax=float,**kwa
             N2.add(ue)
             N3.remove(ue)
             T_N3=get_TN3(N3,alpha,c,D,kappa)
+            T_N2=get_TN2(N2,c,D,fmin)
             T=max(T_N1, T_N2, T_N3)
     T_N2=get_TN2(N2,c,D,fmin)
     T_cmp=max(T_N3, T_N2, T_N1)
