@@ -2,7 +2,7 @@ from topology import topology
 
 
 def main(kappa=100):
-    NUM_ROUNDS=15
+    NUM_ROUNDS=20
     NUM_CLIENTS=6
     model_inputs= {"kappa": kappa,
                 "N": NUM_CLIENTS,
@@ -22,27 +22,15 @@ def main(kappa=100):
                    'client_selector': 'All', 
                    'aggregator': "FedAvg", 
                    "model_inputs": model_inputs,
-                   "output_dir_name":'Results/midiid_energy_freq/',
-                   "output_csv_name":"metrics_opt.csv"}
+                   "output_dir_name":'Results/midiid_ref/',
+                   "output_csv_name":"metrics_ref_all.csv"}
 
     client_args = {"mode": 'random same_samples','num_samples':15000,"trainer_class": "TrainerMNIST"}
     experiment_name = 'energy_padrao'
 
     client_script="flw/topology/client/client.py"
     
-    #Corresponde as saidas com valores otimizados
-    server_script="flw/topology/server/server_opt.py"
-    topology(server_script,
-             client_script, 
-             server_args,
-             client_args,
-             model_inputs,
-             cpu_governor='userspace',
-             experiment_name=experiment_name,
-             n_rounds=NUM_ROUNDS)
-
-
-    #Corresponde as saidas com valores NAO otimizados
+   
     server_args["output_csv_name"]="metrics_ref_all.csv"
     server_script="flw/topology/server/server_ref.py"
     topology(server_script,

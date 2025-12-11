@@ -1,5 +1,5 @@
-sudo -E sh -c "python topology/topology_rsamples.py;\
+sudo -E sh -c "python topology/mid_iid_var_k.py;\
         mnf_clean;\
-        python topology/topology_same.py"
+        python topology/mid_iid_ref.py"
 
-echo > end
+echo end
