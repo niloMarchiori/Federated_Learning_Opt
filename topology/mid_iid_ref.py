@@ -2,7 +2,7 @@ from topology import topology
 
 
 def main(kappa=100):
-    NUM_ROUNDS=20
+    NUM_ROUNDS=70
     NUM_CLIENTS=6
     model_inputs= {"kappa": kappa,
                 "N": NUM_CLIENTS,

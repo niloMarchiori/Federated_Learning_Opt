@@ -1,7 +1,7 @@
 from topology import topology
 
-def main(kappa=100,time_limit_sec=1.4):
-    NUM_ROUNDS=20
+def main(kappa=100,time_limit_sec=1.4, callback_stop=True):
+    NUM_ROUNDS=70
     NUM_CLIENTS=6
     model_inputs= {"kappa": kappa,
                 "N": NUM_CLIENTS,
@@ -32,8 +32,10 @@ def main(kappa=100,time_limit_sec=1.4):
     client_args = {"mode": 'random same_samples',
                    'num_samples':15000,
                    "trainer_class": 
-                   "TrainerMNIST",
-                   "trainer_callbacks":trainer_callbacks}
+                   "TrainerMNIST"}
+    
+    if callback_stop:
+        client_args["trainer_callbacks"]=trainer_callbacks
     
     experiment_name = 'var_k'
 
@@ -52,6 +54,11 @@ def main(kappa=100,time_limit_sec=1.4):
     
 
 if __name__=='__main__':
-    main(kappa=10,time_limit_sec=1.3)
-    main(kappa=10**0.75,time_limit_sec=1.6)
-    main(kappa=10**0.25, time_limit_sec=1.78794)
+    main(kappa=10,time_limit_sec=1.3, callback_stop=True)
+    main(kappa=10,time_limit_sec=1.3, callback_stop=False)
+
+    main(kappa=10**0.75,time_limit_sec=1.6,callback_stop=True)
+    main(kappa=10**0.75,time_limit_sec=1.6,callback_stop=False)
+
+    main(kappa=10**0.25, time_limit_sec=1.78794,callback_stop=True)
+    main(kappa=10**0.25, time_limit_sec=1.78794,callback_stop=False)
