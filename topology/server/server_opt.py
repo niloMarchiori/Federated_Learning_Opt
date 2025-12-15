@@ -10,7 +10,6 @@ import api_communication
 import pathlib
 
 
-
 def default(obj):
     if type(obj).__module__ == np.__name__:
         if isinstance(obj, np.ndarray):
@@ -203,7 +202,6 @@ def server():
     print(cpu_frequancy)
 
     while controller.get_current_round() != nun_rounds:
-
         controller.update_current_round()
         logger.info(
             f'round: {controller.get_current_round()}', extra=metricType)
@@ -223,6 +221,9 @@ def server():
             f"{json.dumps({'selected_trainers': select_trainers})}", extra=metricType)
         
         
+        cpu_frequancy = controller.run_opt_model(select_trainers)
+        print(cpu_frequancy)
+
         TIMES=[]
 
         for t in trainer_list:

@@ -193,11 +193,31 @@ class Controller:
             data['ctt']=self.experiment_ctt
             json.dump(data,f)
 
-    def run_opt_model(self):
-        T_cmp, f = solve_SUB1(**self.model_inputs)
-        self.save_input_model()
+    def get_select_inputs(self, selected_trainers=None,model_inputs=None):
+        if not selected_trainers:
+            selected_trainers=self.get_trainer_list()
+
+        if not model_inputs:
+            model_inputs=self.model_inputs
+
+        trainer_list=self.get_trainer_list()
+        select_inputs={k: val if type(val) !=list else [] for k,val in model_inputs.items()}
+        for trainer in selected_trainers:
+            trainer_idx=trainer_list.index(trainer)
+            for key,val in model_inputs.items():
+                if type(val)!=list:
+                    continue
+                select_inputs[key].append(val[trainer_idx])
+        
+        select_inputs['N']=len(selected_trainers)
+    def run_opt_model(self, selected_trainers=None):
+
+        select_inputs=self.get_select_inputs(selected_trainers)
+        
+        T_cmp, f = solve_SUB1(**select_inputs)
+        # self.save_input_model()
         frequency_dict = {}
-        for key,val in zip(self.trainer_list, f):
+        for key,val in zip(selected_trainers, f):
             frequency_dict[key] = val
 
         # Tcom, t,p = solve_SUB2(ctt.N, kappa=k, s=inp.s, B=inp.B, N0=inp.N0, h=inp.h, pmin=inp.pmin, pmax=inp.pmax)
