@@ -10,6 +10,7 @@ from Opt_Model.sub1 import solve_SUB1
 import pathlib
 import json
 import copy
+import sys
 
 
 def mkdir(dir_path):
@@ -210,10 +211,13 @@ class Controller:
                 select_inputs[key].append(val[trainer_idx])
         
         select_inputs['N']=len(selected_trainers)
+
+        return select_inputs
+    
     def run_opt_model(self, selected_trainers=None):
 
         select_inputs=self.get_select_inputs(selected_trainers)
-        
+
         T_cmp, f = solve_SUB1(**select_inputs)
         # self.save_input_model()
         frequency_dict = {}

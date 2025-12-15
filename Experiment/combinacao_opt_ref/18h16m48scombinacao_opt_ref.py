@@ -19,42 +19,28 @@ def main(kappa=100):
     server_args = {"min_trainers": NUM_CLIENTS, 
                    "num_rounds": NUM_ROUNDS,
                    "stop_acc": 0.999, 
-                   'client_selector': 'All', 
+                   'client_selector': 'LeastEnergyConsumption', 
                    'aggregator': "FedAvg", 
                    "model_inputs": model_inputs,
-                   "output_dir_name":'Results/midiid_ref/',
-                   "output_csv_name":"metrics_ref_all.csv"}
+                   "output_dir_name":'Results/midiid_opt_leasternergy/',
+                   "output_csv_name":"metrics_opt_leastenergy.csv"}
 
     client_args = {"mode": 'random same_samples','num_samples':15000,"trainer_class": "TrainerMNIST"}
-    experiment_name = 'energy_padrao'
+    experiment_name = 'combinacao_opt_ref'
 
     client_script="flw/topology/client/client.py"
     
+    server_script="flw/topology/server/server_opt.py"
    
-    server_args["output_csv_name"]="metrics_ref_all.csv"
-    server_script="flw/topology/server/server_ref.py"
     topology(server_script,
              client_script, 
              server_args,
              client_args,
              model_inputs,
-             cpu_governor='ondemand',
-             experiment_name=experiment_name,
-             n_rounds=NUM_ROUNDS)
-    
-    #Corresponde a saída do algoritmo apresentado no sbrc
-    server_args["output_csv_name"]="metrics_ref_sbrc.csv"
-    server_args['client_selector']='LeastEnergyConsumption'
-    topology(server_script,
-             client_script, 
-             server_args,
-             client_args,
-             model_inputs,
-             cpu_governor='ondemand',
+             cpu_governor='userspace',
              experiment_name=experiment_name,
              n_rounds=NUM_ROUNDS)
     
     
-
 if __name__=='__main__':
-    main()
+    main(10**0.75)

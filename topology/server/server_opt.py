@@ -197,9 +197,6 @@ def server():
     collums+=[f'consumption_{t}' for t in controller.get_trainer_list()]
 
     selected_qtd = 0
-    
-    cpu_frequancy = controller.run_opt_model()
-    print(cpu_frequancy)
 
     while controller.get_current_round() != nun_rounds:
         controller.update_current_round()
