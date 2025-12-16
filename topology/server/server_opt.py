@@ -197,7 +197,7 @@ def server():
     collums+=[f'consumption_{t}' for t in controller.get_trainer_list()]
 
     selected_qtd = 0
-
+    controller.save_input_model()
     while controller.get_current_round() != nun_rounds:
         controller.update_current_round()
         logger.info(

@@ -25,7 +25,9 @@ def main(kappa=100):
                    "output_dir_name":'Results/midiid_opt_leasternergy/',
                    "output_csv_name":"metrics_opt_leastenergy.csv"}
 
-    client_args = {"mode": 'random same_samples','num_samples':15000,"trainer_class": "TrainerMNIST"}
+    client_args = {"mode": 'n_classes random same_samples',
+                   'num_samples':15000, 'n_classes_per_trainer':4,
+                   "trainer_class": "TrainerMNIST"}
     experiment_name = 'combinacao_opt_ref'
 
     client_script="flw/topology/client/client.py"
