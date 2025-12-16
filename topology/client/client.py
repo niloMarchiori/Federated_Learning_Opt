@@ -222,14 +222,15 @@ def on_message_ask_datasz(client, userdata, message):
         except Exception as e:
             erro=str(e)
             dataset_size = 0
-        print(erro)
-        print('Dataset size publicado:', dataset_size, file=sys.stderr)
         client.publish('minifed/post_datasz',
                        json.dumps({"id": CLIENT_NAME, 'dataset_sz': dataset_size}, default=default))
         
 
 trainer = create_object("trainer", trainer_class, id=CLIENT_ID,
                         name=CLIENT_NAME, args=CLIENT_INSTANTIATION_ARGS)
+
+
+print(f"As classes são: {np.unique(trainer.y_test)}", file=sys.stderr)
 
 client = mqtt.Client(str(CLIENT_NAME))
 client.connect(BROKER_ADDR, keepalive=0)

@@ -170,6 +170,8 @@ class TrainerMNIST:
             train_labels), depth=num_classes).numpy()
         test_labels = tf.one_hot(np.squeeze(
             test_labels), depth=num_classes).numpy()
+        
+        print(f"DEBUG-As classes são: {np.unique(test_labels)}", file=sys.stderr)
 
         if 'n_classes' in self.mode:
             # Criar um gerador de números aleatórios usando self.id como seed
@@ -212,6 +214,7 @@ class TrainerMNIST:
         elif self.mode == 'all':
             pass
 
+        print(f"DEBUG-As classes são: {np.unique(test_labels)}", file=sys.stderr)
         return train_images, train_labels, test_images, test_labels
 
     def train_model(self,callbacks=None):
