@@ -200,17 +200,16 @@ def server():
     controller.save_input_model()
     while controller.get_current_round() != nun_rounds:
         controller.update_current_round()
+
+        cpu_frequancy,select_trainers,tgt_acc,time_limit,n_epochs = controller.run_opt_model(select_trainers)
+
         logger.info(
             f'round: {controller.get_current_round()}', extra=metricType)
         print(color.RESET + '\n' + color.BOLD_START +
               f'starting round {controller.get_current_round()}' + color.BOLD_END)
-        
-        # select trainers for round
-        trainer_list = controller.get_trainer_list()
 
         if not trainer_list:
             logger.critical("Client's list empty", extra=executionType)
-        select_trainers = controller.select_trainers_for_round()
         selected_qtd = len(select_trainers)
 
         logger.info(f"n_selected: {len(select_trainers)}", extra=metricType)
@@ -218,7 +217,6 @@ def server():
             f"{json.dumps({'selected_trainers': select_trainers})}", extra=metricType)
         
         
-        cpu_frequancy = controller.run_opt_model(select_trainers)
         print(cpu_frequancy)
 
         TIMES=[]
@@ -229,7 +227,6 @@ def server():
                 #     f'selected: {t}', extra=metricType)
                 print(f'selected trainer {t} for training on round {controller.get_current_round()}')
 
-                m = json.dumps({'id': t, 'selected': True}).replace(' ', '')
 
 
                 idx=controller.trainer_list.index(t)
@@ -243,6 +240,14 @@ def server():
                 controller.output_data.curr_line[f'freq_{t}']=cpu_frequancy[t]
 
                 time_start=time.time()
+
+                m_json={'id': t, 
+                        'selected': True, 
+                        'time_limit': time_limit,
+                        'tgt_acc': tgt_acc[idx],
+                        'n_epochs': n_epochs[idx]}
+
+                m = json.dumps(m_json).replace(' ', '')
 
                 client.publish('minifed/selectionQueue', m)
                 while not MODEL_TRAINED:

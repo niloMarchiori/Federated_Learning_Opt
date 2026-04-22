@@ -18,22 +18,19 @@ def main(kappa=100):
 
     server_args = {"min_trainers": NUM_CLIENTS, 
                    "num_rounds": NUM_ROUNDS,
-                   "stop_acc": 0.98, 
+                   "stop_acc": 0.99, 
                    'client_selector': 'All', 
                    'aggregator': "FedAvg", 
                    "model_inputs": model_inputs,
                    "output_dir_name":'Results/midiid_stopper/',
                    "output_csv_name":"metrics_opt.csv"}
     
-    trainer_callbacks={"TrainStopper": {'target_accuracy':0.99,
-                                'time_limit_sec':1.4,
-                                'monitor':'accuracy'}}
+    
     
     client_args = {"mode": 'random same_samples',
                    'num_samples':15000,
                    "trainer_class": 
-                   "TrainerMNIST",
-                   "trainer_callbacks":trainer_callbacks}
+                   "TrainerMNIST"}
     experiment_name = 'energy_padrao'
 
     client_script="flw/topology/client/client.py"

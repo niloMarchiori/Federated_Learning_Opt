@@ -12,6 +12,7 @@ except:
     pass
 
 from trainer import read_energy
+from callbacks import TrainStopper
 
 global ENERGY_CONSUMPTION
 ENERGY_CONSUMPTION = 0.0
@@ -33,18 +34,6 @@ def create_object(package, class_name, **atributos):
     except (ModuleNotFoundError, AttributeError) as e:
         print(f"Error: {e}", file=sys.stderr)
         return None
-    
-def get_callbacks(callbacks:dict):
-    if callbacks is None or not callbacks:
-        return None
-    
-    callback_classes=[]
-    for call in callbacks.keys():
-        args=callbacks[call]
-        objt=create_object("callbacks", call, **args)
-        callback_classes.append(objt)
-    return callback_classes
-
 
 n = len(sys.argv)
 
@@ -65,9 +54,6 @@ if len(sys.argv) == 5 and (sys.argv[4] is not None):
 trainer_class = CLIENT_INSTANTIATION_ARGS.get("trainer_class")
 if trainer_class is None:
     trainer_class = "TrainerMNIST"
-
-trainer_callbacks=CLIENT_INSTANTIATION_ARGS.get("trainer_callbacks")
-trainer_callbacks_classes = get_callbacks(trainer_callbacks)
 
 selected = False
 
@@ -142,7 +128,13 @@ def on_message_selection(client, userdata, message):
     if msg['id'] == CLIENT_NAME:
         if bool(msg['selected']) == True:
             selected = True
+            trainer.n_epochs=msg['n_epochs']
 
+
+            tgt_acc=msg['tgt_acc']
+            time_limit =msg['time_limit']
+            trainer_callbacks_classes=[TrainStopper(target_accuracy=tgt_acc, 
+                                                    time_limit_sec=time_limit)]
 
             print(color.BOLD_START + 'new round starting' + color.BOLD_END)
             print(

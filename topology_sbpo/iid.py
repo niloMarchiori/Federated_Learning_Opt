@@ -27,10 +27,10 @@ def main(kappa=100):
     client_args = {"mode": 'all same_samples','num_samples':15000,"trainer_class": "TrainerMNIST"}
     experiment_name = 'all_same_samples'
 
-    client_script="flw/topology/client/client.py"
+    client_script="flw/topology_ref/client/client.py"
     
     #Corresponde as saidas com valores otimizados
-    server_script="flw/topology/server/server_opt.py"
+    server_script="flw/topology_ref/server/server_opt.py"
     topology(server_script,
              client_script, 
              server_args,
