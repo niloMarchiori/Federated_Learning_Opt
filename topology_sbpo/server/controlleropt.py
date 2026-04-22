@@ -5,7 +5,7 @@ from aggregator import *
 import importlib
 from datetime import datetime
 
-from Opt_Model.sub1 import solve_SUB1
+from Model_SBPO import FLPOPT
 
 import pathlib
 import json
@@ -54,9 +54,6 @@ class Controller:
         self.trainer_samples = []  # save num_samples scale for agg
         self.acc_list = []
         self.mean_acc_per_round = []
-        # client_selectors[client_selector]()
-        self.clientSelection = criar_objeto("clientSelection", client_selector)
-        print("CLIENT_SELECTOR=", client_selector)
         self.aggregator = criar_objeto("aggregator", aggregator)
         self.metrics = {}
 
