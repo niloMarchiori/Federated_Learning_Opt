@@ -175,7 +175,7 @@ class Controller:
 
         print("Iniciando a otimização com 3 objetivos...")
         res = problem.solve(n_gen=200, pop_size=100, seed=1)
-        pesos = [0.1, 0.4, 0.5]
+        pesos = [0.3, 0.3, 0.4]
         idx= problem.mcdm_pseudo_weights(pesos, verbose=True)
         solucao_vars=res.X[idx]
 

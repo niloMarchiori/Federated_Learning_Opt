@@ -13,8 +13,10 @@ def main(kappa=100):
                 "f_min": [1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0, 1300000000.0],
                 "f_max": [2300000000, 2900000000, 2700000000, 2500000000, 2100000000, 2100000000],
                 'epsilon_0': stop_acc,
-                'theta_prev': [0.1]*NUM_CLIENTS
+                'theta_prev': [0]*NUM_CLIENTS
                 }
+    
+    #Roda o experimento para D_n diferentes mas todas as classes
 
     server_args = {"min_trainers": NUM_CLIENTS, 
                    "num_rounds": NUM_ROUNDS,
@@ -22,14 +24,15 @@ def main(kappa=100):
                    'client_selector': 'All', 
                    'aggregator': "FedAvg", 
                    "model_inputs": model_inputs,
-                   "output_dir_name":'Results/nondiid_sbpo/',
+                   "output_dir_name":'Results/midiid_sbpo/',
                    "output_csv_name":"metrics_sbpo.csv"}
     
     
     
-    client_args = {"mode": 'n_classes random same_samples',
-                   'num_samples':None, 'n_classes_per_trainer':4,
-                   "trainer_class": "TrainerMNIST"}
+    client_args = {"mode": 'random same_samples',
+                   'num_samples':None,
+                   "trainer_class": 
+                   "TrainerMNIST"}
 
     experiment_name = 'SBPO'
 
