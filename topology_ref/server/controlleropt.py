@@ -186,7 +186,7 @@ class Controller:
         now=datetime.now()
         name_prefix=now.strftime("%Hh%Mm%Ss_")
         mkdir('/flw/Results/Input_Model/')
-        with open(f'/flw/Results/Input_Model/{name_prefix}model_imputs.json','w') as f:
+        with open(f'/flw/Results/Input_Model/{name_prefix}model_inputs.json','w') as f:
             data=copy.deepcopy(self.model_inputs)
             data['c']=list(data['c'])
             data['fmin']=list(data['fmin'])

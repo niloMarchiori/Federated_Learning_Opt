@@ -162,6 +162,7 @@ def topology(server_script,client_script, server_args,client_args,model_inputs,c
     sleep(1)
     # CLI(net)
     info('*** Server...\n')
+    srv1.cmd('pip install pymoo')
     srv1.run(broker_addr=net.broker_addr, experiment_controller=net.experiment_controller)
 
     sleep(3)

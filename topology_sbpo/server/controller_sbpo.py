@@ -1,17 +1,15 @@
 import numpy as np
 import pandas as pd
-from clientSelection import *
 from aggregator import *
 import importlib
 from datetime import datetime
 
-from Model_SBPO import FLPOPT
+from Model_SBPO.FLPOPT import FLPOPT
 
 import pathlib
 import json
 import copy
 import sys
-
 
 def mkdir(dir_path):
     pathlib.Path(dir_path).mkdir(parents=True, exist_ok=True)
@@ -36,7 +34,7 @@ def criar_objeto(pacote, nome_classe):
     try:
         modulo = importlib.import_module(f"{pacote}")
         classe = getattr(modulo, nome_classe)  # Obtém a classe do módulo
-        return classe()  # Instancia a classe
+        return classe()  # problem a classe
     except (ModuleNotFoundError, AttributeError) as e:
         print(f"Erro: {e}")
         return None
@@ -57,6 +55,9 @@ class Controller:
         self.aggregator = criar_objeto("aggregator", aggregator)
         self.metrics = {}
         
+        for chave,valor in model_inputs.items():
+            if type(valor)==list:
+                model_inputs[chave]=np.array(valor)
         self.model_inputs=model_inputs
         self.beta_h= np.zeros(model_inputs['N'])
         self.output_data=OutPutData()
@@ -112,9 +113,6 @@ class Controller:
 
     # operations
 
-    def select_trainers_for_round(self):
-        return self.clientSelection.select_trainers_for_round(self.trainer_list, self.metrics)
-
     def agg_weights(self) -> dict:
         # Aggregate the models recived from clients
         agg_response = {}
@@ -153,30 +151,19 @@ class Controller:
     
     def update_dataset_size(self,trainer_id:str,dataset_sz:float):
         trainer_idx=self.trainer_list.index(trainer_id)
-        self.model_inputs['D'][trainer_idx]=dataset_sz
+        self.model_inputs['S'][trainer_idx]=dataset_sz
         print("Model iput alterado")
     
     def update_model_size(self,trainer_id:str,model_sz:float):
         trainer_idx=self.trainer_list.index(trainer_id)
         self.model_inputs['s'][trainer_idx]=model_sz
 
-    def save_input_model(self):
-        now=datetime.now()
-        name_prefix=now.strftime("%Hh%Mm%Ss_")
-        mkdir('/flw/Results/Input_Model/')
-        with open(f'/flw/Results/Input_Model/{name_prefix}model_imputs.json','w') as f:
-            data=copy.deepcopy(self.model_inputs)
-            data['c']=list(data['c'])
-            data['fmin']=list(data['fmin'])
-            data['fmax']=list(data['fmax'])
-            data['ctt']=self.experiment_ctt
-            json.dump(data,f)
     
     def run_opt_model(self):
         N=self.model_inputs['N']
         alpha=self.model_inputs['alpha']
         c=self.model_inputs['c']
-        S=self.model_inputs['D']
+        S=self.model_inputs['S']
 
         f_min=self.model_inputs['f_min']
         f_max=self.model_inputs['f_max']
@@ -184,16 +171,12 @@ class Controller:
         epsilon_0=self.model_inputs['epsilon_0']
         theta_prev=self.model_inputs['theta_prev']
 
-        T_min=0.1
-        T_max=500
-
-        problem=FLPOPT(**self.model_imputs)
+        problem=FLPOPT(**self.model_inputs)
 
         print("Iniciando a otimização com 3 objetivos...")
-        res = instancia.solve(n_gen=200, pop_size=100, seed=1)
+        res = problem.solve(n_gen=200, pop_size=100, seed=1)
         pesos = [0.1, 0.4, 0.5]
-        idx= instancia.mcdm_pseudo_weights(pesos, verbose=True)
-        instancia.scatterplot(file_name=f'Figuras/saida{t}.png')
+        idx= problem.mcdm_pseudo_weights(pesos, verbose=True)
         solucao_vars=res.X[idx]
 
         f_n=np.array([solucao_vars[f'f_{n}'] for n in range(N)])
@@ -201,7 +184,7 @@ class Controller:
         theta_n=np.array([solucao_vars[f'theta_{n}'] for n in range(N)])
         self.beta_h+=1-beta_n
 
-        T=np.array([solucao_vars[f'T'] for n in range(N)])
+        T=solucao_vars[f'T']
         psi_n=np.array([solucao_vars[f'psi_{n}'] for n in range(N)])
 
         return f_n, beta_n, theta_n, T, psi_n

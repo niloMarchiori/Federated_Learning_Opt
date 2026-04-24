@@ -1,5 +1,5 @@
 import paho.mqtt.client as mqtt
-from controlleropt import Controller
+from controller_sbpo import Controller
 import json
 import time
 import numpy as np
@@ -197,7 +197,7 @@ def server():
     collums+=[f'consumption_{t}' for t in controller.get_trainer_list()]
 
     selected_qtd = 0
-    controller.save_input_model()
+    
     while controller.get_current_round() != nun_rounds:
         controller.update_current_round()
 
@@ -217,7 +217,7 @@ def server():
         
         selected_qtd = select_trainers_bool.sum()
 
-        logger.info(f"n_selected: {len(selected_qtd)}", extra=metricType)
+        logger.info(f"n_selected: {selected_qtd}", extra=metricType)
         logger.info(f"{json.dumps({'selected_trainers': select_trainers})}", extra=metricType)
 
         TIMES=[]
@@ -231,8 +231,8 @@ def server():
 
 
                 trainer_idx=controller.trainer_list.index(t)
-                fmax=controller.model_inputs['fmax'][trainer_idx]*1E-9
-                fmin=controller.model_inputs['fmin'][trainer_idx]*1E-9
+                fmax=controller.model_inputs['f_max'][trainer_idx]*1E-9
+                fmin=controller.model_inputs['f_min'][trainer_idx]*1E-9
                 
                 api_communication.set_frequency(freq=cpu_frequancy[trainer_idx])
                 api_communication.set_upper_frequency(freq=fmax)
@@ -247,8 +247,8 @@ def server():
                 m_json={'id': t, 
                         'selected': True, 
                         'time_limit': time_limit,
-                        'tgt_acc': tgt_acc[trainer_idx],
-                        'n_epochs': n_epochs[trainer_idx]}
+                        'tgt_acc': float(tgt_acc[trainer_idx]),
+                        'n_epochs': int(n_epochs[trainer_idx])}
 
                 m = json.dumps(m_json).replace(' ', '')
 
