@@ -56,19 +56,9 @@ class Controller:
         self.mean_acc_per_round = []
         self.aggregator = criar_objeto("aggregator", aggregator)
         self.metrics = {}
-
-        self.experiment_ctt={'fmin':1.3, #GHz'
-                             'fmax_range': [2,3.0], #GHz
-                             'alpha': 2E-28,
-                             'kappa': 10**2,
-                             'N': self.min_trainers
-                             }
         
         self.model_inputs=model_inputs
-        if not model_inputs:
-            self.creat_model_inputs()
-        
-
+        self.beta_h= np.zeros(model_inputs['N'])
         self.output_data=OutPutData()
 
     # getters
@@ -87,6 +77,11 @@ class Controller:
     def get_mean_acc(self):
         mean = float(np.mean(np.array(self.acc_list)))
         self.mean_acc_per_round.append(mean)  # save mean acc
+
+
+        #-------ATUALIZA THETA_PREV----------
+        self.model_inputs['theta_prev']=np.array(self.acc_list)
+
         return mean
 
     # "setters"
@@ -156,20 +151,6 @@ class Controller:
         # agg_response_dict -> {client_id: {"weights": [], ...}}
         return agg_response_dict
     
-    def creat_model_inputs(self):
-        np.random.seed(seed=42)
-
-        ctt=self.experiment_ctt
-    
-        self.model_inputs['kappa']=ctt['kappa']
-        self.model_inputs['N']=ctt['N']
-        self.model_inputs['alpha']=ctt['alpha']
-        self.model_inputs['D']=[None]*ctt['N']
-        # self.model_inputs['s']=[None]*ctt['N']
-        self.model_inputs['c']=np.ones(ctt['N'])
-        self.model_inputs['fmin']=ctt['fmin']*10**9 * np.ones(ctt['N'])
-        self.model_inputs['fmax']=np.random.uniform(*ctt['fmax_range'],size=ctt['N'])*10**9 
-    
     def update_dataset_size(self,trainer_id:str,dataset_sz:float):
         trainer_idx=self.trainer_list.index(trainer_id)
         self.model_inputs['D'][trainer_idx]=dataset_sz
@@ -190,40 +171,46 @@ class Controller:
             data['fmax']=list(data['fmax'])
             data['ctt']=self.experiment_ctt
             json.dump(data,f)
-
-    def get_select_inputs(self, selected_trainers=None,model_inputs=None):
-        if not selected_trainers:
-            selected_trainers=self.get_trainer_list()
-
-        if not model_inputs:
-            model_inputs=self.model_inputs
-
-        trainer_list=self.get_trainer_list()
-        select_inputs={k: val if type(val) !=list else [] for k,val in model_inputs.items()}
-        for trainer in selected_trainers:
-            trainer_idx=trainer_list.index(trainer)
-            for key,val in model_inputs.items():
-                if type(val)!=list:
-                    continue
-                select_inputs[key].append(val[trainer_idx])
-        
-        select_inputs['N']=len(selected_trainers)
-
-        return select_inputs
     
-    def run_opt_model(self, selected_trainers=None):
+    def run_opt_model(self):
+        N=self.model_inputs['N']
+        alpha=self.model_inputs['alpha']
+        c=self.model_inputs['c']
+        S=self.model_inputs['D']
 
-        select_inputs=self.get_select_inputs(selected_trainers)
+        f_min=self.model_inputs['f_min']
+        f_max=self.model_inputs['f_max']
+        
+        epsilon_0=self.model_inputs['epsilon_0']
+        theta_prev=self.model_inputs['theta_prev']
 
-        T_cmp, f = solve_SUB1(**select_inputs)
-        # self.save_input_model()
-        frequency_dict = {}
-        for key,val in zip(selected_trainers, f):
-            frequency_dict[key] = val
+        T_min=0.1
+        T_max=500
 
-        # Tcom, t,p = solve_SUB2(ctt.N, kappa=k, s=inp.s, B=inp.B, N0=inp.N0, h=inp.h, pmin=inp.pmin, pmax=inp.pmax)
-        # thteta, eta = solve_SUB3(f, t, T_cmp, Tcom, k)
-        return frequency_dict
+        problem=FLPOPT(**self.model_imputs)
+
+        print("Iniciando a otimização com 3 objetivos...")
+        res = instancia.solve(n_gen=200, pop_size=100, seed=1)
+        pesos = [0.1, 0.4, 0.5]
+        idx= instancia.mcdm_pseudo_weights(pesos, verbose=True)
+        instancia.scatterplot(file_name=f'Figuras/saida{t}.png')
+        solucao_vars=res.X[idx]
+
+        f_n=np.array([solucao_vars[f'f_{n}'] for n in range(N)])
+        beta_n=np.array([solucao_vars[f'beta_{n}'] for n in range(N)])
+        theta_n=np.array([solucao_vars[f'theta_{n}'] for n in range(N)])
+        self.beta_h+=1-beta_n
+
+        T=np.array([solucao_vars[f'T'] for n in range(N)])
+        psi_n=np.array([solucao_vars[f'psi_{n}'] for n in range(N)])
+
+        return f_n, beta_n, theta_n, T, psi_n
+
+
+
+
+
+        
 
         
 

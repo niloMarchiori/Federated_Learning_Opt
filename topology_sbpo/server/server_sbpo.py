@@ -201,7 +201,11 @@ def server():
     while controller.get_current_round() != nun_rounds:
         controller.update_current_round()
 
-        cpu_frequancy,select_trainers,tgt_acc,time_limit,n_epochs = controller.run_opt_model(select_trainers)
+        cpu_frequancy,select_trainers_bool,tgt_acc,time_limit,n_epochs = controller.run_opt_model()
+        select_trainers = [trainer_list[t] for t in range(min_trainers) if select_trainers_bool[t]]
+
+        controller.output_data.curr_line['T']=time_limit
+
 
         logger.info(
             f'round: {controller.get_current_round()}', extra=metricType)
@@ -210,14 +214,11 @@ def server():
 
         if not trainer_list:
             logger.critical("Client's list empty", extra=executionType)
-        selected_qtd = len(select_trainers)
+        
+        selected_qtd = select_trainers_bool.sum()
 
-        logger.info(f"n_selected: {len(select_trainers)}", extra=metricType)
-        logger.info(
-            f"{json.dumps({'selected_trainers': select_trainers})}", extra=metricType)
-        
-        
-        print(cpu_frequancy)
+        logger.info(f"n_selected: {len(selected_qtd)}", extra=metricType)
+        logger.info(f"{json.dumps({'selected_trainers': select_trainers})}", extra=metricType)
 
         TIMES=[]
 
@@ -229,23 +230,25 @@ def server():
 
 
 
-                idx=controller.trainer_list.index(t)
-                fmax=controller.model_inputs['fmax'][idx]*1E-9
-                fmin=controller.model_inputs['fmin'][idx]*1E-9
+                trainer_idx=controller.trainer_list.index(t)
+                fmax=controller.model_inputs['fmax'][trainer_idx]*1E-9
+                fmin=controller.model_inputs['fmin'][trainer_idx]*1E-9
                 
-                api_communication.set_frequency(freq=cpu_frequancy[t])
+                api_communication.set_frequency(freq=cpu_frequancy[trainer_idx])
                 api_communication.set_upper_frequency(freq=fmax)
                 api_communication.set_lower_frequency(freq=fmin)
 
-                controller.output_data.curr_line[f'freq_{t}']=cpu_frequancy[t]
+                controller.output_data.curr_line[f'freq_{t}']=cpu_frequancy[trainer_idx]
+                controller.output_data.curr_line[f'tgt_acc_{t}']=tgt_acc[trainer_idx]
+                controller.output_data.curr_line[f'n_epochs{t}']=n_epochs[trainer_idx]
 
                 time_start=time.time()
 
                 m_json={'id': t, 
                         'selected': True, 
                         'time_limit': time_limit,
-                        'tgt_acc': tgt_acc[idx],
-                        'n_epochs': n_epochs[idx]}
+                        'tgt_acc': tgt_acc[trainer_idx],
+                        'n_epochs': n_epochs[trainer_idx]}
 
                 m = json.dumps(m_json).replace(' ', '')
 
@@ -282,6 +285,7 @@ def server():
         while controller.get_num_responses() != controller.get_num_trainers():
             time.sleep(1)
         controller.reset_num_responses()  # reset num_responses for next round
+
         mean_acc = controller.get_mean_acc()
         logger.info(
             f'mean_accuracy: {mean_acc}\n', extra=metricType)
