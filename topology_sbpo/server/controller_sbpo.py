@@ -175,7 +175,7 @@ class Controller:
 
         print("Iniciando a otimização com 3 objetivos...")
         res = problem.solve(n_gen=200, pop_size=100, seed=1)
-        pesos = [0.3, 0.3, 0.4]
+        pesos = [0.4, 0.2, 0.4]
         idx= problem.mcdm_pseudo_weights(pesos, verbose=True)
         solucao_vars=res.X[idx]
 
@@ -186,6 +186,8 @@ class Controller:
 
         T=solucao_vars[f'T']
         psi_n=np.array([solucao_vars[f'psi_{n}'] for n in range(N)])
+
+        f_n=f_n/10**9
 
         return f_n, beta_n, theta_n, T, psi_n
 

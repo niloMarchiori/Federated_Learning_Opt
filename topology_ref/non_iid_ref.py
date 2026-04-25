@@ -2,7 +2,7 @@ from topology import topology
 
 
 def main(kappa=100):
-    NUM_ROUNDS=40
+    NUM_ROUNDS=60
     NUM_CLIENTS=6
     model_inputs= {"kappa": kappa,
                 "N": NUM_CLIENTS,
@@ -31,11 +31,11 @@ def main(kappa=100):
                    "trainer_class": "TrainerMNIST"}
     experiment_name = 'non_iid_ref'
 
-    client_script="flw/topology/client/client.py"
+    client_script="flw/topology_ref/client/client_ref.py"
     
    
     server_args["output_csv_name"]="metrics_ref_all.csv"
-    server_script="flw/topology/server/server_ref.py"
+    server_script="flw/topology_ref/server/server_ref.py"
     topology(server_script,
              client_script, 
              server_args,

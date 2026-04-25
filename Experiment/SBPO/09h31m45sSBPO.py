@@ -2,7 +2,7 @@ from topology import topology
 
 
 def main(kappa=100):
-    NUM_ROUNDS=30
+    NUM_ROUNDS=60
     NUM_CLIENTS=6
     stop_acc=0.99
     model_inputs= {"N": NUM_CLIENTS,
@@ -24,15 +24,13 @@ def main(kappa=100):
                    'client_selector': 'All', 
                    'aggregator': "FedAvg", 
                    "model_inputs": model_inputs,
-                   "output_dir_name":'Results/midiid_sbpo/',
+                   "output_dir_name":'Results/noniid_sbpo/',
                    "output_csv_name":"metrics_sbpo.csv"}
     
-    
-    
-    client_args = {"mode": 'random same_samples',
-                   'num_samples':None,
-                   "trainer_class": 
-                   "TrainerMNIST"}
+
+    client_args = {"mode": 'n_classes random same_samples',
+                   'num_samples':None, 'n_classes_per_trainer':4,
+                   "trainer_class": "TrainerMNIST"}
 
     experiment_name = 'SBPO'
 
