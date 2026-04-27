@@ -31,7 +31,7 @@ def main(kappa=100):
     client_script="flw/topology_ref/client/client_ref.py"
     
    
-    server_args["output_csv_name"]="metrics_ref_all.csv"
+    server_args["output_csv_name"]="metrics_ref_all_n3.csv"
     server_script="flw/topology_ref/server/server_ref.py"
     topology(server_script,
              client_script, 
@@ -43,7 +43,7 @@ def main(kappa=100):
              n_rounds=NUM_ROUNDS)
     
     #Corresponde a saída do algoritmo apresentado no sbrc
-    server_args["output_csv_name"]="metrics_ref_sbrc.csv"
+    server_args["output_csv_name"]="metrics_ref_sbrc_n3.csv"
     server_args['client_selector']='LeastEnergyConsumption'
     topology(server_script,
              client_script, 

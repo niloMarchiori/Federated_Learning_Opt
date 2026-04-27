@@ -1,0 +1,916 @@
+2026-04-26 10:42:32,048 - EXECUT - INFO - starting server...
+2026-04-26 10:42:40,344 - EXECUT - INFO - trainer number sta5 just joined the pool
+2026-04-26 10:42:40,390 - EXECUT - INFO - trainer number sta0 just joined the pool
+2026-04-26 10:42:40,736 - EXECUT - INFO - trainer number sta4 just joined the pool
+2026-04-26 10:42:41,027 - EXECUT - INFO - trainer number sta1 just joined the pool
+2026-04-26 10:42:41,221 - EXECUT - INFO - trainer number sta2 just joined the pool
+2026-04-26 10:42:41,265 - EXECUT - INFO - trainer number sta3 just joined the pool
+2026-04-26 10:42:42,067 - EXECUT - INFO - mensagem de data_sz recebida: 
+ {'id': 'sta0', 'dataset_sz': 259700928}
+2026-04-26 10:42:42,069 - EXECUT - INFO - mensagem de data_sz recebida: 
+ {'id': 'sta1', 'dataset_sz': 519401856}
+2026-04-26 10:42:42,109 - EXECUT - INFO - mensagem de data_sz recebida: 
+ {'id': 'sta2', 'dataset_sz': 649277568}
+2026-04-26 10:42:42,110 - EXECUT - INFO - mensagem de data_sz recebida: 
+ {'id': 'sta5', 'dataset_sz': 173150784}
+2026-04-26 10:42:42,110 - EXECUT - INFO - mensagem de data_sz recebida: 
+ {'id': 'sta4', 'dataset_sz': 346301568}
+2026-04-26 10:42:42,111 - EXECUT - INFO - mensagem de data_sz recebida: 
+ {'id': 'sta3', 'dataset_sz': 649277568}
+2026-04-26 10:42:57,144 - METRIC - INFO - round: 1
+2026-04-26 10:42:57,145 - METRIC - INFO - n_selected: 3
+2026-04-26 10:42:57,145 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1", "sta2"]}
+2026-04-26 10:43:05,945 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 10:43:17,664 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 10:43:26,040 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 10:43:26,718 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 10:43:49,069 - METRIC - INFO - {"loss": 0.6980141401290894, "accuracy": 0.8488914966583252, "energy_consumption": 0.08583284906282784, "selected": true, "host_energy_consumption": 0.051241218840000005, "client_name": "sta1"}
+2026-04-26 10:43:50,047 - METRIC - INFO - {"loss": 2.3607258796691895, "accuracy": 0.056042030453681946, "energy_consumption": 0.0, "selected": false, "host_energy_consumption": 0.0034270516, "client_name": "sta5"}
+2026-04-26 10:43:50,934 - METRIC - INFO - {"loss": 1.2336732149124146, "accuracy": 0.6989498138427734, "energy_consumption": 0.0324252075444611, "selected": true, "host_energy_consumption": 0.03136038108, "client_name": "sta0"}
+2026-04-26 10:43:52,219 - METRIC - INFO - {"loss": 2.3340656757354736, "accuracy": 0.08406304568052292, "energy_consumption": 0.0, "selected": false, "host_energy_consumption": 0.00433747636, "client_name": "sta4"}
+2026-04-26 10:43:54,044 - METRIC - INFO - {"loss": 2.2904655933380127, "accuracy": 0.10550887137651443, "energy_consumption": 0.0, "selected": false, "host_energy_consumption": 0.0047092648400000004, "client_name": "sta3"}
+2026-04-26 10:44:09,511 - METRIC - INFO - {"loss": 1.0763107538223267, "accuracy": 0.8015872836112976, "energy_consumption": 0.055316165551594465, "selected": true, "host_energy_consumption": 0.03739501164, "client_name": "sta2"}
+2026-04-26 10:44:09,772 - METRIC - INFO - mean_accuracy: 0.43250709027051926
+
+2026-04-26 10:44:25,926 - METRIC - INFO - round: 2
+2026-04-26 10:44:25,926 - METRIC - INFO - n_selected: 3
+2026-04-26 10:44:25,926 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta4"]}
+2026-04-26 10:44:39,382 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 10:44:56,119 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 10:45:06,780 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 10:45:07,422 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 10:45:27,267 - METRIC - INFO - {"loss": 2.2197189331054688, "accuracy": 0.48308050632476807, "energy_consumption": 0.1125416372004836, "selected": false, "host_energy_consumption": 0.056023201360000004, "client_name": "sta1"}
+2026-04-26 10:45:28,400 - METRIC - INFO - {"loss": 2.222358226776123, "accuracy": 0.4690781831741333, "energy_consumption": 0.0324252075444611, "selected": false, "host_energy_consumption": 0.03487151472, "client_name": "sta0"}
+2026-04-26 10:45:32,330 - METRIC - INFO - {"loss": 2.2233927249908447, "accuracy": 0.48511382937431335, "energy_consumption": 0.026709902419994602, "selected": false, "host_energy_consumption": 0.006687392320000001, "client_name": "sta5"}
+2026-04-26 10:45:32,542 - METRIC - INFO - {"loss": 1.036683440208435, "accuracy": 0.7583187222480774, "energy_consumption": 0.053417902135338924, "selected": true, "host_energy_consumption": 0.051038242920000004, "client_name": "sta4"}
+2026-04-26 10:45:40,311 - METRIC - INFO - {"loss": 0.6374056339263916, "accuracy": 0.8562091588973999, "energy_consumption": 0.16213658763939998, "selected": true, "host_energy_consumption": 0.10840962524, "client_name": "sta2"}
+2026-04-26 10:45:43,004 - METRIC - INFO - {"loss": 0.6427258253097534, "accuracy": 0.8510737419128418, "energy_consumption": 0.1335163649821225, "selected": true, "host_energy_consumption": 0.08155828492, "client_name": "sta3"}
+2026-04-26 10:45:43,461 - METRIC - INFO - mean_accuracy: 0.6504790236552557
+
+2026-04-26 10:45:59,642 - METRIC - INFO - round: 3
+2026-04-26 10:45:59,642 - METRIC - INFO - n_selected: 3
+2026-04-26 10:45:59,642 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1", "sta3"]}
+2026-04-26 10:46:07,130 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 10:46:17,918 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 10:46:29,740 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 10:46:30,354 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 10:46:47,390 - METRIC - INFO - {"loss": 0.5437487363815308, "accuracy": 0.8634772300720215, "energy_consumption": 0.08774473501780555, "selected": true, "host_energy_consumption": 0.06472049108, "client_name": "sta0"}
+2026-04-26 10:46:48,564 - METRIC - INFO - {"loss": 0.4329799711704254, "accuracy": 0.8879813551902771, "energy_consumption": 0.2212632856464557, "selected": true, "host_energy_consumption": 0.11336170188000001, "client_name": "sta1"}
+2026-04-26 10:46:57,514 - METRIC - INFO - {"loss": 0.6984644532203674, "accuracy": 0.8440709710121155, "energy_consumption": 0.16213658763939998, "selected": false, "host_energy_consumption": 0.11311632724000001, "client_name": "sta2"}
+2026-04-26 10:46:58,302 - METRIC - INFO - {"loss": 0.7058775424957275, "accuracy": 0.8362522125244141, "energy_consumption": 0.053417902135338924, "selected": false, "host_energy_consumption": 0.054657606360000006, "client_name": "sta4"}
+2026-04-26 10:47:00,619 - METRIC - INFO - {"loss": 0.7283865809440613, "accuracy": 0.8441330790519714, "energy_consumption": 0.026709902419994602, "selected": false, "host_energy_consumption": 0.00977543392, "client_name": "sta5"}
+2026-04-26 10:47:06,669 - METRIC - INFO - {"loss": 0.47920531034469604, "accuracy": 0.8804855346679688, "energy_consumption": 0.24033659791215545, "selected": true, "host_energy_consumption": 0.13076552664000002, "client_name": "sta3"}
+2026-04-26 10:47:07,393 - METRIC - INFO - mean_accuracy: 0.859400063753128
+
+2026-04-26 10:47:23,344 - METRIC - INFO - round: 4
+2026-04-26 10:47:23,345 - METRIC - INFO - n_selected: 3
+2026-04-26 10:47:23,345 - METRIC - INFO - {"selected_trainers": ["sta1", "sta3", "sta5"]}
+2026-04-26 10:47:39,820 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 10:48:00,759 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 10:48:13,310 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 10:48:14,822 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 10:48:29,300 - METRIC - INFO - {"loss": 0.326539546251297, "accuracy": 0.9060676693916321, "energy_consumption": 0.3547806456938337, "selected": true, "host_energy_consumption": 0.20384533988, "client_name": "sta1"}
+2026-04-26 10:48:34,107 - METRIC - INFO - {"loss": 0.4800402522087097, "accuracy": 0.8798133134841919, "energy_consumption": 0.1201817895612276, "selected": false, "host_energy_consumption": 0.06824833848, "client_name": "sta0"}
+2026-04-26 10:48:36,006 - METRIC - INFO - {"loss": 0.48567256331443787, "accuracy": 0.8756567239761353, "energy_consumption": 0.053417902135338924, "selected": false, "host_energy_consumption": 0.0584575404, "client_name": "sta4"}
+2026-04-26 10:48:36,347 - METRIC - INFO - {"loss": 0.33340418338775635, "accuracy": 0.913165271282196, "energy_consumption": 0.4005675751838442, "selected": true, "host_energy_consumption": 0.24427194512, "client_name": "sta3"}
+2026-04-26 10:48:39,083 - METRIC - INFO - {"loss": 0.475174218416214, "accuracy": 0.8828197717666626, "energy_consumption": 0.16213658763939998, "selected": false, "host_energy_consumption": 0.11746043456000001, "client_name": "sta2"}
+2026-04-26 10:48:39,378 - METRIC - INFO - {"loss": 0.4705914258956909, "accuracy": 0.8791593909263611, "energy_consumption": 0.08583895138793318, "selected": true, "host_energy_consumption": 0.04185967044, "client_name": "sta5"}
+2026-04-26 10:48:39,849 - METRIC - INFO - mean_accuracy: 0.8894470234711965
+
+2026-04-26 10:48:53,368 - METRIC - INFO - round: 5
+2026-04-26 10:48:53,368 - METRIC - INFO - n_selected: 3
+2026-04-26 10:48:53,369 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1", "sta2"]}
+2026-04-26 10:49:01,562 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 10:49:18,157 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 10:49:37,000 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 10:49:37,620 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 10:49:55,684 - METRIC - INFO - {"loss": 0.3164144456386566, "accuracy": 0.9124854207038879, "energy_consumption": 0.18505310419963816, "selected": true, "host_energy_consumption": 0.10559631908, "client_name": "sta0"}
+2026-04-26 10:49:59,666 - METRIC - INFO - {"loss": 0.2702883183956146, "accuracy": 0.9189031720161438, "energy_consumption": 0.5207299053379509, "selected": true, "host_energy_consumption": 0.29445445148, "client_name": "sta1"}
+2026-04-26 10:50:00,674 - METRIC - INFO - {"loss": 0.3480454087257385, "accuracy": 0.9080298542976379, "energy_consumption": 0.43299315786472725, "selected": false, "host_energy_consumption": 0.2490146722, "client_name": "sta3"}
+2026-04-26 10:50:01,944 - METRIC - INFO - {"loss": 0.2806576192378998, "accuracy": 0.9178338050842285, "energy_consumption": 0.349074463060583, "selected": true, "host_energy_consumption": 0.23107675808, "client_name": "sta2"}
+2026-04-26 10:50:08,667 - METRIC - INFO - {"loss": 0.3593916594982147, "accuracy": 0.8984237909317017, "energy_consumption": 0.08012327589572754, "selected": false, "host_energy_consumption": 0.062090558600000005, "client_name": "sta4"}
+2026-04-26 10:50:09,592 - METRIC - INFO - {"loss": 0.395182728767395, "accuracy": 0.8966724872589111, "energy_consumption": 0.08583895138793318, "selected": false, "host_energy_consumption": 0.04490502184, "client_name": "sta5"}
+2026-04-26 10:50:09,654 - METRIC - INFO - mean_accuracy: 0.9087247550487518
+
+2026-04-26 10:50:25,678 - METRIC - INFO - round: 6
+2026-04-26 10:50:25,679 - METRIC - INFO - n_selected: 3
+2026-04-26 10:50:25,679 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta4"]}
+2026-04-26 10:50:36,433 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 10:50:55,452 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 10:51:07,087 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 10:51:07,695 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 10:51:27,166 - METRIC - INFO - {"loss": 0.2656997740268707, "accuracy": 0.9241540431976318, "energy_consumption": 0.28042415444871516, "selected": true, "host_energy_consumption": 0.15788538164000002, "client_name": "sta0"}
+2026-04-26 10:51:28,753 - METRIC - INFO - {"loss": 0.2671598792076111, "accuracy": 0.9194865822792053, "energy_consumption": 0.5207299053379509, "selected": false, "host_energy_consumption": 0.29889026272, "client_name": "sta1"}
+2026-04-26 10:51:32,675 - METRIC - INFO - {"loss": 0.2901831865310669, "accuracy": 0.9201680421829224, "energy_consumption": 0.45970470230134985, "selected": false, "host_energy_consumption": 0.25368733124000004, "client_name": "sta3"}
+2026-04-26 10:51:34,944 - METRIC - INFO - {"loss": 0.28078493475914, "accuracy": 0.9203152656555176, "energy_consumption": 0.1869448202136783, "selected": true, "host_energy_consumption": 0.11264688652, "client_name": "sta4"}
+2026-04-26 10:51:37,161 - METRIC - INFO - {"loss": 0.2449287325143814, "accuracy": 0.9299719929695129, "energy_consumption": 0.5436389175801825, "selected": true, "host_energy_consumption": 0.34395239172000003, "client_name": "sta2"}
+2026-04-26 10:51:37,666 - METRIC - INFO - {"loss": 0.33878424763679504, "accuracy": 0.914185643196106, "energy_consumption": 0.08583895138793318, "selected": false, "host_energy_consumption": 0.04792472104, "client_name": "sta5"}
+2026-04-26 10:51:37,726 - METRIC - INFO - mean_accuracy: 0.9213802615801493
+
+2026-04-26 10:51:53,731 - METRIC - INFO - round: 7
+2026-04-26 10:51:53,732 - METRIC - INFO - n_selected: 3
+2026-04-26 10:51:53,732 - METRIC - INFO - {"selected_trainers": ["sta0", "sta3", "sta4"]}
+2026-04-26 10:52:02,531 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 10:52:23,943 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 10:52:37,836 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 10:52:38,460 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 10:52:58,610 - METRIC - INFO - {"loss": 0.23092201352119446, "accuracy": 0.9311552047729492, "energy_consumption": 0.5474444794780501, "selected": false, "host_energy_consumption": 0.30349469948, "client_name": "sta1"}
+2026-04-26 10:53:00,515 - METRIC - INFO - {"loss": 0.24031735956668854, "accuracy": 0.9346557855606079, "energy_consumption": 0.36626586690429797, "selected": true, "host_energy_consumption": 0.19465184732000002, "client_name": "sta0"}
+2026-04-26 10:53:04,299 - METRIC - INFO - {"loss": 0.24515433609485626, "accuracy": 0.9255691766738892, "energy_consumption": 0.26705702322670666, "selected": true, "host_energy_consumption": 0.17454769724000002, "client_name": "sta4"}
+2026-04-26 10:53:05,863 - METRIC - INFO - {"loss": 0.30090150237083435, "accuracy": 0.9264448285102844, "energy_consumption": 0.08583895138793318, "selected": false, "host_energy_consumption": 0.050984991400000006, "client_name": "sta5"}
+2026-04-26 10:53:06,949 - METRIC - INFO - {"loss": 0.21884950995445251, "accuracy": 0.9388421773910522, "energy_consumption": 0.6523730552078071, "selected": true, "host_energy_consumption": 0.36580860400000004, "client_name": "sta3"}
+2026-04-26 10:53:11,230 - METRIC - INFO - {"loss": 0.2571731507778168, "accuracy": 0.924369752407074, "energy_consumption": 0.5703487945671991, "selected": false, "host_energy_consumption": 0.34824639164000004, "client_name": "sta2"}
+2026-04-26 10:53:11,495 - METRIC - INFO - mean_accuracy: 0.9301728208859762
+
+2026-04-26 10:53:27,462 - METRIC - INFO - round: 8
+2026-04-26 10:53:27,463 - METRIC - INFO - n_selected: 3
+2026-04-26 10:53:27,463 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta3"]}
+2026-04-26 10:53:37,074 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 10:53:58,257 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 10:54:18,499 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 10:54:19,115 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 10:54:40,074 - METRIC - INFO - {"loss": 0.20372317731380463, "accuracy": 0.9375729560852051, "energy_consumption": 0.5474444794780501, "selected": false, "host_energy_consumption": 0.3080035014, "client_name": "sta1"}
+2026-04-26 10:54:41,282 - METRIC - INFO - {"loss": 0.21469350159168243, "accuracy": 0.9393232464790344, "energy_consumption": 0.46545936972761126, "selected": true, "host_energy_consumption": 0.23841152748000002, "client_name": "sta0"}
+2026-04-26 10:54:44,166 - METRIC - INFO - {"loss": 0.1958785057067871, "accuracy": 0.9397758841514587, "energy_consumption": 0.7782773299410376, "selected": true, "host_energy_consumption": 0.45772939240000005, "client_name": "sta2"}
+2026-04-26 10:54:47,279 - METRIC - INFO - {"loss": 0.19690783321857452, "accuracy": 0.9435107111930847, "energy_consumption": 0.841228330771461, "selected": true, "host_energy_consumption": 0.47844817664, "client_name": "sta3"}
+2026-04-26 10:54:48,547 - METRIC - INFO - {"loss": 0.23728302121162415, "accuracy": 0.9264448285102844, "energy_consumption": 0.26705702322670666, "selected": false, "host_energy_consumption": 0.17812968516000002, "client_name": "sta4"}
+2026-04-26 10:54:49,012 - METRIC - INFO - {"loss": 0.27230823040008545, "accuracy": 0.928196132183075, "energy_consumption": 0.08583895138793318, "selected": false, "host_energy_consumption": 0.05409328428, "client_name": "sta5"}
+2026-04-26 10:54:49,146 - METRIC - INFO - mean_accuracy: 0.9358039597670237
+
+2026-04-26 10:55:05,224 - METRIC - INFO - round: 9
+2026-04-26 10:55:05,225 - METRIC - INFO - n_selected: 3
+2026-04-26 10:55:05,225 - METRIC - INFO - {"selected_trainers": ["sta3", "sta4", "sta5"]}
+2026-04-26 10:55:27,257 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 10:55:39,181 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 10:55:51,575 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 10:55:53,078 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 10:56:11,692 - METRIC - INFO - {"loss": 0.19697150588035583, "accuracy": 0.9428238272666931, "energy_consumption": 0.46545936972761126, "selected": false, "host_energy_consumption": 0.24203090772000002, "client_name": "sta0"}
+2026-04-26 10:56:11,926 - METRIC - INFO - {"loss": 0.17523516714572906, "accuracy": 0.9445741176605225, "energy_consumption": 0.5474444794780501, "selected": false, "host_energy_consumption": 0.31266190732000004, "client_name": "sta1"}
+2026-04-26 10:56:16,691 - METRIC - INFO - {"loss": 0.20044930279254913, "accuracy": 0.9374416470527649, "energy_consumption": 0.8107039935234773, "selected": false, "host_energy_consumption": 0.46200245784000005, "client_name": "sta2"}
+2026-04-26 10:56:19,559 - METRIC - INFO - {"loss": 0.1731349229812622, "accuracy": 0.9505135416984558, "energy_consumption": 1.011004062989862, "selected": true, "host_energy_consumption": 0.58831552724, "client_name": "sta3"}
+2026-04-26 10:56:19,873 - METRIC - INFO - {"loss": 0.23852869868278503, "accuracy": 0.9264448285102844, "energy_consumption": 0.1506922197390499, "selected": true, "host_energy_consumption": 0.09143653092000001, "client_name": "sta5"}
+2026-04-26 10:56:19,963 - METRIC - INFO - {"loss": 0.1910553276538849, "accuracy": 0.9422066807746887, "energy_consumption": 0.3605182380546412, "selected": true, "host_energy_consumption": 0.23730351036000003, "client_name": "sta4"}
+2026-04-26 10:56:20,108 - METRIC - INFO - mean_accuracy: 0.9406674404939016
+
+2026-04-26 10:56:33,510 - METRIC - INFO - round: 10
+2026-04-26 10:56:33,510 - METRIC - INFO - n_selected: 3
+2026-04-26 10:56:33,510 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1", "sta3"]}
+2026-04-26 10:56:47,027 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 10:57:07,726 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 10:57:31,212 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 10:57:31,826 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 10:57:51,684 - METRIC - INFO - {"loss": 0.1728980541229248, "accuracy": 0.9544923901557922, "energy_consumption": 0.5245920572009322, "selected": true, "host_energy_consumption": 0.29026298840000003, "client_name": "sta0"}
+2026-04-26 10:57:54,363 - METRIC - INFO - {"loss": 0.1413564383983612, "accuracy": 0.9556592702865601, "energy_consumption": 0.7153020819454253, "selected": true, "host_energy_consumption": 0.40046005384, "client_name": "sta1"}
+2026-04-26 10:57:59,892 - METRIC - INFO - {"loss": 0.18123042583465576, "accuracy": 0.9439775943756104, "energy_consumption": 0.8107039935234773, "selected": false, "host_energy_consumption": 0.46679563392, "client_name": "sta2"}
+2026-04-26 10:58:04,349 - METRIC - INFO - {"loss": 0.21743394434452057, "accuracy": 0.9369527101516724, "energy_consumption": 0.1506922197390499, "selected": false, "host_energy_consumption": 0.0945126602, "client_name": "sta5"}
+2026-04-26 10:58:05,401 - METRIC - INFO - {"loss": 0.153081476688385, "accuracy": 0.9551820755004883, "energy_consumption": 1.2265417415662903, "selected": true, "host_energy_consumption": 0.72225254528, "client_name": "sta3"}
+2026-04-26 10:58:06,685 - METRIC - INFO - {"loss": 0.1845797896385193, "accuracy": 0.9395796656608582, "energy_consumption": 0.3605182380546412, "selected": false, "host_energy_consumption": 0.24077303012, "client_name": "sta4"}
+2026-04-26 10:58:06,862 - METRIC - INFO - mean_accuracy: 0.947640617688497
+
+2026-04-26 10:58:22,858 - METRIC - INFO - round: 11
+2026-04-26 10:58:22,858 - METRIC - INFO - n_selected: 3
+2026-04-26 10:58:22,858 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta3"]}
+2026-04-26 10:58:33,030 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 10:59:02,761 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 10:59:27,355 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 10:59:27,961 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 10:59:52,302 - METRIC - INFO - {"loss": 0.13736523687839508, "accuracy": 0.9579929709434509, "energy_consumption": 0.7153020819454253, "selected": false, "host_energy_consumption": 0.40512266396, "client_name": "sta1"}
+2026-04-26 10:59:52,652 - METRIC - INFO - {"loss": 0.15453478693962097, "accuracy": 0.9591598510742188, "energy_consumption": 0.6123330329067098, "selected": true, "host_energy_consumption": 0.33551744520000004, "client_name": "sta0"}
+2026-04-26 10:59:57,436 - METRIC - INFO - {"loss": 0.1633027344942093, "accuracy": 0.9448336362838745, "energy_consumption": 0.3605182380546412, "selected": false, "host_energy_consumption": 0.24433490340000003, "client_name": "sta4"}
+2026-04-26 10:59:58,525 - METRIC - INFO - {"loss": 0.12995395064353943, "accuracy": 0.9659196734428406, "energy_consumption": 1.0815508753738343, "selected": true, "host_energy_consumption": 0.642834297, "client_name": "sta2"}
+2026-04-26 11:00:01,574 - METRIC - INFO - {"loss": 0.13989418745040894, "accuracy": 0.9598506093025208, "energy_consumption": 1.41347842481664, "selected": true, "host_energy_consumption": 0.85661639812, "client_name": "sta3"}
+2026-04-26 11:00:02,079 - METRIC - INFO - {"loss": 0.19296236336231232, "accuracy": 0.9439579844474792, "energy_consumption": 0.1506922197390499, "selected": false, "host_energy_consumption": 0.09756252296000001, "client_name": "sta5"}
+2026-04-26 11:00:02,997 - METRIC - INFO - mean_accuracy: 0.9552857875823975
+
+2026-04-26 11:00:19,041 - METRIC - INFO - round: 12
+2026-04-26 11:00:19,041 - METRIC - INFO - n_selected: 3
+2026-04-26 11:00:19,041 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta4"]}
+2026-04-26 11:00:40,242 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:00:58,286 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:01:14,847 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:01:15,459 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:01:36,147 - METRIC - INFO - {"loss": 0.13917768001556396, "accuracy": 0.9591598510742188, "energy_consumption": 0.6123330329067098, "selected": false, "host_energy_consumption": 0.33909153740000003, "client_name": "sta0"}
+2026-04-26 11:01:37,238 - METRIC - INFO - {"loss": 0.11667154729366302, "accuracy": 0.9661610126495361, "energy_consumption": 0.7420189673073802, "selected": false, "host_energy_consumption": 0.40950616308000004, "client_name": "sta1"}
+2026-04-26 11:01:39,718 - METRIC - INFO - {"loss": 0.12188434600830078, "accuracy": 0.9677870869636536, "energy_consumption": 1.295183255136529, "selected": true, "host_energy_consumption": 0.7556545598000001, "client_name": "sta2"}
+2026-04-26 11:01:41,273 - METRIC - INFO - {"loss": 0.17167210578918457, "accuracy": 0.9509631991386414, "energy_consumption": 0.1506922197390499, "selected": false, "host_energy_consumption": 0.10058044472000001, "client_name": "sta5"}
+2026-04-26 11:01:43,730 - METRIC - INFO - {"loss": 0.12624885141849518, "accuracy": 0.9621848464012146, "energy_consumption": 1.5469916265721508, "selected": true, "host_energy_consumption": 0.94840352628, "client_name": "sta3"}
+2026-04-26 11:01:45,326 - METRIC - INFO - {"loss": 0.12974727153778076, "accuracy": 0.9579684734344482, "energy_consumption": 0.46733089513641835, "selected": true, "host_energy_consumption": 0.31731301532, "client_name": "sta4"}
+2026-04-26 11:01:45,489 - METRIC - INFO - mean_accuracy: 0.9607040782769521
+
+2026-04-26 11:02:01,506 - METRIC - INFO - round: 13
+2026-04-26 11:02:01,506 - METRIC - INFO - n_selected: 3
+2026-04-26 11:02:01,506 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta3"]}
+2026-04-26 11:02:06,060 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:02:32,721 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:02:41,146 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:02:41,758 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:03:01,100 - METRIC - INFO - {"loss": 0.10627518594264984, "accuracy": 0.9696615934371948, "energy_consumption": 0.768724110581409, "selected": false, "host_energy_consumption": 0.41395328772, "client_name": "sta1"}
+2026-04-26 11:03:04,817 - METRIC - INFO - {"loss": 0.12860345840454102, "accuracy": 0.9638273119926453, "energy_consumption": 0.6657467068094949, "selected": true, "host_energy_consumption": 0.35206765188, "client_name": "sta0"}
+2026-04-26 11:03:07,683 - METRIC - INFO - {"loss": 0.10850969702005386, "accuracy": 0.9719887971878052, "energy_consumption": 1.581298597888534, "selected": true, "host_energy_consumption": 0.907172231, "client_name": "sta2"}
+2026-04-26 11:03:08,855 - METRIC - INFO - {"loss": 0.15668544173240662, "accuracy": 0.9527145624160767, "energy_consumption": 0.1506922197390499, "selected": false, "host_energy_consumption": 0.10449698224000001, "client_name": "sta5"}
+2026-04-26 11:03:11,342 - METRIC - INFO - {"loss": 0.12456449866294861, "accuracy": 0.9562171697616577, "energy_consumption": 0.46733089513641835, "selected": false, "host_energy_consumption": 0.32088153636, "client_name": "sta4"}
+2026-04-26 11:03:13,040 - METRIC - INFO - {"loss": 0.12393946200609207, "accuracy": 0.9654528498649597, "energy_consumption": 1.5756096762993899, "selected": true, "host_energy_consumption": 0.97584523316, "client_name": "sta3"}
+2026-04-26 11:03:13,792 - METRIC - INFO - mean_accuracy: 0.9633103807767233
+
+2026-04-26 11:03:29,850 - METRIC - INFO - round: 14
+2026-04-26 11:03:29,851 - METRIC - INFO - n_selected: 3
+2026-04-26 11:03:29,851 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta3"]}
+2026-04-26 11:03:36,533 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:04:00,569 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:04:09,299 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:04:09,915 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:04:29,839 - METRIC - INFO - {"loss": 0.11969082057476044, "accuracy": 0.9649941921234131, "energy_consumption": 0.692450305030123, "selected": true, "host_energy_consumption": 0.38103699900000004, "client_name": "sta0"}
+2026-04-26 11:04:31,519 - METRIC - INFO - {"loss": 0.09884272515773773, "accuracy": 0.9749124646186829, "energy_consumption": 0.7954273861211328, "selected": false, "host_energy_consumption": 0.4192166384, "client_name": "sta1"}
+2026-04-26 11:04:34,742 - METRIC - INFO - {"loss": 0.1481717973947525, "accuracy": 0.9579684734344482, "energy_consumption": 0.1773959435350041, "selected": false, "host_energy_consumption": 0.10763683980000001, "client_name": "sta5"}
+2026-04-26 11:04:38,082 - METRIC - INFO - {"loss": 0.11458675563335419, "accuracy": 0.9614710807800293, "energy_consumption": 0.46733089513641835, "selected": false, "host_energy_consumption": 0.32441548496, "client_name": "sta4"}
+2026-04-26 11:04:39,149 - METRIC - INFO - {"loss": 0.10275646299123764, "accuracy": 0.9715219140052795, "energy_consumption": 1.7853873989797404, "selected": true, "host_energy_consumption": 1.0368931778800001, "client_name": "sta2"}
+2026-04-26 11:04:41,406 - METRIC - INFO - {"loss": 0.11688574403524399, "accuracy": 0.9663865566253662, "energy_consumption": 1.6309232651724237, "selected": true, "host_energy_consumption": 1.0029804688400001, "client_name": "sta3"}
+2026-04-26 11:04:41,948 - METRIC - INFO - mean_accuracy: 0.9662091135978699
+
+2026-04-26 11:04:58,010 - METRIC - INFO - round: 15
+2026-04-26 11:04:58,010 - METRIC - INFO - n_selected: 3
+2026-04-26 11:04:58,010 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1", "sta3"]}
+2026-04-26 11:05:02,927 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:05:29,344 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:05:39,303 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:05:39,874 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:05:55,544 - METRIC - INFO - {"loss": 0.11419325321912766, "accuracy": 0.9661610126495361, "energy_consumption": 0.7191632196684221, "selected": true, "host_energy_consumption": 0.39387273744, "client_name": "sta0"}
+2026-04-26 11:05:58,877 - METRIC - INFO - {"loss": 0.08527283370494843, "accuracy": 0.97782963514328, "energy_consumption": 1.0701055585054955, "selected": true, "host_energy_consumption": 0.57423908556, "client_name": "sta1"}
+2026-04-26 11:06:02,731 - METRIC - INFO - {"loss": 0.10789982974529266, "accuracy": 0.9614710807800293, "energy_consumption": 0.46733089513641835, "selected": false, "host_energy_consumption": 0.32794456268, "client_name": "sta4"}
+2026-04-26 11:06:04,155 - METRIC - INFO - {"loss": 0.10864266008138657, "accuracy": 0.9710550904273987, "energy_consumption": 1.7853873989797404, "selected": false, "host_energy_consumption": 1.04124595008, "client_name": "sta2"}
+2026-04-26 11:06:05,228 - METRIC - INFO - {"loss": 0.14008888602256775, "accuracy": 0.9579684734344482, "energy_consumption": 0.1773959435350041, "selected": false, "host_energy_consumption": 0.11050391044, "client_name": "sta5"}
+2026-04-26 11:06:06,967 - METRIC - INFO - {"loss": 0.10891740024089813, "accuracy": 0.9687207937240601, "energy_consumption": 1.7148582021120014, "selected": true, "host_energy_consumption": 1.0296083764400001, "client_name": "sta3"}
+2026-04-26 11:06:07,904 - METRIC - INFO - mean_accuracy: 0.9672010143597921
+
+2026-04-26 11:06:22,931 - METRIC - INFO - round: 16
+2026-04-26 11:06:22,931 - METRIC - INFO - n_selected: 3
+2026-04-26 11:06:22,932 - METRIC - INFO - {"selected_trainers": ["sta0", "sta4", "sta5"]}
+2026-04-26 11:06:28,353 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:06:36,605 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:06:46,373 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 11:06:47,795 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:07:07,374 - METRIC - INFO - {"loss": 0.08713480085134506, "accuracy": 0.9795799255371094, "energy_consumption": 1.108253996726123, "selected": false, "host_energy_consumption": 0.5780387289600001, "client_name": "sta1"}
+2026-04-26 11:07:12,396 - METRIC - INFO - {"loss": 0.10720337182283401, "accuracy": 0.9684947729110718, "energy_consumption": 0.7191632196684221, "selected": true, "host_energy_consumption": 0.40600987924000004, "client_name": "sta0"}
+2026-04-26 11:07:17,226 - METRIC - INFO - {"loss": 0.10516758263111115, "accuracy": 0.9710550904273987, "energy_consumption": 1.7530081027288524, "selected": false, "host_energy_consumption": 1.03460312704, "client_name": "sta3"}
+2026-04-26 11:07:18,667 - METRIC - INFO - {"loss": 0.13412772119045258, "accuracy": 0.9579684734344482, "energy_consumption": 0.253692754804256, "selected": true, "host_energy_consumption": 0.1459754996, "client_name": "sta5"}
+2026-04-26 11:07:19,897 - METRIC - INFO - {"loss": 0.10202629864215851, "accuracy": 0.9719887971878052, "energy_consumption": 1.7853873989797404, "selected": false, "host_energy_consumption": 1.04513425576, "client_name": "sta2"}
+2026-04-26 11:07:20,629 - METRIC - INFO - {"loss": 0.1020803228020668, "accuracy": 0.9667250514030457, "energy_consumption": 0.539699700615413, "selected": true, "host_energy_consumption": 0.34364815800000004, "client_name": "sta4"}
+2026-04-26 11:07:20,830 - METRIC - INFO - mean_accuracy: 0.9693020184834799
+
+2026-04-26 11:07:32,407 - METRIC - INFO - round: 17
+2026-04-26 11:07:32,408 - METRIC - INFO - n_selected: 3
+2026-04-26 11:07:32,408 - METRIC - INFO - {"selected_trainers": ["sta1", "sta2", "sta3"]}
+2026-04-26 11:07:38,143 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:08:06,651 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:08:33,511 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:08:34,128 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:08:57,004 - METRIC - INFO - {"loss": 0.10754304379224777, "accuracy": 0.967327892780304, "energy_consumption": 0.7191632196684221, "selected": false, "host_energy_consumption": 0.40959196964, "client_name": "sta0"}
+2026-04-26 11:08:58,382 - METRIC - INFO - {"loss": 0.08656663447618484, "accuracy": 0.9789965152740479, "energy_consumption": 1.1731223802138468, "selected": true, "host_energy_consumption": 0.6008567222000001, "client_name": "sta1"}
+2026-04-26 11:09:03,457 - METRIC - INFO - {"loss": 0.09036792069673538, "accuracy": 0.974323034286499, "energy_consumption": 2.0257259949702164, "selected": true, "host_energy_consumption": 1.20122524284, "client_name": "sta2"}
+2026-04-26 11:09:03,735 - METRIC - INFO - {"loss": 0.1320832222700119, "accuracy": 0.9597197771072388, "energy_consumption": 0.2803989265243243, "selected": false, "host_energy_consumption": 0.14979754804, "client_name": "sta5"}
+2026-04-26 11:09:04,463 - METRIC - INFO - {"loss": 0.09533526003360748, "accuracy": 0.9719887971878052, "energy_consumption": 1.9933492531440322, "selected": true, "host_energy_consumption": 1.1909822996400001, "client_name": "sta3"}
+2026-04-26 11:09:05,866 - METRIC - INFO - {"loss": 0.10014711320400238, "accuracy": 0.9649737477302551, "energy_consumption": 0.539699700615413, "selected": false, "host_energy_consumption": 0.34703692884000004, "client_name": "sta4"}
+2026-04-26 11:09:06,161 - METRIC - INFO - mean_accuracy: 0.9695549607276917
+
+2026-04-26 11:09:22,247 - METRIC - INFO - round: 18
+2026-04-26 11:09:22,247 - METRIC - INFO - n_selected: 3
+2026-04-26 11:09:22,247 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta4"]}
+2026-04-26 11:09:47,517 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:09:55,543 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:10:07,789 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:10:08,399 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:10:27,993 - METRIC - INFO - {"loss": 0.10033246874809265, "accuracy": 0.9719953536987305, "energy_consumption": 0.7191632196684221, "selected": false, "host_energy_consumption": 0.41323901808, "client_name": "sta0"}
+2026-04-26 11:10:31,815 - METRIC - INFO - {"loss": 0.0800909772515297, "accuracy": 0.9801633358001709, "energy_consumption": 1.1731223802138468, "selected": false, "host_energy_consumption": 0.60530087324, "client_name": "sta1"}
+2026-04-26 11:10:37,934 - METRIC - INFO - {"loss": 0.08567573130130768, "accuracy": 0.9757236242294312, "energy_consumption": 2.27942232151829, "selected": true, "host_energy_consumption": 1.35302265672, "client_name": "sta2"}
+2026-04-26 11:10:42,062 - METRIC - INFO - {"loss": 0.1238316223025322, "accuracy": 0.9597197771072388, "energy_consumption": 0.30710705499412017, "selected": false, "host_energy_consumption": 0.1529803352, "client_name": "sta5"}
+2026-04-26 11:10:42,663 - METRIC - INFO - {"loss": 0.09487955272197723, "accuracy": 0.9733893275260925, "energy_consumption": 2.021970326216504, "selected": true, "host_energy_consumption": 1.22002002332, "client_name": "sta3"}
+2026-04-26 11:10:42,735 - METRIC - INFO - {"loss": 0.08996963500976562, "accuracy": 0.9693520069122314, "energy_consumption": 0.6198122183615431, "selected": true, "host_energy_consumption": 0.39844916496000005, "client_name": "sta4"}
+2026-04-26 11:10:43,435 - METRIC - INFO - mean_accuracy: 0.9717239042123159
+
+2026-04-26 11:10:59,456 - METRIC - INFO - round: 19
+2026-04-26 11:10:59,457 - METRIC - INFO - n_selected: 3
+2026-04-26 11:10:59,457 - METRIC - INFO - {"selected_trainers": ["sta3", "sta4", "sta5"]}
+2026-04-26 11:11:08,293 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:11:25,076 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:11:31,526 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 11:11:33,004 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:11:47,984 - METRIC - INFO - {"loss": 0.09655918926000595, "accuracy": 0.9708284735679626, "energy_consumption": 0.7191632196684221, "selected": false, "host_energy_consumption": 0.41656481272, "client_name": "sta0"}
+2026-04-26 11:11:48,750 - METRIC - INFO - {"loss": 0.07535714656114578, "accuracy": 0.9813302159309387, "energy_consumption": 1.1731223802138468, "selected": false, "host_energy_consumption": 0.60922351196, "client_name": "sta1"}
+2026-04-26 11:11:50,908 - METRIC - INFO - {"loss": 0.0885477140545845, "accuracy": 0.9738562107086182, "energy_consumption": 2.27942232151829, "selected": false, "host_energy_consumption": 1.35703636712, "client_name": "sta2"}
+2026-04-26 11:11:58,078 - METRIC - INFO - {"loss": 0.09137478470802307, "accuracy": 0.9710550904273987, "energy_consumption": 2.0486830373909832, "selected": true, "host_energy_consumption": 1.24796229068, "client_name": "sta3"}
+2026-04-26 11:11:58,844 - METRIC - INFO - {"loss": 0.11550290137529373, "accuracy": 0.9632224440574646, "energy_consumption": 0.3414399218505655, "selected": true, "host_energy_consumption": 0.16258887008, "client_name": "sta5"}
+2026-04-26 11:11:59,244 - METRIC - INFO - {"loss": 0.08313411474227905, "accuracy": 0.971103310585022, "energy_consumption": 0.7266503688244206, "selected": true, "host_energy_consumption": 0.47142479860000003, "client_name": "sta4"}
+2026-04-26 11:12:00,032 - METRIC - INFO - mean_accuracy: 0.9718992908795675
+
+2026-04-26 11:12:12,853 - METRIC - INFO - round: 20
+2026-04-26 11:12:12,853 - METRIC - INFO - n_selected: 3
+2026-04-26 11:12:12,853 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta5"]}
+2026-04-26 11:12:21,896 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:12:47,363 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:12:52,722 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 11:12:54,252 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:13:07,566 - METRIC - INFO - {"loss": 0.07309383153915405, "accuracy": 0.9813302159309387, "energy_consumption": 1.1731223802138468, "selected": false, "host_energy_consumption": 0.6131904475200001, "client_name": "sta1"}
+2026-04-26 11:13:08,917 - METRIC - INFO - {"loss": 0.09289711713790894, "accuracy": 0.9708284735679626, "energy_consumption": 0.7897548242949437, "selected": true, "host_energy_consumption": 0.46734175348, "client_name": "sta0"}
+2026-04-26 11:13:19,615 - METRIC - INFO - {"loss": 0.09018228203058243, "accuracy": 0.972455620765686, "energy_consumption": 2.0486830373909832, "selected": false, "host_energy_consumption": 1.25225434236, "client_name": "sta3"}
+2026-04-26 11:13:21,458 - METRIC - INFO - {"loss": 0.11440268903970718, "accuracy": 0.9632224440574646, "energy_consumption": 0.3414399218505655, "selected": true, "host_energy_consumption": 0.17207589616000002, "client_name": "sta5"}
+2026-04-26 11:13:22,305 - METRIC - INFO - {"loss": 0.08351635187864304, "accuracy": 0.9728546142578125, "energy_consumption": 0.7571734741625433, "selected": false, "host_energy_consumption": 0.47488946512, "client_name": "sta4"}
+2026-04-26 11:13:22,715 - METRIC - INFO - {"loss": 0.07987546175718307, "accuracy": 0.9771241545677185, "energy_consumption": 2.502588427852704, "selected": true, "host_energy_consumption": 1.4907626848800002, "client_name": "sta2"}
+2026-04-26 11:13:23,283 - METRIC - INFO - mean_accuracy: 0.9729692538579305
+
+2026-04-26 11:13:37,444 - METRIC - INFO - round: 21
+2026-04-26 11:13:37,444 - METRIC - INFO - n_selected: 3
+2026-04-26 11:13:37,444 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta4"]}
+2026-04-26 11:13:47,282 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:13:55,670 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:14:17,258 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:14:18,868 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:14:41,897 - METRIC - INFO - {"loss": 0.09061684459447861, "accuracy": 0.9743290543556213, "energy_consumption": 0.7897548242949437, "selected": false, "host_energy_consumption": 0.47118393364000005, "client_name": "sta0"}
+2026-04-26 11:14:43,498 - METRIC - INFO - {"loss": 0.06978513300418854, "accuracy": 0.9824970960617065, "energy_consumption": 1.1998380304868195, "selected": false, "host_energy_consumption": 0.61757189648, "client_name": "sta1"}
+2026-04-26 11:14:49,789 - METRIC - INFO - {"loss": 0.0807630643248558, "accuracy": 0.9757236242294312, "energy_consumption": 2.5865337478054617, "selected": true, "host_energy_consumption": 1.5189848833600001, "client_name": "sta2"}
+2026-04-26 11:14:55,557 - METRIC - INFO - {"loss": 0.08457771688699722, "accuracy": 0.9719887971878052, "energy_consumption": 2.075391294615226, "selected": true, "host_energy_consumption": 1.27952130656, "client_name": "sta3"}
+2026-04-26 11:14:56,167 - METRIC - INFO - {"loss": 0.07500921934843063, "accuracy": 0.9737303256988525, "energy_consumption": 0.9192998441031235, "selected": true, "host_energy_consumption": 0.58225493732, "client_name": "sta4"}
+2026-04-26 11:14:56,802 - METRIC - INFO - {"loss": 0.10901198536157608, "accuracy": 0.9632224440574646, "energy_consumption": 0.36814329276395386, "selected": false, "host_energy_consumption": 0.17493816396, "client_name": "sta5"}
+2026-04-26 11:14:56,906 - METRIC - INFO - mean_accuracy: 0.9735818902651469
+
+2026-04-26 11:15:12,926 - METRIC - INFO - round: 22
+2026-04-26 11:15:12,926 - METRIC - INFO - n_selected: 3
+2026-04-26 11:15:12,927 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta3"]}
+2026-04-26 11:15:20,581 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:15:49,838 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:16:15,203 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:16:15,819 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:16:34,201 - METRIC - INFO - {"loss": 0.06791432946920395, "accuracy": 0.9819136261940002, "energy_consumption": 1.1998380304868195, "selected": false, "host_energy_consumption": 0.6221248583200001, "client_name": "sta1"}
+2026-04-26 11:16:34,942 - METRIC - INFO - {"loss": 0.08707940578460693, "accuracy": 0.9719953536987305, "energy_consumption": 0.7897548242949437, "selected": true, "host_energy_consumption": 0.48433738892, "client_name": "sta0"}
+2026-04-26 11:16:48,386 - METRIC - INFO - {"loss": 0.07358742505311966, "accuracy": 0.978057861328125, "energy_consumption": 2.828771195349795, "selected": true, "host_energy_consumption": 1.6736823852, "client_name": "sta2"}
+2026-04-26 11:16:48,422 - METRIC - INFO - {"loss": 0.10680806636810303, "accuracy": 0.9632224440574646, "energy_consumption": 0.3948488779359711, "selected": false, "host_energy_consumption": 0.17887835392, "client_name": "sta5"}
+2026-04-26 11:16:49,096 - METRIC - INFO - {"loss": 0.078546904027462, "accuracy": 0.9733893275260925, "energy_consumption": 2.262316483749185, "selected": true, "host_energy_consumption": 1.4148051372000001, "client_name": "sta3"}
+2026-04-26 11:16:51,448 - METRIC - INFO - {"loss": 0.07575251907110214, "accuracy": 0.9781085848808289, "energy_consumption": 0.9192998441031235, "selected": false, "host_energy_consumption": 0.58567411028, "client_name": "sta4"}
+2026-04-26 11:16:51,856 - METRIC - INFO - mean_accuracy: 0.9744478662808737
+
+2026-04-26 11:17:07,856 - METRIC - INFO - round: 23
+2026-04-26 11:17:07,856 - METRIC - INFO - n_selected: 3
+2026-04-26 11:17:07,856 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta3"]}
+2026-04-26 11:17:18,915 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:17:44,378 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:17:58,493 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:17:59,103 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:18:19,828 - METRIC - INFO - {"loss": 0.08191943168640137, "accuracy": 0.9719953536987305, "energy_consumption": 0.9347169925511007, "selected": true, "host_energy_consumption": 0.54541310432, "client_name": "sta0"}
+2026-04-26 11:18:21,286 - METRIC - INFO - {"loss": 0.06398151069879532, "accuracy": 0.9824970960617065, "energy_consumption": 1.1998380304868195, "selected": false, "host_energy_consumption": 0.62663637792, "client_name": "sta1"}
+2026-04-26 11:18:24,679 - METRIC - INFO - {"loss": 0.07083769887685776, "accuracy": 0.978057861328125, "energy_consumption": 3.0462181736652707, "selected": true, "host_energy_consumption": 1.8081175708400001, "client_name": "sta2"}
+2026-04-26 11:18:25,534 - METRIC - INFO - {"loss": 0.07799016684293747, "accuracy": 0.9747899174690247, "energy_consumption": 2.3691300119104497, "selected": true, "host_energy_consumption": 1.48562208928, "client_name": "sta3"}
+2026-04-26 11:18:26,359 - METRIC - INFO - {"loss": 0.07055787742137909, "accuracy": 0.9781085848808289, "energy_consumption": 0.9192998441031235, "selected": false, "host_energy_consumption": 0.5892238494800001, "client_name": "sta4"}
+2026-04-26 11:18:32,341 - METRIC - INFO - {"loss": 0.10145501047372818, "accuracy": 0.9649737477302551, "energy_consumption": 0.3948488779359711, "selected": false, "host_energy_consumption": 0.18180587096, "client_name": "sta5"}
+2026-04-26 11:18:33,139 - METRIC - INFO - mean_accuracy: 0.9750704268614451
+
+2026-04-26 11:18:49,227 - METRIC - INFO - round: 24
+2026-04-26 11:18:49,228 - METRIC - INFO - n_selected: 3
+2026-04-26 11:18:49,228 - METRIC - INFO - {"selected_trainers": ["sta1", "sta3", "sta4"]}
+2026-04-26 11:19:08,653 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:19:31,425 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:19:47,205 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:19:47,817 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:20:08,577 - METRIC - INFO - {"loss": 0.059381403028964996, "accuracy": 0.9807468056678772, "energy_consumption": 1.453525571530633, "selected": true, "host_energy_consumption": 0.7596249460800001, "client_name": "sta1"}
+2026-04-26 11:20:10,129 - METRIC - INFO - {"loss": 0.07810017466545105, "accuracy": 0.9743290543556213, "energy_consumption": 0.9347169925511007, "selected": false, "host_energy_consumption": 0.5491767912400001, "client_name": "sta0"}
+2026-04-26 11:20:20,502 - METRIC - INFO - {"loss": 0.09649432450532913, "accuracy": 0.9684763550758362, "energy_consumption": 0.42155100263345036, "selected": false, "host_energy_consumption": 0.18481078728, "client_name": "sta5"}
+2026-04-26 11:20:24,059 - METRIC - INFO - {"loss": 0.07211118936538696, "accuracy": 0.976190447807312, "energy_consumption": 2.628555072195258, "selected": true, "host_energy_consumption": 1.61643645884, "client_name": "sta3"}
+2026-04-26 11:20:25,059 - METRIC - INFO - {"loss": 0.0724630057811737, "accuracy": 0.9775910377502441, "energy_consumption": 3.0462181736652707, "selected": false, "host_energy_consumption": 1.8127774467600002, "client_name": "sta2"}
+2026-04-26 11:20:25,451 - METRIC - INFO - {"loss": 0.06603153795003891, "accuracy": 0.9789842367172241, "energy_consumption": 1.0280229358705824, "selected": true, "host_energy_consumption": 0.6631891532, "client_name": "sta4"}
+2026-04-26 11:20:25,856 - METRIC - INFO - mean_accuracy: 0.9760529895623525
+
+2026-04-26 11:20:41,867 - METRIC - INFO - round: 25
+2026-04-26 11:20:41,868 - METRIC - INFO - n_selected: 3
+2026-04-26 11:20:41,868 - METRIC - INFO - {"selected_trainers": ["sta1", "sta2", "sta4"]}
+2026-04-26 11:20:47,411 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:21:13,036 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:21:23,508 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:21:24,116 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:21:40,957 - METRIC - INFO - {"loss": 0.059725236147642136, "accuracy": 0.9819136261940002, "energy_consumption": 1.4802444454335375, "selected": true, "host_energy_consumption": 0.78098943468, "client_name": "sta1"}
+2026-04-26 11:21:42,337 - METRIC - INFO - {"loss": 0.07289860397577286, "accuracy": 0.9754959344863892, "energy_consumption": 0.9347169925511007, "selected": false, "host_energy_consumption": 0.55254055948, "client_name": "sta0"}
+2026-04-26 11:21:52,208 - METRIC - INFO - {"loss": 0.06585274636745453, "accuracy": 0.9789842367172241, "energy_consumption": 1.0547266326439995, "selected": true, "host_energy_consumption": 0.6803329568, "client_name": "sta4"}
+2026-04-26 11:21:57,958 - METRIC - INFO - {"loss": 0.09025095403194427, "accuracy": 0.9684763550758362, "energy_consumption": 0.42155100263345036, "selected": false, "host_energy_consumption": 0.18792335240000002, "client_name": "sta5"}
+2026-04-26 11:21:58,972 - METRIC - INFO - {"loss": 0.07156018912792206, "accuracy": 0.9771241545677185, "energy_consumption": 2.655259552622301, "selected": false, "host_energy_consumption": 1.62118875632, "client_name": "sta3"}
+2026-04-26 11:21:59,302 - METRIC - INFO - {"loss": 0.06412667036056519, "accuracy": 0.9803921580314636, "energy_consumption": 3.2712921841040843, "selected": true, "host_energy_consumption": 1.94721285444, "client_name": "sta2"}
+2026-04-26 11:22:00,154 - METRIC - INFO - mean_accuracy: 0.9770644108454386
+
+2026-04-26 11:22:16,202 - METRIC - INFO - round: 26
+2026-04-26 11:22:16,202 - METRIC - INFO - n_selected: 3
+2026-04-26 11:22:16,202 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta4"]}
+2026-04-26 11:22:20,551 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:22:29,737 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:22:49,024 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:22:49,635 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:23:05,532 - METRIC - INFO - {"loss": 0.05646616965532303, "accuracy": 0.9848307967185974, "energy_consumption": 1.4802444454335375, "selected": false, "host_energy_consumption": 0.78544033652, "client_name": "sta1"}
+2026-04-26 11:23:13,018 - METRIC - INFO - {"loss": 0.07076802849769592, "accuracy": 0.9754959344863892, "energy_consumption": 0.9881276192652333, "selected": true, "host_energy_consumption": 0.56537852, "client_name": "sta0"}
+2026-04-26 11:23:21,272 - METRIC - INFO - {"loss": 0.07080109417438507, "accuracy": 0.9766573309898376, "energy_consumption": 2.655259552622301, "selected": false, "host_energy_consumption": 1.62666108136, "client_name": "sta3"}
+2026-04-26 11:23:21,485 - METRIC - INFO - {"loss": 0.08720076084136963, "accuracy": 0.9719789624214172, "energy_consumption": 0.42155100263345036, "selected": false, "host_energy_consumption": 0.1925511504, "client_name": "sta5"}
+2026-04-26 11:23:21,605 - METRIC - INFO - {"loss": 0.065345898270607, "accuracy": 0.9794584512710571, "energy_consumption": 3.3590377488727943, "selected": true, "host_energy_consumption": 1.97681599388, "client_name": "sta2"}
+2026-04-26 11:23:24,124 - METRIC - INFO - {"loss": 0.06067248061299324, "accuracy": 0.9816111922264099, "energy_consumption": 1.2416498888716503, "selected": true, "host_energy_consumption": 0.77668967572, "client_name": "sta4"}
+2026-04-26 11:23:24,672 - METRIC - INFO - mean_accuracy: 0.9783387780189514
+
+2026-04-26 11:23:40,721 - METRIC - INFO - round: 27
+2026-04-26 11:23:40,721 - METRIC - INFO - n_selected: 3
+2026-04-26 11:23:40,722 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta5"]}
+2026-04-26 11:24:01,570 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:24:11,069 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:24:21,090 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 11:24:22,652 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:24:39,371 - METRIC - INFO - {"loss": 0.07042281329631805, "accuracy": 0.9766627550125122, "energy_consumption": 0.9881276192652333, "selected": false, "host_energy_consumption": 0.56939764784, "client_name": "sta0"}
+2026-04-26 11:24:39,463 - METRIC - INFO - {"loss": 0.05543915927410126, "accuracy": 0.9836639165878296, "energy_consumption": 1.4802444454335375, "selected": false, "host_energy_consumption": 0.79034220412, "client_name": "sta1"}
+2026-04-26 11:24:51,831 - METRIC - INFO - {"loss": 0.06326150894165039, "accuracy": 0.9794584512710571, "energy_consumption": 3.5478799010199116, "selected": true, "host_energy_consumption": 2.08921143872, "client_name": "sta2"}
+2026-04-26 11:24:53,187 - METRIC - INFO - {"loss": 0.08743536472320557, "accuracy": 0.9667250514030457, "energy_consumption": 0.47686891352314875, "selected": true, "host_energy_consumption": 0.23074630656, "client_name": "sta5"}
+2026-04-26 11:24:53,227 - METRIC - INFO - {"loss": 0.060179248452186584, "accuracy": 0.9824868440628052, "energy_consumption": 1.2416498888716503, "selected": false, "host_energy_consumption": 0.78062921608, "client_name": "sta4"}
+2026-04-26 11:24:55,131 - METRIC - INFO - {"loss": 0.06869017332792282, "accuracy": 0.9766573309898376, "energy_consumption": 2.735378617770646, "selected": true, "host_energy_consumption": 1.65445306096, "client_name": "sta3"}
+2026-04-26 11:24:55,687 - METRIC - INFO - mean_accuracy: 0.9776090582211813
+
+2026-04-26 11:25:10,713 - METRIC - INFO - round: 28
+2026-04-26 11:25:10,714 - METRIC - INFO - n_selected: 3
+2026-04-26 11:25:10,714 - METRIC - INFO - {"selected_trainers": ["sta3", "sta4", "sta5"]}
+2026-04-26 11:25:17,289 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:25:37,101 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:25:50,123 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 11:25:51,618 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:26:07,295 - METRIC - INFO - {"loss": 0.05479525029659271, "accuracy": 0.9854142069816589, "energy_consumption": 1.4802444454335375, "selected": false, "host_energy_consumption": 0.7948717532, "client_name": "sta1"}
+2026-04-26 11:26:07,492 - METRIC - INFO - {"loss": 0.07161416858434677, "accuracy": 0.9754959344863892, "energy_consumption": 0.9881276192652333, "selected": false, "host_energy_consumption": 0.57340283, "client_name": "sta0"}
+2026-04-26 11:26:11,203 - METRIC - INFO - {"loss": 0.06421564519405365, "accuracy": 0.9789915680885315, "energy_consumption": 3.5478799010199116, "selected": false, "host_energy_consumption": 2.09342118636, "client_name": "sta2"}
+2026-04-26 11:26:15,593 - METRIC - INFO - {"loss": 0.08327081054449081, "accuracy": 0.9719789624214172, "energy_consumption": 0.47686891352314875, "selected": true, "host_energy_consumption": 0.24025989036, "client_name": "sta5"}
+2026-04-26 11:26:17,148 - METRIC - INFO - {"loss": 0.06957676261663437, "accuracy": 0.9789915680885315, "energy_consumption": 2.763989166359, "selected": true, "host_energy_consumption": 1.6805960626, "client_name": "sta3"}
+2026-04-26 11:26:17,294 - METRIC - INFO - {"loss": 0.057885851711034775, "accuracy": 0.9851138591766357, "energy_consumption": 1.4133283257400548, "selected": true, "host_energy_consumption": 0.8901147460800001, "client_name": "sta4"}
+2026-04-26 11:26:17,646 - METRIC - INFO - mean_accuracy: 0.9793310165405273
+
+2026-04-26 11:26:31,091 - METRIC - INFO - round: 29
+2026-04-26 11:26:31,091 - METRIC - INFO - n_selected: 3
+2026-04-26 11:26:31,091 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta3"]}
+2026-04-26 11:26:36,258 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:27:06,578 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:27:14,489 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:27:15,029 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:27:29,460 - METRIC - INFO - {"loss": 0.06806091964244843, "accuracy": 0.9754959344863892, "energy_consumption": 0.9881276192652333, "selected": true, "host_energy_consumption": 0.58610627628, "client_name": "sta0"}
+2026-04-26 11:27:29,700 - METRIC - INFO - {"loss": 0.05380673706531525, "accuracy": 0.9842473864555359, "energy_consumption": 1.4802444454335375, "selected": false, "host_energy_consumption": 0.79930949588, "client_name": "sta1"}
+2026-04-26 11:27:37,903 - METRIC - INFO - {"loss": 0.06181761994957924, "accuracy": 0.9808589816093445, "energy_consumption": 3.8282642242463045, "selected": true, "host_energy_consumption": 2.2689993306400003, "client_name": "sta2"}
+2026-04-26 11:27:43,278 - METRIC - INFO - {"loss": 0.06703303754329681, "accuracy": 0.9775910377502441, "energy_consumption": 2.821178448470075, "selected": true, "host_energy_consumption": 1.7074519487200002, "client_name": "sta3"}
+2026-04-26 11:27:43,335 - METRIC - INFO - {"loss": 0.08384434133768082, "accuracy": 0.9702276587486267, "energy_consumption": 0.47686891352314875, "selected": false, "host_energy_consumption": 0.24387368236, "client_name": "sta5"}
+2026-04-26 11:27:44,326 - METRIC - INFO - {"loss": 0.057197488844394684, "accuracy": 0.9842382073402405, "energy_consumption": 1.4133283257400548, "selected": false, "host_energy_consumption": 0.8932076921600001, "client_name": "sta4"}
+2026-04-26 11:27:45,061 - METRIC - INFO - mean_accuracy: 0.9787765343983968
+
+2026-04-26 11:27:59,273 - METRIC - INFO - round: 30
+2026-04-26 11:27:59,273 - METRIC - INFO - n_selected: 3
+2026-04-26 11:27:59,274 - METRIC - INFO - {"selected_trainers": ["sta1", "sta2", "sta3"]}
+2026-04-26 11:28:20,537 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:28:30,965 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:28:41,578 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:28:42,095 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:28:56,701 - METRIC - INFO - {"loss": 0.0508999302983284, "accuracy": 0.9848307967185974, "energy_consumption": 1.6709835130490833, "selected": true, "host_energy_consumption": 0.92207615892, "client_name": "sta1"}
+2026-04-26 11:28:59,394 - METRIC - INFO - {"loss": 0.06661657989025116, "accuracy": 0.97782963514328, "energy_consumption": 1.0186560337374697, "selected": false, "host_energy_consumption": 0.58919570192, "client_name": "sta0"}
+2026-04-26 11:29:12,563 - METRIC - INFO - {"loss": 0.06669370830059052, "accuracy": 0.9785247445106506, "energy_consumption": 2.908922978434493, "selected": true, "host_energy_consumption": 1.7341300664800001, "client_name": "sta3"}
+2026-04-26 11:29:13,470 - METRIC - INFO - {"loss": 0.08184009045362473, "accuracy": 0.9719789624214172, "energy_consumption": 0.47686891352314875, "selected": false, "host_energy_consumption": 0.2472447992, "client_name": "sta5"}
+2026-04-26 11:29:13,512 - METRIC - INFO - {"loss": 0.055233925580978394, "accuracy": 0.9842382073402405, "energy_consumption": 1.4133283257400548, "selected": false, "host_energy_consumption": 0.89712797272, "client_name": "sta4"}
+2026-04-26 11:29:13,939 - METRIC - INFO - {"loss": 0.06117270514369011, "accuracy": 0.9803921580314636, "energy_consumption": 3.8816704367492325, "selected": true, "host_energy_consumption": 2.2971257064, "client_name": "sta2"}
+2026-04-26 11:29:14,129 - METRIC - INFO - mean_accuracy: 0.9796324173609415
+
+2026-04-26 11:29:28,313 - METRIC - INFO - round: 31
+2026-04-26 11:29:28,314 - METRIC - INFO - n_selected: 3
+2026-04-26 11:29:28,314 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta3"]}
+2026-04-26 11:29:47,992 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:29:58,402 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:30:06,735 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:30:07,348 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:30:27,690 - METRIC - INFO - {"loss": 0.06653302162885666, "accuracy": 0.9754959344863892, "energy_consumption": 1.2818753748049314, "selected": true, "host_energy_consumption": 0.71225726656, "client_name": "sta0"}
+2026-04-26 11:30:30,826 - METRIC - INFO - {"loss": 0.05124027654528618, "accuracy": 0.9842473864555359, "energy_consumption": 1.6709835130490833, "selected": false, "host_energy_consumption": 0.9264715185600001, "client_name": "sta1"}
+2026-04-26 11:30:37,339 - METRIC - INFO - {"loss": 0.054341401904821396, "accuracy": 0.9842382073402405, "energy_consumption": 1.4133283257400548, "selected": false, "host_energy_consumption": 0.90101338992, "client_name": "sta4"}
+2026-04-26 11:30:37,879 - METRIC - INFO - {"loss": 0.06386996060609818, "accuracy": 0.979925274848938, "energy_consumption": 2.9623390621119263, "selected": true, "host_energy_consumption": 1.7630185448400002, "client_name": "sta3"}
+2026-04-26 11:30:38,282 - METRIC - INFO - {"loss": 0.0815623551607132, "accuracy": 0.9754816293716431, "energy_consumption": 0.47686891352314875, "selected": false, "host_energy_consumption": 0.25069601564, "client_name": "sta5"}
+2026-04-26 11:30:40,356 - METRIC - INFO - {"loss": 0.05987224727869034, "accuracy": 0.9808589816093445, "energy_consumption": 3.96941827300077, "selected": true, "host_energy_consumption": 2.32474213944, "client_name": "sta2"}
+2026-04-26 11:30:40,382 - METRIC - INFO - mean_accuracy: 0.9800412356853485
+
+2026-04-26 11:30:56,429 - METRIC - INFO - round: 32
+2026-04-26 11:30:56,430 - METRIC - INFO - n_selected: 3
+2026-04-26 11:30:56,430 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta4"]}
+2026-04-26 11:31:03,202 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:31:12,365 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:31:27,881 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:31:28,413 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:31:43,819 - METRIC - INFO - {"loss": 0.04988554120063782, "accuracy": 0.9859976768493652, "energy_consumption": 1.6709835130490833, "selected": false, "host_energy_consumption": 0.9304714888000001, "client_name": "sta1"}
+2026-04-26 11:31:49,055 - METRIC - INFO - {"loss": 0.06460446864366531, "accuracy": 0.9813302159309387, "energy_consumption": 1.2818753748049314, "selected": false, "host_energy_consumption": 0.71524716172, "client_name": "sta0"}
+2026-04-26 11:31:56,028 - METRIC - INFO - {"loss": 0.07782616466283798, "accuracy": 0.9737303256988525, "energy_consumption": 0.5073753920520478, "selected": false, "host_energy_consumption": 0.2535460298, "client_name": "sta5"}
+2026-04-26 11:31:56,824 - METRIC - INFO - {"loss": 0.053567737340927124, "accuracy": 0.985989511013031, "energy_consumption": 1.5354062407578453, "selected": true, "host_energy_consumption": 0.9715036878400001, "client_name": "sta4"}
+2026-04-26 11:31:58,029 - METRIC - INFO - {"loss": 0.0641137957572937, "accuracy": 0.9813258647918701, "energy_consumption": 3.0539217177231386, "selected": true, "host_energy_consumption": 1.7898175898400002, "client_name": "sta3"}
+2026-04-26 11:31:58,263 - METRIC - INFO - {"loss": 0.0586128868162632, "accuracy": 0.9808589816093445, "energy_consumption": 3.996133707093428, "selected": true, "host_energy_consumption": 2.3516920534800003, "client_name": "sta2"}
+2026-04-26 11:31:58,443 - METRIC - INFO - mean_accuracy: 0.9815387626489004
+
+2026-04-26 11:32:12,709 - METRIC - INFO - round: 33
+2026-04-26 11:32:12,709 - METRIC - INFO - n_selected: 3
+2026-04-26 11:32:12,710 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta4"]}
+2026-04-26 11:32:23,183 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:32:38,673 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:32:44,441 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:32:44,978 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:32:59,607 - METRIC - INFO - {"loss": 0.06306799501180649, "accuracy": 0.9801633358001709, "energy_consumption": 1.2818753748049314, "selected": false, "host_energy_consumption": 0.71833954416, "client_name": "sta0"}
+2026-04-26 11:33:01,257 - METRIC - INFO - {"loss": 0.049826644361019135, "accuracy": 0.9854142069816589, "energy_consumption": 1.6709835130490833, "selected": false, "host_energy_consumption": 0.93450521164, "client_name": "sta1"}
+2026-04-26 11:33:12,398 - METRIC - INFO - {"loss": 0.06171591207385063, "accuracy": 0.9822595715522766, "energy_consumption": 3.1607463235357933, "selected": true, "host_energy_consumption": 1.86064242084, "client_name": "sta3"}
+2026-04-26 11:33:13,664 - METRIC - INFO - {"loss": 0.07744274288415909, "accuracy": 0.9737303256988525, "energy_consumption": 0.5073753920520478, "selected": false, "host_energy_consumption": 0.25627638176, "client_name": "sta5"}
+2026-04-26 11:33:15,135 - METRIC - INFO - {"loss": 0.05930991470813751, "accuracy": 0.9808589816093445, "energy_consumption": 4.083905078386778, "selected": true, "host_energy_consumption": 2.3793873905200003, "client_name": "sta2"}
+2026-04-26 11:33:17,547 - METRIC - INFO - {"loss": 0.055161088705062866, "accuracy": 0.9833624958992004, "energy_consumption": 1.5659379329050878, "selected": true, "host_energy_consumption": 0.98714610148, "client_name": "sta4"}
+2026-04-26 11:33:18,011 - METRIC - INFO - mean_accuracy: 0.9809648195902506
+
+2026-04-26 11:33:32,198 - METRIC - INFO - round: 34
+2026-04-26 11:33:32,199 - METRIC - INFO - n_selected: 3
+2026-04-26 11:33:32,199 - METRIC - INFO - {"selected_trainers": ["sta0", "sta3", "sta5"]}
+2026-04-26 11:33:39,029 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:34:09,532 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:34:16,167 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 11:34:17,707 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:34:31,620 - METRIC - INFO - {"loss": 0.049259964376688004, "accuracy": 0.9854142069816589, "energy_consumption": 1.6709835130490833, "selected": false, "host_energy_consumption": 0.93887066448, "client_name": "sta1"}
+2026-04-26 11:34:34,810 - METRIC - INFO - {"loss": 0.0614917054772377, "accuracy": 0.97782963514328, "energy_consumption": 1.3124033203566352, "selected": true, "host_energy_consumption": 0.7311881855600001, "client_name": "sta0"}
+2026-04-26 11:34:40,387 - METRIC - INFO - {"loss": 0.07445383816957474, "accuracy": 0.9737303256988525, "energy_consumption": 0.5073753920520478, "selected": true, "host_energy_consumption": 0.26593275128, "client_name": "sta5"}
+2026-04-26 11:34:45,812 - METRIC - INFO - {"loss": 0.05949407070875168, "accuracy": 0.9813258647918701, "energy_consumption": 3.4602124250303667, "selected": true, "host_energy_consumption": 2.03694047284, "client_name": "sta3"}
+2026-04-26 11:34:47,344 - METRIC - INFO - {"loss": 0.059121597558259964, "accuracy": 0.9808589816093445, "energy_consumption": 4.114423100308464, "selected": false, "host_energy_consumption": 2.3835983343200002, "client_name": "sta2"}
+2026-04-26 11:34:47,951 - METRIC - INFO - {"loss": 0.052095603197813034, "accuracy": 0.985989511013031, "energy_consumption": 1.59645574341515, "selected": false, "host_energy_consumption": 0.99028040524, "client_name": "sta4"}
+2026-04-26 11:34:48,739 - METRIC - INFO - mean_accuracy: 0.9808580875396729
+
+2026-04-26 11:35:02,998 - METRIC - INFO - round: 35
+2026-04-26 11:35:02,999 - METRIC - INFO - n_selected: 3
+2026-04-26 11:35:02,999 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta4"]}
+2026-04-26 11:35:12,189 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:35:20,136 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:35:39,568 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:35:41,180 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:35:59,081 - METRIC - INFO - {"loss": 0.04696888104081154, "accuracy": 0.9877479672431946, "energy_consumption": 1.6709835130490833, "selected": false, "host_energy_consumption": 0.9433402966400001, "client_name": "sta1"}
+2026-04-26 11:36:00,183 - METRIC - INFO - {"loss": 0.0600469596683979, "accuracy": 0.9801633358001709, "energy_consumption": 1.3124033203566352, "selected": false, "host_energy_consumption": 0.73478090616, "client_name": "sta0"}
+2026-04-26 11:36:09,015 - METRIC - INFO - {"loss": 0.062068913131952286, "accuracy": 0.9813258647918701, "energy_consumption": 3.486917197936659, "selected": true, "host_energy_consumption": 2.06371053364, "client_name": "sta3"}
+2026-04-26 11:36:09,913 - METRIC - INFO - {"loss": 0.05780244246125221, "accuracy": 0.9827263951301575, "energy_consumption": 4.171645842680924, "selected": true, "host_energy_consumption": 2.4117446200400003, "client_name": "sta2"}
+2026-04-26 11:36:11,408 - METRIC - INFO - {"loss": 0.0731765404343605, "accuracy": 0.9754816293716431, "energy_consumption": 0.5073753920520478, "selected": false, "host_energy_consumption": 0.26890369324, "client_name": "sta5"}
+2026-04-26 11:36:13,909 - METRIC - INFO - {"loss": 0.04922321438789368, "accuracy": 0.985989511013031, "energy_consumption": 1.7089947641980472, "selected": true, "host_energy_consumption": 1.07497501048, "client_name": "sta4"}
+2026-04-26 11:36:14,215 - METRIC - INFO - mean_accuracy: 0.9822391172250112
+
+2026-04-26 11:36:30,237 - METRIC - INFO - round: 36
+2026-04-26 11:36:30,237 - METRIC - INFO - n_selected: 3
+2026-04-26 11:36:30,237 - METRIC - INFO - {"selected_trainers": ["sta1", "sta2", "sta4"]}
+2026-04-26 11:36:45,844 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:37:04,432 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:37:11,073 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:37:11,692 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:37:32,684 - METRIC - INFO - {"loss": 0.05995136499404907, "accuracy": 0.9801633358001709, "energy_consumption": 1.3124033203566352, "selected": false, "host_energy_consumption": 0.73813448884, "client_name": "sta0"}
+2026-04-26 11:37:35,272 - METRIC - INFO - {"loss": 0.04671098664402962, "accuracy": 0.9859976768493652, "energy_consumption": 1.9151298581735179, "selected": true, "host_energy_consumption": 1.0562706182000001, "client_name": "sta1"}
+2026-04-26 11:37:45,073 - METRIC - INFO - {"loss": 0.05109836906194687, "accuracy": 0.9868651628494263, "energy_consumption": 1.7356984864044391, "selected": true, "host_energy_consumption": 1.0914418704, "client_name": "sta4"}
+2026-04-26 11:37:46,816 - METRIC - INFO - {"loss": 0.0739811360836029, "accuracy": 0.9737303256988525, "energy_consumption": 0.5340812204269132, "selected": false, "host_energy_consumption": 0.27172749212, "client_name": "sta5"}
+2026-04-26 11:37:47,637 - METRIC - INFO - {"loss": 0.05996102839708328, "accuracy": 0.9827263951301575, "energy_consumption": 3.486917197936659, "selected": false, "host_energy_consumption": 2.0681910348400003, "client_name": "sta3"}
+2026-04-26 11:37:48,881 - METRIC - INFO - {"loss": 0.056397777050733566, "accuracy": 0.981792688369751, "energy_consumption": 4.207900582704809, "selected": true, "host_energy_consumption": 2.43882395512, "client_name": "sta2"}
+2026-04-26 11:37:49,732 - METRIC - INFO - mean_accuracy: 0.9818792641162872
+
+2026-04-26 11:38:05,813 - METRIC - INFO - round: 37
+2026-04-26 11:38:05,813 - METRIC - INFO - n_selected: 2
+2026-04-26 11:38:05,813 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3"]}
+2026-04-26 11:38:16,737 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:38:25,452 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:38:26,063 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:38:47,634 - METRIC - INFO - {"loss": 0.046159327030181885, "accuracy": 0.9865810871124268, "energy_consumption": 1.9418332100121733, "selected": false, "host_energy_consumption": 1.0606698404400001, "client_name": "sta1"}
+2026-04-26 11:38:48,921 - METRIC - INFO - {"loss": 0.05815533176064491, "accuracy": 0.9824970960617065, "energy_consumption": 1.339113273642587, "selected": false, "host_energy_consumption": 0.74153327416, "client_name": "sta0"}
+2026-04-26 11:39:02,202 - METRIC - INFO - {"loss": 0.05870012566447258, "accuracy": 0.9822595715522766, "energy_consumption": 3.513620440095597, "selected": true, "host_energy_consumption": 2.095674749, "client_name": "sta3"}
+2026-04-26 11:39:03,414 - METRIC - INFO - {"loss": 0.07013940811157227, "accuracy": 0.9754816293716431, "energy_consumption": 0.5340812204269132, "selected": false, "host_energy_consumption": 0.27468653968, "client_name": "sta5"}
+2026-04-26 11:39:04,732 - METRIC - INFO - {"loss": 0.0549132414162159, "accuracy": 0.9827263951301575, "energy_consumption": 4.2613298120526295, "selected": true, "host_energy_consumption": 2.4863071270800003, "client_name": "sta2"}
+2026-04-26 11:39:05,848 - METRIC - INFO - {"loss": 0.04871490225195885, "accuracy": 0.9877408146858215, "energy_consumption": 1.7624031687057466, "selected": false, "host_energy_consumption": 1.09479321448, "client_name": "sta4"}
+2026-04-26 11:39:06,105 - METRIC - INFO - mean_accuracy: 0.982881098985672
+
+2026-04-26 11:39:22,202 - METRIC - INFO - round: 38
+2026-04-26 11:39:22,203 - METRIC - INFO - n_selected: 3
+2026-04-26 11:39:22,203 - METRIC - INFO - {"selected_trainers": ["sta1", "sta2", "sta4"]}
+2026-04-26 11:39:28,060 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:39:36,504 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:39:43,374 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:39:43,941 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:39:58,956 - METRIC - INFO - {"loss": 0.04705559089779854, "accuracy": 0.9859976768493652, "energy_consumption": 2.0276676565839185, "selected": true, "host_energy_consumption": 1.08206857724, "client_name": "sta1"}
+2026-04-26 11:40:03,185 - METRIC - INFO - {"loss": 0.05679008737206459, "accuracy": 0.9813302159309387, "energy_consumption": 1.339113273642587, "selected": false, "host_energy_consumption": 0.7449675035600001, "client_name": "sta0"}
+2026-04-26 11:40:08,455 - METRIC - INFO - {"loss": 0.04976543039083481, "accuracy": 0.9868651628494263, "energy_consumption": 1.7891063504613611, "selected": true, "host_energy_consumption": 1.11065101084, "client_name": "sta4"}
+2026-04-26 11:40:09,308 - METRIC - INFO - {"loss": 0.05457226559519768, "accuracy": 0.9813258647918701, "energy_consumption": 4.318551181044292, "selected": true, "host_energy_consumption": 2.5133631348, "client_name": "sta2"}
+2026-04-26 11:40:12,891 - METRIC - INFO - {"loss": 0.05874202027916908, "accuracy": 0.9822595715522766, "energy_consumption": 3.513620440095597, "selected": false, "host_energy_consumption": 2.0999518134, "client_name": "sta3"}
+2026-04-26 11:40:13,421 - METRIC - INFO - {"loss": 0.07053516805171967, "accuracy": 0.9754816293716431, "energy_consumption": 0.5340812204269132, "selected": false, "host_energy_consumption": 0.27737934532, "client_name": "sta5"}
+2026-04-26 11:40:13,973 - METRIC - INFO - mean_accuracy: 0.9822100202242533
+
+2026-04-26 11:40:29,034 - METRIC - INFO - round: 39
+2026-04-26 11:40:29,035 - METRIC - INFO - n_selected: 3
+2026-04-26 11:40:29,035 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta5"]}
+2026-04-26 11:40:36,882 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:41:03,620 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:41:09,686 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 11:41:11,147 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:41:30,628 - METRIC - INFO - {"loss": 0.057456519454717636, "accuracy": 0.9824970960617065, "energy_consumption": 1.339113273642587, "selected": false, "host_energy_consumption": 0.7478086658, "client_name": "sta0"}
+2026-04-26 11:41:32,167 - METRIC - INFO - {"loss": 0.04591379687190056, "accuracy": 0.9859976768493652, "energy_consumption": 2.0276676565839185, "selected": false, "host_energy_consumption": 1.08554606104, "client_name": "sta1"}
+2026-04-26 11:41:38,217 - METRIC - INFO - {"loss": 0.06748586148023605, "accuracy": 0.9754816293716431, "energy_consumption": 0.5340812204269132, "selected": true, "host_energy_consumption": 0.28622746964, "client_name": "sta5"}
+2026-04-26 11:41:39,255 - METRIC - INFO - {"loss": 0.04885374754667282, "accuracy": 0.9868651628494263, "energy_consumption": 1.7891063504613611, "selected": false, "host_energy_consumption": 1.1134517559200001, "client_name": "sta4"}
+2026-04-26 11:41:40,092 - METRIC - INFO - {"loss": 0.05690022557973862, "accuracy": 0.9822595715522766, "energy_consumption": 3.809265867734819, "selected": true, "host_energy_consumption": 2.2468005854, "client_name": "sta3"}
+2026-04-26 11:41:45,768 - METRIC - INFO - {"loss": 0.05403462424874306, "accuracy": 0.9831932783126831, "energy_consumption": 4.387229645552118, "selected": true, "host_energy_consumption": 2.5396270298, "client_name": "sta2"}
+2026-04-26 11:41:46,183 - METRIC - INFO - mean_accuracy: 0.9827157358328501
+
+2026-04-26 11:41:57,297 - METRIC - INFO - round: 40
+2026-04-26 11:41:57,297 - METRIC - INFO - n_selected: 3
+2026-04-26 11:41:57,297 - METRIC - INFO - {"selected_trainers": ["sta1", "sta2", "sta4"]}
+2026-04-26 11:42:01,156 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:42:09,528 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:42:28,570 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:42:30,142 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:42:46,183 - METRIC - INFO - {"loss": 0.045194707810878754, "accuracy": 0.9865810871124268, "energy_consumption": 2.0677229211865042, "selected": true, "host_energy_consumption": 1.10635853216, "client_name": "sta1"}
+2026-04-26 11:42:46,550 - METRIC - INFO - {"loss": 0.0566847026348114, "accuracy": 0.9813302159309387, "energy_consumption": 1.3677289199534268, "selected": false, "host_energy_consumption": 0.75149623416, "client_name": "sta0"}
+2026-04-26 11:42:59,954 - METRIC - INFO - {"loss": 0.053467731922864914, "accuracy": 0.9831932783126831, "energy_consumption": 4.413942127829799, "selected": true, "host_energy_consumption": 2.56746540848, "client_name": "sta2"}
+2026-04-26 11:43:00,250 - METRIC - INFO - {"loss": 0.06928837299346924, "accuracy": 0.9754816293716431, "energy_consumption": 0.5340812204269132, "selected": false, "host_energy_consumption": 0.28977457712000004, "client_name": "sta5"}
+2026-04-26 11:43:02,751 - METRIC - INFO - {"loss": 0.05681606009602547, "accuracy": 0.9831932783126831, "energy_consumption": 3.837873284887788, "selected": false, "host_energy_consumption": 2.2511261676400003, "client_name": "sta3"}
+2026-04-26 11:43:03,378 - METRIC - INFO - {"loss": 0.047539472579956055, "accuracy": 0.9868651628494263, "energy_consumption": 1.9302522670211757, "selected": true, "host_energy_consumption": 1.205479765, "client_name": "sta4"}
+2026-04-26 11:43:04,178 - METRIC - INFO - mean_accuracy: 0.9827741086483002
+
+2026-04-26 11:43:19,290 - METRIC - INFO - round: 41
+2026-04-26 11:43:19,290 - METRIC - INFO - n_selected: 3
+2026-04-26 11:43:19,290 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta5"]}
+2026-04-26 11:43:27,873 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:43:44,558 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:43:54,673 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 11:43:56,200 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:44:08,340 - METRIC - INFO - {"loss": 0.04412384331226349, "accuracy": 0.9877479672431946, "energy_consumption": 2.0677229211865042, "selected": false, "host_energy_consumption": 1.1105059697200002, "client_name": "sta1"}
+2026-04-26 11:44:11,928 - METRIC - INFO - {"loss": 0.055021293461322784, "accuracy": 0.9824970960617065, "energy_consumption": 1.3677289199534268, "selected": false, "host_energy_consumption": 0.75465606972, "client_name": "sta0"}
+2026-04-26 11:44:23,975 - METRIC - INFO - {"loss": 0.05231355130672455, "accuracy": 0.9822595715522766, "energy_consumption": 4.473078933855959, "selected": true, "host_energy_consumption": 2.5941901986, "client_name": "sta2"}
+2026-04-26 11:44:24,822 - METRIC - INFO - {"loss": 0.04681718721985817, "accuracy": 0.9877408146858215, "energy_consumption": 1.9302522670211757, "selected": false, "host_energy_consumption": 1.2086809064400001, "client_name": "sta4"}
+2026-04-26 11:44:25,269 - METRIC - INFO - {"loss": 0.06789828091859818, "accuracy": 0.9754816293716431, "energy_consumption": 0.6256433182442724, "selected": true, "host_energy_consumption": 0.33115303312, "client_name": "sta5"}
+2026-04-26 11:44:28,705 - METRIC - INFO - {"loss": 0.05632687732577324, "accuracy": 0.9831932783126831, "energy_consumption": 3.988558345243593, "selected": true, "host_energy_consumption": 2.3358658551200002, "client_name": "sta3"}
+2026-04-26 11:44:29,235 - METRIC - INFO - mean_accuracy: 0.9831533928712209
+
+2026-04-26 11:44:43,491 - METRIC - INFO - round: 42
+2026-04-26 11:44:43,492 - METRIC - INFO - n_selected: 2
+2026-04-26 11:44:43,492 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3"]}
+2026-04-26 11:44:50,526 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:44:58,967 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:44:59,580 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:45:21,357 - METRIC - INFO - {"loss": 0.04327026754617691, "accuracy": 0.9871645569801331, "energy_consumption": 2.0677229211865042, "selected": false, "host_energy_consumption": 1.114963143, "client_name": "sta1"}
+2026-04-26 11:45:22,037 - METRIC - INFO - {"loss": 0.05487353354692459, "accuracy": 0.9813302159309387, "energy_consumption": 1.3677289199534268, "selected": false, "host_energy_consumption": 0.75792992884, "client_name": "sta0"}
+2026-04-26 11:45:25,727 - METRIC - INFO - {"loss": 0.06574824452400208, "accuracy": 0.9754816293716431, "energy_consumption": 0.6523465937839963, "selected": false, "host_energy_consumption": 0.33417172432000003, "client_name": "sta5"}
+2026-04-26 11:45:31,646 - METRIC - INFO - {"loss": 0.05206238105893135, "accuracy": 0.983660101890564, "energy_consumption": 4.503596121258063, "selected": true, "host_energy_consumption": 2.6217524566800003, "client_name": "sta2"}
+2026-04-26 11:45:32,662 - METRIC - INFO - {"loss": 0.056772537529468536, "accuracy": 0.983660101890564, "energy_consumption": 4.015264807853345, "selected": true, "host_energy_consumption": 2.36287871092, "client_name": "sta3"}
+2026-04-26 11:45:33,481 - METRIC - INFO - {"loss": 0.04570656642317772, "accuracy": 0.9886164665222168, "energy_consumption": 1.9569654820865252, "selected": false, "host_energy_consumption": 1.2120171260400001, "client_name": "sta4"}
+2026-04-26 11:45:33,615 - METRIC - INFO - mean_accuracy: 0.9833188454310099
+
+2026-04-26 11:45:49,650 - METRIC - INFO - round: 43
+2026-04-26 11:45:49,650 - METRIC - INFO - n_selected: 3
+2026-04-26 11:45:49,650 - METRIC - INFO - {"selected_trainers": ["sta1", "sta2", "sta3"]}
+2026-04-26 11:46:02,465 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:46:11,386 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:46:20,484 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:46:21,095 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:46:40,108 - METRIC - INFO - {"loss": 0.05508430302143097, "accuracy": 0.9801633358001709, "energy_consumption": 1.3944323719344336, "selected": false, "host_energy_consumption": 0.76149790332, "client_name": "sta0"}
+2026-04-26 11:46:41,269 - METRIC - INFO - {"loss": 0.043152887374162674, "accuracy": 0.9865810871124268, "energy_consumption": 2.094412184745035, "selected": true, "host_energy_consumption": 1.13742071268, "client_name": "sta1"}
+2026-04-26 11:46:50,595 - METRIC - INFO - {"loss": 0.06803418695926666, "accuracy": 0.9789842367172241, "energy_consumption": 0.6523465937839963, "selected": false, "host_energy_consumption": 0.33798844044000004, "client_name": "sta5"}
+2026-04-26 11:46:50,775 - METRIC - INFO - {"loss": 0.05603516474366188, "accuracy": 0.983660101890564, "energy_consumption": 4.095377902610156, "selected": true, "host_energy_consumption": 2.39198120504, "client_name": "sta3"}
+2026-04-26 11:46:54,928 - METRIC - INFO - {"loss": 0.05372633785009384, "accuracy": 0.981792688369751, "energy_consumption": 4.557016863939104, "selected": true, "host_energy_consumption": 2.65005400296, "client_name": "sta2"}
+2026-04-26 11:46:55,270 - METRIC - INFO - {"loss": 0.046286728233098984, "accuracy": 0.9868651628494263, "energy_consumption": 1.9569654820865252, "selected": false, "host_energy_consumption": 1.2159555046800001, "client_name": "sta4"}
+2026-04-26 11:46:56,131 - METRIC - INFO - mean_accuracy: 0.9830077687899271
+
+2026-04-26 11:47:12,189 - METRIC - INFO - round: 44
+2026-04-26 11:47:12,190 - METRIC - INFO - n_selected: 3
+2026-04-26 11:47:12,190 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1", "sta4"]}
+2026-04-26 11:47:19,123 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:47:25,925 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:47:33,445 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:47:33,948 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:47:46,787 - METRIC - INFO - {"loss": 0.043912068009376526, "accuracy": 0.9865810871124268, "energy_consumption": 2.1592617478292015, "selected": true, "host_energy_consumption": 1.1595966424000002, "client_name": "sta1"}
+2026-04-26 11:47:48,771 - METRIC - INFO - {"loss": 0.052600402384996414, "accuracy": 0.9813302159309387, "energy_consumption": 1.4211357905346542, "selected": true, "host_energy_consumption": 0.77391200264, "client_name": "sta0"}
+2026-04-26 11:48:04,354 - METRIC - INFO - {"loss": 0.06666804850101471, "accuracy": 0.9772329330444336, "energy_consumption": 0.6523465937839963, "selected": false, "host_energy_consumption": 0.34124242376, "client_name": "sta5"}
+2026-04-26 11:48:04,435 - METRIC - INFO - {"loss": 0.04620722308754921, "accuracy": 0.9877408146858215, "energy_consumption": 1.9569654820865252, "selected": true, "host_energy_consumption": 1.23180214108, "client_name": "sta4"}
+2026-04-26 11:48:05,299 - METRIC - INFO - {"loss": 0.05252392962574959, "accuracy": 0.9827263951301575, "energy_consumption": 4.557016863939104, "selected": false, "host_energy_consumption": 2.65432023248, "client_name": "sta2"}
+2026-04-26 11:48:05,559 - METRIC - INFO - {"loss": 0.05541414022445679, "accuracy": 0.983660101890564, "energy_consumption": 4.095377902610156, "selected": false, "host_energy_consumption": 2.3966247597600003, "client_name": "sta3"}
+2026-04-26 11:48:05,981 - METRIC - INFO - mean_accuracy: 0.9832119246323904
+
+2026-04-26 11:48:19,398 - METRIC - INFO - round: 45
+2026-04-26 11:48:19,399 - METRIC - INFO - n_selected: 3
+2026-04-26 11:48:19,399 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta4"]}
+2026-04-26 11:48:26,834 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:48:45,466 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:48:52,412 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:48:52,990 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:49:13,808 - METRIC - INFO - {"loss": 0.04285549372434616, "accuracy": 0.9877479672431946, "energy_consumption": 2.1592617478292015, "selected": false, "host_energy_consumption": 1.16372160744, "client_name": "sta1"}
+2026-04-26 11:49:16,959 - METRIC - INFO - {"loss": 0.052657127380371094, "accuracy": 0.9824970960617065, "energy_consumption": 1.4211357905346542, "selected": false, "host_energy_consumption": 0.77723926728, "client_name": "sta0"}
+2026-04-26 11:49:17,978 - METRIC - INFO - {"loss": 0.054247282445430756, "accuracy": 0.9841269850730896, "energy_consumption": 4.228894458339614, "selected": true, "host_energy_consumption": 2.48630290412, "client_name": "sta3"}
+2026-04-26 11:49:24,672 - METRIC - INFO - {"loss": 0.06380634754896164, "accuracy": 0.9754816293716431, "energy_consumption": 0.6809609954684821, "selected": false, "host_energy_consumption": 0.34415314136, "client_name": "sta5"}
+2026-04-26 11:49:25,659 - METRIC - INFO - {"loss": 0.05140497907996178, "accuracy": 0.9827263951301575, "energy_consumption": 4.616145666525071, "selected": true, "host_energy_consumption": 2.6815299798, "client_name": "sta2"}
+2026-04-26 11:49:26,806 - METRIC - INFO - {"loss": 0.045613352209329605, "accuracy": 0.9877408146858215, "energy_consumption": 1.9836690596428581, "selected": true, "host_energy_consumption": 1.24739330212, "client_name": "sta4"}
+2026-04-26 11:49:27,026 - METRIC - INFO - mean_accuracy: 0.9833868145942688
+
+2026-04-26 11:49:42,087 - METRIC - INFO - round: 46
+2026-04-26 11:49:42,087 - METRIC - INFO - n_selected: 3
+2026-04-26 11:49:42,087 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta5"]}
+2026-04-26 11:49:49,122 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:49:59,927 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:50:06,357 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 11:50:07,887 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:50:22,151 - METRIC - INFO - {"loss": 0.05240710452198982, "accuracy": 0.9813302159309387, "energy_consumption": 1.4211357905346542, "selected": false, "host_energy_consumption": 0.7804881235200001, "client_name": "sta0"}
+2026-04-26 11:50:23,011 - METRIC - INFO - {"loss": 0.04177109897136688, "accuracy": 0.9877479672431946, "energy_consumption": 2.1592617478292015, "selected": false, "host_energy_consumption": 1.1677174586, "client_name": "sta1"}
+2026-04-26 11:50:36,490 - METRIC - INFO - {"loss": 0.06219885125756264, "accuracy": 0.9772329330444336, "energy_consumption": 0.7076666839619681, "selected": true, "host_energy_consumption": 0.35412801312000003, "client_name": "sta5"}
+2026-04-26 11:50:36,929 - METRIC - INFO - {"loss": 0.0573723241686821, "accuracy": 0.983660101890564, "energy_consumption": 4.282301106382281, "selected": true, "host_energy_consumption": 2.5148964806, "client_name": "sta3"}
+2026-04-26 11:50:37,969 - METRIC - INFO - {"loss": 0.05184152349829674, "accuracy": 0.983660101890564, "energy_consumption": 4.671465003251079, "selected": true, "host_energy_consumption": 2.70860305968, "client_name": "sta2"}
+2026-04-26 11:50:38,837 - METRIC - INFO - {"loss": 0.04480981081724167, "accuracy": 0.9886164665222168, "energy_consumption": 1.9836690596428581, "selected": false, "host_energy_consumption": 1.25056269072, "client_name": "sta4"}
+2026-04-26 11:50:38,920 - METRIC - INFO - mean_accuracy: 0.9837079644203186
+
+2026-04-26 11:50:53,141 - METRIC - INFO - round: 47
+2026-04-26 11:50:53,141 - METRIC - INFO - n_selected: 3
+2026-04-26 11:50:53,141 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta4"]}
+2026-04-26 11:51:00,521 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:51:08,565 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:51:27,568 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:51:28,177 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:51:48,978 - METRIC - INFO - {"loss": 0.05157151445746422, "accuracy": 0.9836639165878296, "energy_consumption": 1.4211357905346542, "selected": false, "host_energy_consumption": 0.7848341790800001, "client_name": "sta0"}
+2026-04-26 11:51:54,346 - METRIC - INFO - {"loss": 0.042562875896692276, "accuracy": 0.9859976768493652, "energy_consumption": 2.185967484009527, "selected": false, "host_energy_consumption": 1.1727893013200001, "client_name": "sta1"}
+2026-04-26 11:52:03,345 - METRIC - INFO - {"loss": 0.0559086911380291, "accuracy": 0.9831932783126831, "energy_consumption": 4.335712965006277, "selected": true, "host_energy_consumption": 2.54295538616, "client_name": "sta3"}
+2026-04-26 11:52:06,221 - METRIC - INFO - {"loss": 0.05199233815073967, "accuracy": 0.9831932783126831, "energy_consumption": 4.701988836608187, "selected": true, "host_energy_consumption": 2.73683563104, "client_name": "sta2"}
+2026-04-26 11:52:06,245 - METRIC - INFO - {"loss": 0.06546220183372498, "accuracy": 0.9789842367172241, "energy_consumption": 0.7076666839619681, "selected": false, "host_energy_consumption": 0.35802811072, "client_name": "sta5"}
+2026-04-26 11:52:07,134 - METRIC - INFO - {"loss": 0.04498283565044403, "accuracy": 0.9877408146858215, "energy_consumption": 2.1171977977686693, "selected": true, "host_energy_consumption": 1.3354888456, "client_name": "sta4"}
+2026-04-26 11:52:07,218 - METRIC - INFO - mean_accuracy: 0.9837955335776011
+
+2026-04-26 11:52:23,201 - METRIC - INFO - round: 48
+2026-04-26 11:52:23,201 - METRIC - INFO - n_selected: 3
+2026-04-26 11:52:23,202 - METRIC - INFO - {"selected_trainers": ["sta1", "sta2", "sta4"]}
+2026-04-26 11:52:34,962 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:53:07,267 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:53:13,699 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:53:14,205 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:53:29,277 - METRIC - INFO - {"loss": 0.04179564118385315, "accuracy": 0.9877479672431946, "energy_consumption": 2.3729095558720448, "selected": true, "host_energy_consumption": 1.2547605952, "client_name": "sta1"}
+2026-04-26 11:53:29,908 - METRIC - INFO - {"loss": 0.05249519273638725, "accuracy": 0.9813302159309387, "energy_consumption": 1.4211357905346542, "selected": false, "host_energy_consumption": 0.78778897148, "client_name": "sta0"}
+2026-04-26 11:53:43,178 - METRIC - INFO - {"loss": 0.04491357132792473, "accuracy": 0.9877408146858215, "energy_consumption": 2.1782400933558974, "selected": true, "host_energy_consumption": 1.3523132579600001, "client_name": "sta4"}
+2026-04-26 11:53:43,379 - METRIC - INFO - {"loss": 0.06476803123950958, "accuracy": 0.9789842367172241, "energy_consumption": 0.7401054917912977, "selected": false, "host_energy_consumption": 0.36229326336, "client_name": "sta5"}
+2026-04-26 11:53:43,596 - METRIC - INFO - {"loss": 0.054314497858285904, "accuracy": 0.983660101890564, "energy_consumption": 4.368148337794043, "selected": false, "host_energy_consumption": 2.54988324948, "client_name": "sta3"}
+2026-04-26 11:53:44,548 - METRIC - INFO - {"loss": 0.04853087663650513, "accuracy": 0.9845938086509705, "energy_consumption": 5.060587746382723, "selected": true, "host_energy_consumption": 2.92876423672, "client_name": "sta2"}
+2026-04-26 11:53:45,238 - METRIC - INFO - mean_accuracy: 0.9840095241864523
+
+2026-04-26 11:53:58,704 - METRIC - INFO - round: 49
+2026-04-26 11:53:58,705 - METRIC - INFO - n_selected: 3
+2026-04-26 11:53:58,705 - METRIC - INFO - {"selected_trainers": ["sta1", "sta2", "sta5"]}
+2026-04-26 11:54:03,276 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:54:10,720 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:54:17,367 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 11:54:18,985 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:54:35,376 - METRIC - INFO - {"loss": 0.040989506989717484, "accuracy": 0.9865810871124268, "energy_consumption": 2.433958392503239, "selected": true, "host_energy_consumption": 1.2761990144400002, "client_name": "sta1"}
+2026-04-26 11:54:36,882 - METRIC - INFO - {"loss": 0.05148690566420555, "accuracy": 0.9836639165878296, "energy_consumption": 1.4497464392653594, "selected": false, "host_energy_consumption": 0.7911518003200001, "client_name": "sta0"}
+2026-04-26 11:54:46,160 - METRIC - INFO - {"loss": 0.06073106452822685, "accuracy": 0.9789842367172241, "energy_consumption": 0.7668166293002732, "selected": true, "host_energy_consumption": 0.37260029240000003, "client_name": "sta5"}
+2026-04-26 11:54:46,685 - METRIC - INFO - {"loss": 0.04824810102581978, "accuracy": 0.9845938086509705, "energy_consumption": 5.123531867592661, "selected": true, "host_energy_consumption": 2.95767920448, "client_name": "sta2"}
+2026-04-26 11:54:48,120 - METRIC - INFO - {"loss": 0.05354183539748192, "accuracy": 0.9845938086509705, "energy_consumption": 4.368148337794043, "selected": false, "host_energy_consumption": 2.55415985244, "client_name": "sta3"}
+2026-04-26 11:54:51,628 - METRIC - INFO - {"loss": 0.04323464259505272, "accuracy": 0.9877408146858215, "energy_consumption": 2.1782400933558974, "selected": false, "host_energy_consumption": 1.35557223144, "client_name": "sta4"}
+2026-04-26 11:54:52,020 - METRIC - INFO - mean_accuracy: 0.9843596120675405
+
+2026-04-26 11:55:07,088 - METRIC - INFO - round: 50
+2026-04-26 11:55:07,088 - METRIC - INFO - n_selected: 3
+2026-04-26 11:55:07,088 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta4"]}
+2026-04-26 11:55:12,940 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 11:55:20,774 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:55:40,488 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:55:41,026 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:55:54,587 - METRIC - INFO - {"loss": 0.039732761681079865, "accuracy": 0.9877479672431946, "energy_consumption": 2.433958392503239, "selected": false, "host_energy_consumption": 1.28026008096, "client_name": "sta1"}
+2026-04-26 11:56:00,605 - METRIC - INFO - {"loss": 0.05004413053393364, "accuracy": 0.9848307967185974, "energy_consumption": 1.4497464392653594, "selected": true, "host_energy_consumption": 0.8043114760800001, "client_name": "sta0"}
+2026-04-26 11:56:09,078 - METRIC - INFO - {"loss": 0.05295324698090553, "accuracy": 0.9845938086509705, "energy_consumption": 4.398666305670655, "selected": false, "host_energy_consumption": 2.5585712768, "client_name": "sta3"}
+2026-04-26 11:56:11,318 - METRIC - INFO - {"loss": 0.04354439303278923, "accuracy": 0.9868651628494263, "energy_consumption": 2.38805430759068, "selected": true, "host_energy_consumption": 1.46106466156, "client_name": "sta4"}
+2026-04-26 11:56:11,481 - METRIC - INFO - {"loss": 0.049753110855817795, "accuracy": 0.9831932783126831, "energy_consumption": 5.209373769206017, "selected": true, "host_energy_consumption": 2.9862847442400002, "client_name": "sta2"}
+2026-04-26 11:56:12,437 - METRIC - INFO - {"loss": 0.060443732887506485, "accuracy": 0.9807355403900146, "energy_consumption": 0.7668166293002732, "selected": false, "host_energy_consumption": 0.37527238532, "client_name": "sta5"}
+2026-04-26 11:56:13,060 - METRIC - INFO - mean_accuracy: 0.9846610923608144
+
+2026-04-26 11:56:27,283 - METRIC - INFO - round: 51
+2026-04-26 11:56:27,283 - METRIC - INFO - n_selected: 2
+2026-04-26 11:56:27,283 - METRIC - INFO - {"selected_trainers": ["sta1", "sta3"]}
+2026-04-26 11:56:35,336 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:56:50,103 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:56:50,721 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:57:11,536 - METRIC - INFO - {"loss": 0.039613012224435806, "accuracy": 0.9877479672431946, "energy_consumption": 2.464479982989619, "selected": true, "host_energy_consumption": 1.30387124644, "client_name": "sta1"}
+2026-04-26 11:57:15,893 - METRIC - INFO - {"loss": 0.04929341748356819, "accuracy": 0.9824970960617065, "energy_consumption": 1.4497464392653594, "selected": false, "host_energy_consumption": 0.80781837136, "client_name": "sta0"}
+2026-04-26 11:57:22,441 - METRIC - INFO - {"loss": 0.05360807850956917, "accuracy": 0.9841269850730896, "energy_consumption": 4.4787937191939555, "selected": true, "host_energy_consumption": 2.6302513496, "client_name": "sta3"}
+2026-04-26 11:57:25,970 - METRIC - INFO - {"loss": 0.04282175004482269, "accuracy": 0.9886164665222168, "energy_consumption": 2.414761588824406, "selected": false, "host_energy_consumption": 1.464710702, "client_name": "sta4"}
+2026-04-26 11:57:26,929 - METRIC - INFO - {"loss": 0.05934927985072136, "accuracy": 0.9772329330444336, "energy_consumption": 0.7668166293002732, "selected": false, "host_energy_consumption": 0.37872818228000005, "client_name": "sta5"}
+2026-04-26 11:57:27,180 - METRIC - INFO - {"loss": 0.04913346841931343, "accuracy": 0.9827263951301575, "energy_consumption": 5.23607712422379, "selected": false, "host_energy_consumption": 2.9913320970400004, "client_name": "sta2"}
+2026-04-26 11:57:27,760 - METRIC - INFO - mean_accuracy: 0.9838246405124664
+
+2026-04-26 11:57:43,791 - METRIC - INFO - round: 52
+2026-04-26 11:57:43,791 - METRIC - INFO - n_selected: 3
+2026-04-26 11:57:43,791 - METRIC - INFO - {"selected_trainers": ["sta3", "sta4", "sta5"]}
+2026-04-26 11:58:12,345 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 11:58:18,989 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 11:58:25,030 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 11:58:26,508 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:58:41,645 - METRIC - INFO - {"loss": 0.05091320723295212, "accuracy": 0.9836639165878296, "energy_consumption": 1.4497464392653594, "selected": false, "host_energy_consumption": 0.81118974468, "client_name": "sta0"}
+2026-04-26 11:58:43,961 - METRIC - INFO - {"loss": 0.03941670432686806, "accuracy": 0.9877479672431946, "energy_consumption": 2.464479982989619, "selected": false, "host_energy_consumption": 1.30791301844, "client_name": "sta1"}
+2026-04-26 11:58:51,399 - METRIC - INFO - {"loss": 0.04345126077532768, "accuracy": 0.9877408146858215, "energy_consumption": 2.414761588824406, "selected": true, "host_energy_consumption": 1.4813720434800002, "client_name": "sta4"}
+2026-04-26 11:58:51,530 - METRIC - INFO - {"loss": 0.05245888978242874, "accuracy": 0.9845938086509705, "energy_consumption": 4.734381853950605, "selected": true, "host_energy_consumption": 2.78479750416, "client_name": "sta3"}
+2026-04-26 11:58:53,517 - METRIC - INFO - {"loss": 0.04944149777293205, "accuracy": 0.983660101890564, "energy_consumption": 5.270410531531006, "selected": false, "host_energy_consumption": 2.9954250527600004, "client_name": "sta2"}
+2026-04-26 11:59:09,522 - METRIC - INFO - {"loss": 0.05908215045928955, "accuracy": 0.9824868440628052, "energy_consumption": 0.7973509855519372, "selected": true, "host_energy_consumption": 0.38893292928, "client_name": "sta5"}
+2026-04-26 11:59:09,553 - METRIC - INFO - mean_accuracy: 0.9849822421868643
+
+2026-04-26 11:59:22,345 - METRIC - INFO - round: 53
+2026-04-26 11:59:22,345 - METRIC - INFO - n_selected: 2
+2026-04-26 11:59:22,345 - METRIC - INFO - {"selected_trainers": ["sta1", "sta2"]}
+2026-04-26 11:59:29,612 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 11:59:37,206 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 11:59:37,819 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 11:59:57,946 - METRIC - INFO - {"loss": 0.038766682147979736, "accuracy": 0.9877479672431946, "energy_consumption": 2.4988165916729232, "selected": true, "host_energy_consumption": 1.33190591884, "client_name": "sta1"}
+2026-04-26 11:59:57,955 - METRIC - INFO - {"loss": 0.04665689915418625, "accuracy": 0.9848307967185974, "energy_consumption": 1.4497464392653594, "selected": false, "host_energy_consumption": 0.81558782228, "client_name": "sta0"}
+2026-04-26 12:00:04,668 - METRIC - INFO - {"loss": 0.04887424036860466, "accuracy": 0.983660101890564, "energy_consumption": 5.323818168280688, "selected": true, "host_energy_consumption": 3.0233604156, "client_name": "sta2"}
+2026-04-26 12:00:05,611 - METRIC - INFO - {"loss": 0.05887637287378311, "accuracy": 0.9807355403900146, "energy_consumption": 0.7973509855519372, "selected": false, "host_energy_consumption": 0.39254738768, "client_name": "sta5"}
+2026-04-26 12:00:05,657 - METRIC - INFO - {"loss": 0.0423470064997673, "accuracy": 0.9886164665222168, "energy_consumption": 2.4414850470215597, "selected": false, "host_energy_consumption": 1.48556868292, "client_name": "sta4"}
+2026-04-26 12:00:07,274 - METRIC - INFO - {"loss": 0.052110686898231506, "accuracy": 0.9850606918334961, "energy_consumption": 4.761090572147577, "selected": false, "host_energy_consumption": 2.78923432396, "client_name": "sta3"}
+2026-04-26 12:00:07,850 - METRIC - INFO - mean_accuracy: 0.9851085940996805
+
+2026-04-26 12:00:23,784 - METRIC - INFO - round: 54
+2026-04-26 12:00:23,785 - METRIC - INFO - n_selected: 3
+2026-04-26 12:00:23,785 - METRIC - INFO - {"selected_trainers": ["sta1", "sta2", "sta3"]}
+2026-04-26 12:00:30,293 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 12:00:37,542 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 12:00:46,637 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 12:00:47,251 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 12:01:09,237 - METRIC - INFO - {"loss": 0.038759972900152206, "accuracy": 0.9889148473739624, "energy_consumption": 2.5255268040573386, "selected": true, "host_energy_consumption": 1.35591732696, "client_name": "sta1"}
+2026-04-26 12:01:09,380 - METRIC - INFO - {"loss": 0.04823341593146324, "accuracy": 0.9848307967185974, "energy_consumption": 1.4497464392653594, "selected": false, "host_energy_consumption": 0.82002932452, "client_name": "sta0"}
+2026-04-26 12:01:11,049 - METRIC - INFO - {"loss": 0.04179352894425392, "accuracy": 0.9894921183586121, "energy_consumption": 2.4681881858590216, "selected": false, "host_energy_consumption": 1.48934569952, "client_name": "sta4"}
+2026-04-26 12:01:15,601 - METRIC - INFO - {"loss": 0.05919957160949707, "accuracy": 0.9824868440628052, "energy_consumption": 0.7973509855519372, "selected": false, "host_energy_consumption": 0.39575153716, "client_name": "sta5"}
+2026-04-26 12:01:16,199 - METRIC - INFO - {"loss": 0.045881275087594986, "accuracy": 0.9841269850730896, "energy_consumption": 5.379132489941405, "selected": true, "host_energy_consumption": 3.0522511325600004, "client_name": "sta2"}
+2026-04-26 12:01:16,461 - METRIC - INFO - {"loss": 0.051939707249403, "accuracy": 0.9841269850730896, "energy_consumption": 4.814499084745432, "selected": true, "host_energy_consumption": 2.81861085296, "client_name": "sta3"}
+2026-04-26 12:01:17,282 - METRIC - INFO - mean_accuracy: 0.985663096110026
+
+2026-04-26 12:01:33,285 - METRIC - INFO - round: 55
+2026-04-26 12:01:33,286 - METRIC - INFO - n_selected: 3
+2026-04-26 12:01:33,286 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta3"]}
+2026-04-26 12:01:48,285 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 12:02:02,457 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 12:02:12,716 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 12:02:13,290 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 12:02:27,006 - METRIC - INFO - {"loss": 0.0493609718978405, "accuracy": 0.9789965152740479, "energy_consumption": 1.5565702137375492, "selected": true, "host_energy_consumption": 0.8931823502, "client_name": "sta0"}
+2026-04-26 12:02:27,605 - METRIC - INFO - {"loss": 0.03795929625630379, "accuracy": 0.9883313775062561, "energy_consumption": 2.5255268040573386, "selected": false, "host_energy_consumption": 1.3604422104, "client_name": "sta1"}
+2026-04-26 12:02:41,145 - METRIC - INFO - {"loss": 0.05709605664014816, "accuracy": 0.9824868440628052, "energy_consumption": 0.7973509855519372, "selected": false, "host_energy_consumption": 0.39878793304000004, "client_name": "sta5"}
+2026-04-26 12:02:42,150 - METRIC - INFO - {"loss": 0.04711923003196716, "accuracy": 0.983660101890564, "energy_consumption": 5.432553618885798, "selected": true, "host_energy_consumption": 3.0807038724, "client_name": "sta2"}
+2026-04-26 12:02:42,573 - METRIC - INFO - {"loss": 0.04100761562585831, "accuracy": 0.9877408146858215, "energy_consumption": 2.4681881858590216, "selected": false, "host_energy_consumption": 1.49398978428, "client_name": "sta4"}
+2026-04-26 12:02:42,745 - METRIC - INFO - {"loss": 0.05178289860486984, "accuracy": 0.9845938086509705, "energy_consumption": 4.869820931388443, "selected": true, "host_energy_consumption": 2.84728753708, "client_name": "sta3"}
+2026-04-26 12:02:43,322 - METRIC - INFO - mean_accuracy: 0.9843015770117441
+
+2026-04-26 12:02:58,384 - METRIC - INFO - round: 56
+2026-04-26 12:02:58,384 - METRIC - INFO - n_selected: 3
+2026-04-26 12:02:58,384 - METRIC - INFO - {"selected_trainers": ["sta2", "sta3", "sta5"]}
+2026-04-26 12:03:05,591 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 12:03:37,852 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 12:03:43,062 - EXECUT - INFO - received weights from trainer sta5!
+2026-04-26 12:03:44,478 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 12:03:58,697 - METRIC - INFO - {"loss": 0.037304602563381195, "accuracy": 0.9883313775062561, "energy_consumption": 2.5655817888971657, "selected": false, "host_energy_consumption": 1.36418164652, "client_name": "sta1"}
+2026-04-26 12:04:03,240 - METRIC - INFO - {"loss": 0.046848516911268234, "accuracy": 0.9836639165878296, "energy_consumption": 1.5966390516024713, "selected": false, "host_energy_consumption": 0.8958730194400001, "client_name": "sta0"}
+2026-04-26 12:04:09,780 - METRIC - INFO - {"loss": 0.05200488492846489, "accuracy": 0.983660101890564, "energy_consumption": 5.241788183630572, "selected": true, "host_energy_consumption": 3.03465051652, "client_name": "sta3"}
+2026-04-26 12:04:13,907 - METRIC - INFO - {"loss": 0.046937860548496246, "accuracy": 0.983660101890564, "energy_consumption": 5.461172412527638, "selected": true, "host_energy_consumption": 3.1081474421200004, "client_name": "sta2"}
+2026-04-26 12:04:14,430 - METRIC - INFO - {"loss": 0.041087035089731216, "accuracy": 0.9903677701950073, "energy_consumption": 2.4681881858590216, "selected": false, "host_energy_consumption": 1.49812686604, "client_name": "sta4"}
+2026-04-26 12:04:14,943 - METRIC - INFO - {"loss": 0.05607166886329651, "accuracy": 0.9807355403900146, "energy_consumption": 0.8374107184108159, "selected": true, "host_energy_consumption": 0.40788968724, "client_name": "sta5"}
+2026-04-26 12:04:15,508 - METRIC - INFO - mean_accuracy: 0.9850698014100393
+
+2026-04-26 12:04:26,557 - METRIC - INFO - round: 57
+2026-04-26 12:04:26,557 - METRIC - INFO - n_selected: 3
+2026-04-26 12:04:26,557 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta3"]}
+2026-04-26 12:04:39,166 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 12:04:46,562 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 12:04:53,782 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 12:04:54,361 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 12:05:11,704 - METRIC - INFO - {"loss": 0.049174126237630844, "accuracy": 0.9789965152740479, "energy_consumption": 1.7454230779370103, "selected": true, "host_energy_consumption": 0.97025088804, "client_name": "sta0"}
+2026-04-26 12:05:13,778 - METRIC - INFO - {"loss": 0.037506088614463806, "accuracy": 0.9883313775062561, "energy_consumption": 2.594193780807007, "selected": false, "host_energy_consumption": 1.3684591214000001, "client_name": "sta1"}
+2026-04-26 12:05:18,054 - METRIC - INFO - {"loss": 0.05770362913608551, "accuracy": 0.9824868440628052, "energy_consumption": 0.8660209252435256, "selected": false, "host_energy_consumption": 0.41089966260000005, "client_name": "sta5"}
+2026-04-26 12:05:26,074 - METRIC - INFO - {"loss": 0.045735154300928116, "accuracy": 0.9859943985939026, "energy_consumption": 5.497415203820644, "selected": true, "host_energy_consumption": 3.136103159, "client_name": "sta2"}
+2026-04-26 12:05:26,681 - METRIC - INFO - {"loss": 0.041362881660461426, "accuracy": 0.9903677701950073, "energy_consumption": 2.4681881858590216, "selected": false, "host_energy_consumption": 1.5017045470000001, "client_name": "sta4"}
+2026-04-26 12:05:27,363 - METRIC - INFO - {"loss": 0.05089559406042099, "accuracy": 0.9841269850730896, "energy_consumption": 5.2971038627764635, "selected": true, "host_energy_consumption": 3.06189280236, "client_name": "sta3"}
+2026-04-26 12:05:27,395 - METRIC - INFO - mean_accuracy: 0.9850506484508514
+
+2026-04-26 12:05:42,548 - METRIC - INFO - round: 58
+2026-04-26 12:05:42,548 - METRIC - INFO - n_selected: 3
+2026-04-26 12:05:42,548 - METRIC - INFO - {"selected_trainers": ["sta1", "sta2", "sta3"]}
+2026-04-26 12:05:47,843 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 12:06:04,911 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 12:06:13,885 - EXECUT - INFO - received weights from trainer sta3!
+2026-04-26 12:06:14,513 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 12:06:36,039 - METRIC - INFO - {"loss": 0.036693885922431946, "accuracy": 0.9889148473739624, "energy_consumption": 2.649510819027643, "selected": true, "host_energy_consumption": 1.3903053032400001, "client_name": "sta1"}
+2026-04-26 12:06:38,797 - METRIC - INFO - {"loss": 0.04616928473114967, "accuracy": 0.9836639165878296, "energy_consumption": 1.7454230779370103, "selected": false, "host_energy_consumption": 0.9736841433200001, "client_name": "sta0"}
+2026-04-26 12:06:39,760 - METRIC - INFO - {"loss": 0.05501222237944603, "accuracy": 0.9807355403900146, "energy_consumption": 0.8660209252435256, "selected": false, "host_energy_consumption": 0.41402894176000005, "client_name": "sta5"}
+2026-04-26 12:06:44,524 - METRIC - INFO - {"loss": 0.04020070284605026, "accuracy": 0.9886164665222168, "energy_consumption": 2.4948955640559674, "selected": false, "host_energy_consumption": 1.50621830492, "client_name": "sta4"}
+2026-04-26 12:06:44,623 - METRIC - INFO - {"loss": 0.05186552181839943, "accuracy": 0.9827263951301575, "energy_consumption": 5.377219775825122, "selected": true, "host_energy_consumption": 3.0906156464400003, "client_name": "sta3"}
+2026-04-26 12:06:45,096 - METRIC - INFO - {"loss": 0.045790936797857285, "accuracy": 0.9850606918334961, "energy_consumption": 5.5336563403805386, "selected": true, "host_energy_consumption": 3.1646581299200003, "client_name": "sta2"}
+2026-04-26 12:06:45,546 - METRIC - INFO - mean_accuracy: 0.9849529763062795
+
+2026-04-26 12:07:01,560 - METRIC - INFO - round: 59
+2026-04-26 12:07:01,560 - METRIC - INFO - n_selected: 3
+2026-04-26 12:07:01,560 - METRIC - INFO - {"selected_trainers": ["sta0", "sta1", "sta2"]}
+2026-04-26 12:07:08,680 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 12:07:28,941 - EXECUT - INFO - received weights from trainer sta1!
+2026-04-26 12:07:36,320 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 12:07:36,865 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 12:07:49,646 - METRIC - INFO - {"loss": 0.038331419229507446, "accuracy": 0.9883313775062561, "energy_consumption": 2.886029135373906, "selected": true, "host_energy_consumption": 1.51165785428, "client_name": "sta1"}
+2026-04-26 12:07:53,299 - METRIC - INFO - {"loss": 0.0443439818918705, "accuracy": 0.9836639165878296, "energy_consumption": 1.7758310990506825, "selected": true, "host_energy_consumption": 0.9858760752400001, "client_name": "sta0"}
+2026-04-26 12:08:02,689 - METRIC - INFO - {"loss": 0.05042053759098053, "accuracy": 0.983660101890564, "energy_consumption": 5.377219775825122, "selected": false, "host_energy_consumption": 3.0948891559600002, "client_name": "sta3"}
+2026-04-26 12:08:03,541 - METRIC - INFO - {"loss": 0.04009687900543213, "accuracy": 0.9886164665222168, "energy_consumption": 2.5254324763218974, "selected": false, "host_energy_consumption": 1.50988239248, "client_name": "sta4"}
+2026-04-26 12:08:03,741 - METRIC - INFO - {"loss": 0.05565115436911583, "accuracy": 0.9807355403900146, "energy_consumption": 0.8660209252435256, "selected": false, "host_energy_consumption": 0.41722251256000004, "client_name": "sta5"}
+2026-04-26 12:08:05,194 - METRIC - INFO - {"loss": 0.04610871151089668, "accuracy": 0.9850606918334961, "energy_consumption": 5.562274797035421, "selected": true, "host_energy_consumption": 3.1912683502, "client_name": "sta2"}
+2026-04-26 12:08:05,896 - METRIC - INFO - mean_accuracy: 0.9850113491217295
+
+2026-04-26 12:08:20,082 - METRIC - INFO - round: 60
+2026-04-26 12:08:20,082 - METRIC - INFO - n_selected: 3
+2026-04-26 12:08:20,082 - METRIC - INFO - {"selected_trainers": ["sta0", "sta2", "sta4"]}
+2026-04-26 12:08:35,781 - EXECUT - INFO - received weights from trainer sta0!
+2026-04-26 12:08:42,614 - EXECUT - INFO - received weights from trainer sta2!
+2026-04-26 12:08:51,361 - EXECUT - INFO - received weights from trainer sta4!
+2026-04-26 12:08:51,972 - EXECUT - INFO - sent aggregated weights to trainers!
+2026-04-26 12:09:09,217 - METRIC - INFO - {"loss": 0.047494880855083466, "accuracy": 0.9824970960617065, "energy_consumption": 1.8921840809723616, "selected": true, "host_energy_consumption": 1.07301101796, "client_name": "sta0"}
+2026-04-26 12:09:10,277 - METRIC - INFO - {"loss": 0.03641706332564354, "accuracy": 0.9877479672431946, "energy_consumption": 2.886029135373906, "selected": false, "host_energy_consumption": 1.51578933072, "client_name": "sta1"}
+2026-04-26 12:09:19,584 - METRIC - INFO - {"loss": 0.05438750982284546, "accuracy": 0.9842382073402405, "energy_consumption": 0.8660209252435256, "selected": false, "host_energy_consumption": 0.42030998968, "client_name": "sta5"}
+2026-04-26 12:09:25,655 - METRIC - INFO - {"loss": 0.04677471145987511, "accuracy": 0.9850606918334961, "energy_consumption": 5.646202024603603, "selected": true, "host_energy_consumption": 3.2190752661200004, "client_name": "sta2"}
+2026-04-26 12:09:25,915 - METRIC - INFO - {"loss": 0.05009005218744278, "accuracy": 0.9845938086509705, "energy_consumption": 5.403923385172671, "selected": false, "host_energy_consumption": 3.10043255732, "client_name": "sta3"}
+2026-04-26 12:09:26,418 - METRIC - INFO - {"loss": 0.039882637560367584, "accuracy": 0.9877408146858215, "energy_consumption": 2.5540461515769564, "selected": true, "host_energy_consumption": 1.5266186216400002, "client_name": "sta4"}
+2026-04-26 12:09:27,009 - METRIC - INFO - mean_accuracy: 0.9853130976359049
+
+2026-04-26 12:09:27,019 - METRIC - INFO - stop_condition: rounds
